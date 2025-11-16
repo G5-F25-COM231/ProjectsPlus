@@ -1,0 +1,79 @@
+﻿@model t5f25sdprojectone_projectsplus.Models.Project
+
+@{
+    ViewData["Title"] = "Create New Project";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">New Project</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="NewProject" asp-controller="Student" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">Project Title<span class="text-danger">*</span></label>
+                            <input name="Title" asp-for="Title" class="form-control" placeholder="Enter project title" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Description</label>
+                            <textarea name="Description" asp-for="Description" class="form-control" rows="4" placeholder="Enter project description"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="SkillLevel" class="form-label">Skill Level<span class="text-danger">*</span></label>
+                            <select name="SkillLevel" asp-for="SkillLevel" class="form-select">
+                                <option value="">-- Select Skill Level --</option>
+                                <option value="1">Beginner</option>
+                                <option value="2">Intermediate</option>
+                                <option value="3">Advanced</option>
+                            </select>
+                            <span asp-validation-for="SkillLevel" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="GithubRepoUrl" class="form-label">GitHub Repo URL</label>
+                            <input name="GithubRepoUrl" asp-for="GithubRepoUrl" class="form-control" placeholder="https://github.com/..." />
+                            <span asp-validation-for="GithubRepoUrl" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Visibility" class="form-label">Visibility<span class="text-danger">*</label>
+                            <select name="Visibility" asp-for="Visibility" class="form-select">
+                                <option value="">-- Select Visibility --</option>
+                                <option value="0">Private</option>
+                                <option value="1">Public</option>
+                                <option value="2">Organization</option>
+                            </select>
+                            <span asp-validation-for="Visibility" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" onclick="location.href='/Student/MyProjects'">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">Create Project</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+

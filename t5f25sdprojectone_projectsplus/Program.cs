@@ -7,7 +7,8 @@ namespace t5f25sdprojectone_projectsplus
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddRazorPages();
+            builder.Services.AddControllersWithViews();   // Enable MVC
+            builder.Services.AddRazorPages();             // optional: keep if you still want Razor Pages
 
             var app = builder.Build();
 
@@ -26,6 +27,12 @@ namespace t5f25sdprojectone_projectsplus
 
             app.UseAuthorization();
 
+            // MVC route (DEFAULT)
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            // Razor Pages route (optional)
             app.MapRazorPages();
 
             app.Run();

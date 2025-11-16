@@ -1,0 +1,320 @@
+﻿@model t5f25sdprojectone_projectsplus.Models.MyProjectsViewModel
+
+@{
+    ViewData["Title"] = "My Projects";
+}
+
+@functions {
+    public Tuple<string, string> GetStatusDetails(byte status)
+    {
+        return status switch
+        {
+            0 => Tuple.Create("Pending", "bg-warning text-dark"),
+            1 => Tuple.Create("Approved", "bg-primary"),
+            2 => Tuple.Create("Open", "bg-success"),
+            3 => Tuple.Create("In Progress", "bg-info text-dark"),
+            4 => Tuple.Create("Completed", "bg-secondary"),
+            _ => Tuple.Create("Unknown", "bg-dark"),
+        };
+    }
+
+    public string GetSkillLevelText(byte skillLevel)
+    {
+        return skillLevel switch
+        {
+            1 => "Beginner",
+            2 => "Intermediate",
+            3 => "Advanced",
+            _ => "Unknown"
+        };
+    }
+
+    public int GetProgressPercentage(byte status)
+    {
+        return status switch
+        {
+            0 => 0,
+            1 => 25,
+            2 => 0, //new project
+            3 => 75,
+            4 => 100,
+            _ => 0
+        };
+    }
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-3 col-lg-2 bg-light vh-100 p-3 d-flex flex-column">
+            <div class="text-center mb-4">
+                <h5>Olivia Rhye</h5>
+                <small class="text-muted">Student</small>
+            </div>
+
+            <nav class="nav nav-pills flex-column mb-4">
+                <!-- My Projects: active if ActiveSidebar != Profile AND ActiveTab != New -->
+                <a href="/Student/MyProjects"
+                   class="nav-link @(
+                              (ViewData["ActiveSidebar"]?.ToString() != "Profile" && ViewData["ActiveTab"]?.ToString() != "New")
+                              ? "active" : "")">
+                    My Projects
+                </a>
+                <!-- Join a Project: active if ActiveSidebar != Profile AND ActiveTab == New -->
+                <a href="/Student/MyProjects?activeTab=New"
+                   class="nav-link @(
+                              (ViewData["ActiveSidebar"]?.ToString() != "Profile" && ViewData["ActiveTab"]?.ToString() == "New")
+                              ? "active" : "")">
+                    Join a Project
+                </a>
+                <!-- Chat (inactive for now) -->
+                <a href="#" class="nav-link">Chat</a>
+                <!-- Profile: active if ActiveSidebar == Profile -->
+                <a href="/Student/MyProjects?activeSidebar=Profile"
+                   class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "Profile" ? "active" : "")">
+                    Profile
+                </a>
+            </nav>
+
+            <div class="mb-4">
+                <h6>Task List</h6>
+                <ul class="list-group list-group-flush">
+                    @foreach (var group in Model.Projects.SelectMany(p => p.Tasks).GroupBy(t => t.Status))
+                    {
+                        var statusName = group.Key switch
+                        {
+                            0 => "To Do",
+                            1 => "In Progress",
+                            3 => "Done",
+                            _ => "Unknown"
+                        };
+
+                        <li class="list-group-item">
+                            <strong>@statusName:</strong><br />
+                            @foreach (var task in group)
+                            {
+                                var badgeClass = task.Status switch
+                                {
+                                    0 => "bg-warning text-dark",
+                                    1 => "bg-info text-dark",
+                                    3 => "bg-success",
+                                    _ => "bg-secondary"
+                                };
+                                <div class="badge @badgeClass me-1 mb-1">@task.Title</div>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="mt-auto">
+                <button class="btn btn-primary w-100" onclick="location.href='/Student/NewProject'">
+                    + New Project
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 p-4">
+            @if (ViewData["ActiveSidebar"]?.ToString() == "Profile")
+            {
+                <h1 class="h3 mb-4">Profile</h1>
+                <!-- Display profile info -->
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <p><strong>Display Name:</strong> @Model.CurrentUser.DisplayName</p>
+                        <p><strong>Email:</strong> @Model.CurrentUser.Email</p>
+                        <p><strong>Verified:</strong> @(Model.CurrentUser.Verified ? "Yes" : "No")</p>
+                        <p><strong>Created At:</strong> @Model.CurrentUser.CreatedAt</p>
+                        <p><strong>Updated At:</strong> @Model.CurrentUser.UpdatedAt</p>
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="h3">My Projects</h1>
+                    <div>
+                        <button class="btn btn-outline-secondary me-2"><i class="bi bi-bell"></i></button>
+                        <button class="btn btn-outline-danger">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <ul class="nav nav-tabs mb-3" id="projectTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link @(ViewData["ActiveTab"]?.ToString() == "Ongoing" ? "active" : "")" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing" type="button"
+                                onclick="location.href='/Student/MyProjects?activeTab=Ongoing'">
+                            Ongoing
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link @(ViewData["ActiveTab"]?.ToString() == "Completed" ? "active" : "")" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed" type="button"
+                                onclick="location.href='/Student/MyProjects?activeTab=Completed'">
+                            Completed
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link @(ViewData["ActiveTab"]?.ToString() == "New" ? "active" : "")" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button"
+                                onclick="location.href='/Student/MyProjects?activeTab=New'">
+                            New
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="projectTabsContent">
+
+                    <!-- ============================ -->
+                    <!-- Ongoing Tab -->
+                    <!-- ============================ -->
+                    <div class="tab-pane fade @(ViewData["ActiveTab"]?.ToString() == "Ongoing" ? "show active" : "")" id="ongoing">
+                        <div class="input-group mb-3 w-50">
+                            <input type="text" class="form-control project-search" data-target="#ongoing" placeholder="Search ongoing projects...">
+                        </div>
+
+                        <div class="row g-4 project-container">
+                            @foreach (var project in Model.Projects.Where(p => p.Status == 3))
+                            {
+                                var statusDetails = GetStatusDetails(project.Status);
+                                var progress = GetProgressPercentage(project.Status);
+                                <div class="col-md-4 project-card">
+                                    <div class="card h-100 shadow-sm">
+                                        <div class="card-body d-flex flex-column">
+                                            <h5 class="card-title">@project.Title</h5>
+                                            @if (!string.IsNullOrWhiteSpace(project.Description))
+                                            {
+                                                <p class="card-text">@project.Description</p>
+                                            }
+                                            <p><strong>Skill:</strong> @GetSkillLevelText(project.SkillLevel)</p>
+
+                                            @if (!string.IsNullOrWhiteSpace(project.GithubRepoUrl))
+                                            {
+                                                <a href="@project.GithubRepoUrl" class="btn btn-sm btn-outline-secondary" target="_blank">GitHub Repo</a>
+                                            }
+
+                                            <div class="progress mb-2 mt-3">
+                                                <div class="progress-bar @statusDetails.Item2" style="width:@progress%;">@progress%</div>
+                                            </div>
+
+                                            <div class="mt-auto d-flex justify-content-between">
+                                                <button class="btn btn-outline-primary btn-sm">View</button>
+                                                <button class="btn btn-primary btn-sm">Continue</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- Completed Tab -->
+                    <!-- ============================ -->
+                    <div class="tab-pane fade @(ViewData["ActiveTab"]?.ToString() == "Completed" ? "show active" : "")" id="completed">
+                        <div class="input-group mb-3 w-50">
+                            <input type="text" class="form-control project-search" data-target="#completed" placeholder="Search completed projects...">
+                        </div>
+
+                        <div class="row g-4 project-container">
+                            @foreach (var project in Model.Projects.Where(p => p.Status == 4))
+                            {
+                                var statusDetails = GetStatusDetails(project.Status);
+                                var progress = GetProgressPercentage(project.Status);
+                                <div class="col-md-4 project-card">
+                                    <div class="card h-100 shadow-sm">
+                                        <div class="card-body d-flex flex-column">
+                                            <h5 class="card-title">@project.Title</h5>
+                                            @if (!string.IsNullOrWhiteSpace(project.Description))
+                                            {
+                                                <p class="card-text">@project.Description</p>
+                                            }
+                                            <p><strong>Skill:</strong> @GetSkillLevelText(project.SkillLevel)</p>
+
+                                            @if (!string.IsNullOrWhiteSpace(project.GithubRepoUrl))
+                                            {
+                                                <a href="@project.GithubRepoUrl" class="btn btn-sm btn-outline-secondary" target="_blank">GitHub Repo</a>
+                                            }
+
+                                            <div class="progress mb-2 mt-3">
+                                                <div class="progress-bar @statusDetails.Item2" style="width:@progress%;">@progress%</div>
+                                            </div>
+
+                                            <div class="mt-auto d-flex justify-content-between">
+                                                <button class="btn btn-outline-primary btn-sm">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- ============================ -->
+                    <!-- New Projects Tab -->
+                    <!-- ============================ -->
+                    <div class="tab-pane fade @(ViewData["ActiveTab"]?.ToString() == "New" ? "show active" : "")" id="new">
+                        <div class="input-group mb-3 w-50">
+                            <input type="text" class="form-control project-search" data-target="#new" placeholder="Search new projects...">
+                        </div>
+
+                        <div class="row g-4 project-container">
+                            @foreach (var project in Model.Projects.Where(p => p.Status == 2))
+                            {
+                                var statusDetails = GetStatusDetails(project.Status);
+                                var progress = GetProgressPercentage(project.Status);
+                                <div class="col-md-4 project-card">
+                                    <div class="card h-100 shadow-sm">
+                                        <div class="card-body d-flex flex-column">
+                                            <h5 class="card-title">@project.Title</h5>
+                                            @if (!string.IsNullOrWhiteSpace(project.Description))
+                                            {
+                                                <p class="card-text">@project.Description</p>
+                                            }
+                                            <p><strong>Skill:</strong> @GetSkillLevelText(project.SkillLevel)</p>
+
+                                            @if (!string.IsNullOrWhiteSpace(project.GithubRepoUrl))
+                                            {
+                                                <a href="@project.GithubRepoUrl" class="btn btn-sm btn-outline-secondary" target="_blank">GitHub Repo</a>
+                                            }
+
+                                            <div class="progress mb-2 mt-3">
+                                                <div class="progress-bar @statusDetails.Item2" style="width:@progress%;">@progress%</div>
+                                            </div>
+
+                                            <div class="mt-auto d-flex justify-content-between">
+                                                <button class="btn btn-outline-primary btn-sm">View</button>
+                                                <button class="btn btn-primary btn-sm">Join</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </main>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Search inside each tab separately
+        document.querySelectorAll('.project-search').forEach(input => {
+            input.addEventListener('input', function () {
+                const tabId = this.dataset.target;
+                const container = document.querySelector(`${tabId} .project-container`);
+                const cards = container.querySelectorAll('.project-card');
+                const val = this.value.toLowerCase();
+
+                cards.forEach(card => {
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    card.style.display = title.includes(val) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+}
+
+
