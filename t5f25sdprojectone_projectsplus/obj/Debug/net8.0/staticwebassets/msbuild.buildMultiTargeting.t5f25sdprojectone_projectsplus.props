@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\t5f25sdprojectone_projectsplus.props" />
+</Project>

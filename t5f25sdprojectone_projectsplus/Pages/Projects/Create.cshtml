@@ -1,0 +1,19 @@
+@page
+@{
+  ViewData["Title"] = "Create Project";
+}
+<h1 class="h4 mb-3">Create Project</h1>
+
+<form method="post">
+  <label class="form-label" for="title">Title</label>
+  <input id="title" name="title" class="form-control mb-3" maxlength="140" required />
+
+  <label class="form-label" for="overview">Overview</label>
+  <textarea id="overview" name="overview" class="form-control mb-3" rows="5" maxlength="4000" required></textarea>
+
+  <label class="form-label" for="tags">Tags (comma separated)</label>
+  <input id="tags" name="tags" class="form-control mb-3" maxlength="500" />
+
+  <button class="btn btn-primary">Submit</button>
+  <a asp-page="Index" class="btn btn-outline-secondary ms-2">Cancel</a>
+</form>
