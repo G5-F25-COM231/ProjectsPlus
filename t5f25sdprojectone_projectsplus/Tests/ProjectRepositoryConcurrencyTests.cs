@@ -3,10 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data;
-using t5f25sdprojectone_projectsplus.Models;
 using t5f25sdprojectone_projectsplus.Models.Projects;
 using t5f25sdprojectone_projectsplus.Repositories;
-using t5f25sdprojectone_projectsplus.Repositories.EntityFramework;
 using Xunit;
 using Assert = Xunit.Assert;
 
@@ -46,12 +44,12 @@ namespace t5f25sdprojectone_projectsplus.Tests
             using (var ctx = new ProjectsPlusDbContext(_options))
             {
                 var repo = new ProjectRepository(ctx);
-                var inserted = await repo.InsertAsync(project);
+                var inserted = await repo.CreateAsync(project);
                 Assert.Equal(1, inserted.Version);
 
                 // simulate two readers
-                var readerA = await repo.FindByIdAsync(inserted.Id);
-                var readerB = await repo.FindByIdAsync(inserted.Id);
+                var readerA = await repo.GetByIdAsync(inserted.Id);
+                var readerB = await repo.GetByIdAsync(inserted.Id);
 
                 // update A succeeds
                 readerA.ShortDescription = "A updated";
@@ -85,7 +83,7 @@ namespace t5f25sdprojectone_projectsplus.Tests
             using (var ctx = new ProjectsPlusDbContext(_options))
             {
                 var repo = new ProjectRepository(ctx);
-                var inserted = await repo.InsertAsync(project);
+                var inserted = await repo.CreateAsync(project);
                 id = inserted.Id;
                 version = inserted.Version;
             }
@@ -97,11 +95,11 @@ namespace t5f25sdprojectone_projectsplus.Tests
                 await repo.DeleteAsync(id, version);
             }
 
-            // assert - cannot find by id (FindByIdAsync returns null for deleted)
+            // assert - cannot find by id (GetByIdAsync returns null for deleted)
             using (var ctx = new ProjectsPlusDbContext(_options))
             {
                 var repo = new ProjectRepository(ctx);
-                var fetched = await repo.FindByIdAsync(id);
+                var fetched = await repo.GetByIdAsync(id);
                 Assert.Null(fetched);
             }
         }
@@ -112,8 +110,8 @@ namespace t5f25sdprojectone_projectsplus.Tests
             using (var ctx = new ProjectsPlusDbContext(_options))
             {
                 var repo = new ProjectRepository(ctx);
-                var p1 = await repo.InsertAsync(new ProjectEntity { Title = "P1", OwnerUserId = 900 });
-                var p2 = await repo.InsertAsync(new ProjectEntity { Title = "P2", OwnerUserId = 900 });
+                var p1 = await repo.CreateAsync(new ProjectEntity { Title = "P1", OwnerUserId = 900 });
+                var p2 = await repo.CreateAsync(new ProjectEntity { Title = "P2", OwnerUserId = 900 });
                 var list = await repo.ListByOwnerAsync(900, filters: (0, 10));
                 Assert.Contains(list, p => p.Id == p1.Id);
                 Assert.Contains(list, p => p.Id == p2.Id);

@@ -1,44 +1,49 @@
-﻿//using System.Reflection;
-//using Microsoft.EntityFrameworkCore;
-//using t5f25sdprojectone_projectsplus.Models;
-//using t5f25sdprojectone_projectsplus.Models.Comunication;
+﻿using Microsoft.EntityFrameworkCore;
+using t5f25sdprojectone_projectsplus.Data.EntityConfigurations;
+using t5f25sdprojectone_projectsplus.Models;
+using t5f25sdprojectone_projectsplus.Models.Configurations;
+using t5f25sdprojectone_projectsplus.Models.Jobs;
+using t5f25sdprojectone_projectsplus.Models.Projects;
+using t5f25sdprojectone_projectsplus.Models.ResourceRecords;
+using t5f25sdprojectone_projectsplus.Models.Users;
+using t5f25sdprojectone_projectsplus.Models.Workspaces;
 
-//namespace t5f25sdprojectone_projectsplus.Data
-//{
-//    public class ProjectsPlusDbContext : DbContext
-//    {
-//        public ProjectsPlusDbContext(DbContextOptions<ProjectsPlusDbContext> options) : base(options)
-//        {
-//        }
+namespace t5f25sdprojectone_projectsplus.Data
+{
+    public class ProjectsPlusDbContext : DbContext
+    {
+        public ProjectsPlusDbContext(DbContextOptions<ProjectsPlusDbContext> options) : base(options) { }
+       
+        // Core domain DbSets
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<ProjectEntity> Projects { get; set; }
+        public DbSet<ResourceRecordEntity> ResourceRecords { get; set; }
+        public DbSet<FileRecordEntity> FileRecords { get; set; }
+        public DbSet<WorkspaceEntity> Workspaces { get; set; }
 
-//        // Core entity sets
-//        public DbSet<User> Users { get; set; } = null!;
-//        public DbSet<Project> Projects { get; set; } = null!;
-//        public DbSet<ProjectTask> ProjectTasks { get; set; } = null!;
-//        public DbSet<RoleAssignment> RoleAssignments { get; set; } = null!;
-//        public DbSet<Workspace> Workspaces { get; set; } = null!;
-//        public DbSet<Contribution> Contributions { get; set; } = null!;
-//        public DbSet<Attestation> Attestations { get; set; } = null!;
-//        public DbSet<ChatMessage> ChatMessages { get; set; } = null!;
-//        public DbSet<AuditLog> AuditLogs { get; set; } = null!;
-//        //public DbSet<Role> Roles { get; set; } = null!;
-//        public DbSet<Permission> Permissions { get; set; } = null!;
-//        public DbSet<RolePermission> RolePermissions { get; set; } = null!;
-//        public DbSet<UserRole> UserRoles { get; set; } = null!;
-//        public DbSet<Grant> Grants { get; set; } = null!;
-//        public DbSet<FileReference> FileReferences { get; set; } = null!;
+        // Operational logs and job artifacts
+        public DbSet<InfralogEntity> Infralogs { get; set; }
+        public DbSet<JobLogEntity> JobLogs { get; set; }
 
-//        protected override void OnModelCreating(ModelBuilder modelBuilder)
-//        {
-//            // Pick up all IEntityTypeConfiguration implementations in this assembly
-//            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        public DbSet<ProjectAudit> ProjectAudits { get; set; } = null!;
 
-//            // Ensure Project -> ProjectTask navigation is correct
-//            // If Project currently exposes Tasks as ICollection<ProjectTask>, nothing further is required.
-//            // If older classes still reference Task, map it explicitly here to avoid ambiguity:
-//            // modelBuilder.Entity<Project>().HasMany<ProjectTask>("Tasks").WithOne(p => p.Project).HasForeignKey("ProjectId");
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
-//            base.OnModelCreating(modelBuilder);
-//        }
-//    }
-//}
+            // Apply all entity configurations
+            modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ProjectEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ResourceRecordEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new FileRecordEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new WorkspaceEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new InfralogEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new JobLogEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new Models.SystemTypeID.SystemTypeEntityTypeConfiguration());
+
+
+            // If there are additional configurations (seeds, cross-table indexes, FK conventions),
+            // they can be added here in a deterministic order.
+        }
+    }
+}

@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data;
 using t5f25sdprojectone_projectsplus.Models;
 using t5f25sdprojectone_projectsplus.Repositories;
-using t5f25sdprojectone_projectsplus.Repositories.EntityFramework;
 using Xunit;
 using Assert = Xunit.Assert;
 

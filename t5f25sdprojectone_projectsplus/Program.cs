@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using t5f25sdprojectone_projectsplus.Data;
+using t5f25sdprojectone_projectsplus.RegExtension;
+
 namespace t5f25sdprojectone_projectsplus
 {
     public class Program
@@ -6,8 +10,31 @@ namespace t5f25sdprojectone_projectsplus
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Common services
             builder.Services.AddRazorPages();
+
+            // ---------------------------------------------------------
+            // Option A: Register DbContext from configuration (recommended)
+            // Commented out by request — uncomment to enable.
+            // Make sure you have a connection string named "ProjectsPlus"
+            // in appsettings.json or your environment.
+            // ---------------------------------------------------------
+            /*
+            builder.Services.AddDbContext<ProjectsPlusDbContext>(opts =>
+                opts.UseSqlite(builder.Configuration.GetConnectionString("ProjectsPlus")));
+
+            // Register ProjectsPlus services after DbContext registration
+            builder.Services.AddProjectsPlus();
+            */
+
+            // ---------------------------------------------------------
+            // Option B: Convenience single-call registration
+            // Active by default (keeps Program minimal). For demos/local
+            // runs you may prefer InMemory; for relational tests replace
+            // UseInMemoryDatabase with UseSqlite or UseSqlServer.
+            // ---------------------------------------------------------
+            builder.Services.AddProjectsPlusWithDb(opts =>
+                opts.UseInMemoryDatabase("projectsplus_dev"));
 
             var app = builder.Build();
 
@@ -15,7 +42,6 @@ namespace t5f25sdprojectone_projectsplus
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 

@@ -2,19 +2,27 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data;
 using t5f25sdprojectone_projectsplus.Models;
 using t5f25sdprojectone_projectsplus.Models.Users;
-using t5f25sdprojectone_projectsplus.Repositories;
+using t5f25sdprojectone_projectsplus.Repositories.Interfaces;
 
-namespace t5f25sdprojectone_projectsplus.Repositories.EntityFramework
+namespace t5f25sdprojectone_projectsplus.Repositories
 {
-    public class UserRepository : Repositories.Interfaces.IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly ProjectsPlusDbContext _db;
+        private readonly IPasswordHasher<UserEntity> _passwordHasher;
 
-        public UserRepository(ProjectsPlusDbContext db) => _db = db ?? throw new ArgumentNullException(nameof(db));
+        //public UserRepository(ProjectsPlusDbContext db) => _db = db ?? throw new ArgumentNullException(nameof(db));
+
+        public UserRepository(ProjectsPlusDbContext db, IPasswordHasher<UserEntity> passwordHasher)
+        {
+            _db = db ?? throw new ArgumentNullException(nameof(db));
+            _passwordHasher = passwordHasher ?? throw new ArgumentNullException(nameof(passwordHasher));
+        }
 
         public async Task<UserEntity> InsertAsync(UserEntity user, CancellationToken ct = default)
         {
@@ -99,5 +107,76 @@ namespace t5f25sdprojectone_projectsplus.Repositories.EntityFramework
             // otherwise rethrow original exception
             return ex;
         }
+
+
+        // using directives assumed: Microsoft.EntityFrameworkCore; System; System.Linq; System.Threading;
+        public async Task<IReadOnlyList<UserEntity>> ListAsync(int page = 1, int pageSize = 50, CancellationToken ct = default)
+        {
+            if (page < 1) page = 1;
+            if (pageSize < 1) pageSize = 50;
+            var skip = (page - 1) * pageSize;
+            return await _db.Users
+                .AsNoTracking()
+                .Where(u => !u.IsDeleted)
+                .OrderBy(u => u.Email)
+                .Skip(skip)
+                .Take(pageSize)
+                .ToListAsync(ct);
+        }
+
+        public async Task<bool> VerifyPasswordAsync(long userId, string plainTextPassword, CancellationToken ct = default)
+        {
+            if (string.IsNullOrWhiteSpace(plainTextPassword)) return false;
+
+            var user = await _db.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted, ct)
+                .ConfigureAwait(false);
+
+            if (user == null) return false;
+            if (string.IsNullOrEmpty(user.PasswordHash)) return false;
+
+            // Use ASP.NET Identity IPasswordHasher semantics to verify
+            var verificationResult = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, plainTextPassword);
+
+            // Accept PasswordVerificationResult.Success or SuccessRehashNeeded as valid
+            return verificationResult == PasswordVerificationResult.Success
+                || verificationResult == PasswordVerificationResult.SuccessRehashNeeded;
+        }
+
+        // Helper: set/replace password hash (useful elsewhere when creating/updating users)
+        public Task<string> HashPasswordAsync(UserEntity user, string plainTextPassword)
+        {
+            if (user == null) throw new ArgumentNullException(nameof(user));
+            if (string.IsNullOrWhiteSpace(plainTextPassword)) throw new ArgumentException("password required", nameof(plainTextPassword));
+
+            // IPasswordHasher is synchronous by design; keep signature sync-like but return Task for parity
+            var hash = _passwordHasher.HashPassword(user, plainTextPassword);
+            return Task.FromResult(hash);
+        }
+
+        public async Task<UserEntity> AddRoleAsync(long userId, string role, CancellationToken ct = default)
+        {
+            if (string.IsNullOrWhiteSpace(role)) throw new ArgumentException(nameof(role));
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted, ct);
+            if (user == null) throw new DomainNotFoundException($"User {userId} not found.");
+            user.UpdatedAt = DateTimeOffset.UtcNow;
+            user.Version += 1;
+            await _db.SaveChangesAsync(ct);
+            return user;
+        }
+
+        public async Task<UserEntity> RemoveRoleAsync(long userId, string role, CancellationToken ct = default)
+        {
+            if (string.IsNullOrWhiteSpace(role)) throw new ArgumentException(nameof(role));
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted, ct);
+            if (user == null) throw new DomainNotFoundException($"User {userId} not found.");
+            user.UpdatedAt = DateTimeOffset.UtcNow;
+            user.Version += 1;
+            await _db.SaveChangesAsync(ct);
+            return user;
+        }
+
+
     }
 }

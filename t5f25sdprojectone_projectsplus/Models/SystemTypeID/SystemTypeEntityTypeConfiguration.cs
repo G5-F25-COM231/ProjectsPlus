@@ -2,9 +2,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using t5f25sdprojectone_projectsplus.Models.SystemTypeID;
 
-namespace t5f25sdprojectone_projectsplus.Configurations.SystemTypeID
+namespace t5f25sdprojectone_projectsplus.Models.SystemTypeID
 {
     /// <summary>
     /// EF Core entity configuration for system_types
@@ -106,7 +105,12 @@ namespace t5f25sdprojectone_projectsplus.Configurations.SystemTypeID
                 // Use these IDs as the canonical user/system ids for domain code that expects stable numeric references.
                 new SystemType { Id = 112, Code = "user:internal", DisplayName = "Internal User", MetadataJson = null, IsActive = true, CreatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), UpdatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), Version = 1 },
                 new SystemType { Id = 113, Code = "user:external", DisplayName = "External User", MetadataJson = null, IsActive = true, CreatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), UpdatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), Version = 1 },
-                new SystemType { Id = 114, Code = "system:service", DisplayName = "Service Account", MetadataJson = null, IsActive = true, CreatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), UpdatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), Version = 1 }
+                new SystemType { Id = 114, Code = "system:service", DisplayName = "Service Account", MetadataJson = null, IsActive = true, CreatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), UpdatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), Version = 1 },
+
+                //user entity
+                new SystemType { Id = 115, Code = "user:userentity", DisplayName = "User — userentity", MetadataJson = null, IsActive = true, CreatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), UpdatedAt = DateTimeOffset.Parse("2025-01-01T00:00:00Z"), Version = 1 }
+
+
             );
         }
     }

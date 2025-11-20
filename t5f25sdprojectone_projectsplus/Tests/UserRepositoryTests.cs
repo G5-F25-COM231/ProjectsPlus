@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using t5f25sdprojectone_projectsplus.Models;
 using t5f25sdprojectone_projectsplus.Models.Users;
 using t5f25sdprojectone_projectsplus.Repositories;
-using t5f25sdprojectone_projectsplus.Repositories.InMemory;
 using Xunit;
 using Assert = Xunit.Assert;
 

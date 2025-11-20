@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data;
 using t5f25sdprojectone_projectsplus.Models;
-using t5f25sdprojectone_projectsplus.Repositories;
 
-namespace t5f25sdprojectone_projectsplus.Repositories.EntityFramework
+namespace t5f25sdprojectone_projectsplus.Repositories
 {
-    public class InfralogRepository : Repositories.Interfaces.IInfralogRepository
+    public class InfralogRepository : Interfaces.IInfralogRepository
     {
         private readonly ProjectsPlusDbContext _db;
 
