@@ -1,8 +1,11 @@
 ﻿// RegExtension/ProjectsPlusServiceCollectionExtensions.cs
 using System;
+using Castle.Core.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog.Core;
 using t5f25sdprojectone_projectsplus.Common.Correlation;
@@ -16,6 +19,7 @@ using t5f25sdprojectone_projectsplus.Services;
 using t5f25sdprojectone_projectsplus.Services.Authorization;
 using t5f25sdprojectone_projectsplus.Services.Authorization.Interfaces;
 using t5f25sdprojectone_projectsplus.Services.Interfaces;
+using IAuthorizationService = t5f25sdprojectone_projectsplus.Services.Interfaces.IAuthorizationService;
 
 namespace t5f25sdprojectone_projectsplus.RegExtension
 {
@@ -42,9 +46,11 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
         /// StubAuthorizationService for backward compatibility.
         /// </param>
         /// <param name="configureAuthorizationOptions">Optional callback to customize AuthorizationOptions when policy auth is enabled</param>
+       
+        
         public static IServiceCollection AddProjectsPlus(
-            this IServiceCollection services,
-            bool enablePolicyAuth = false, // true
+            this IServiceCollection services,            
+            bool enablePolicyAuth = false, // true            
             Action<AuthorizationOptions>? configureAuthorizationOptions = null)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
@@ -89,6 +95,20 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
 
             // Password hashing
             services.AddScoped<IPasswordHasher<UserEntity>, PasswordHasher<UserEntity>>();
+
+            // in your composition root
+            // Build a temporary provider to get IConfiguration if it was already registered by the host
+            using var sp = services.BuildServiceProvider();
+            var configuration = sp.GetService<Microsoft.Extensions.Configuration.IConfiguration>()
+                                ?? throw new InvalidOperationException("IConfiguration not registered in DI");
+            services.Configure<AuthOptions>(configuration.GetSection("Auth"));
+       
+            // register auth services
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IAuthManager, AuthService>();
+            services.AddScoped<IAuthorizationService, AuthService>(); // if AuthService implements both
+            services.AddScoped<IAuditRepository, AuditRepository>();   // replace with your impls
+
 
             // ---------------------------------------------------------
             // Authorization wiring (feature flag)

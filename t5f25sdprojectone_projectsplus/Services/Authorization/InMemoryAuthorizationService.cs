@@ -100,6 +100,11 @@ namespace t5f25sdprojectone_projectsplus.Services.Authorization
             return Task.FromResult((IReadOnlyDictionary<long, AuthorizationResult>)dict);
         }
 
+        async Task<PermissionEvaluationResult> IAuthorizationService.EvaluateAsync(PermissionEvalRequest req, CancellationToken ct)
+        {
+            return await AuthService.GetEvalAsync(req, ct);
+        }
+
         // Helper: deterministic evaluation of policy rules in declared order
         private IEnumerable<PolicyRule> EvaluateMatchingRules(long userId, string action, string? resourceType, long? resourceId)
         {
@@ -139,6 +144,11 @@ namespace t5f25sdprojectone_projectsplus.Services.Authorization
 
                 yield return rule;
             }
+        }
+
+        async Task<PermissionEvaluationResult> IAuthorizationService.IsAuthorizedAsync(PermissionEvalRequest req, CancellationToken ct)
+        {
+            return await AuthService.GetIsAuthorAsync(req, ct);
         }
     }
 }

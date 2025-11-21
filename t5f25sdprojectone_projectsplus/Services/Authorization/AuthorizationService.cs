@@ -8,10 +8,9 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using t5f25sdprojectone_projectsplus.Repositories.Interfaces;
-using t5f25sdprojectone_projectsplus.Services.Authorization;
 using t5f25sdprojectone_projectsplus.Services.Authorization.Interfaces;
 
-namespace t5f25sdprojectone_projectsplus.Services
+namespace t5f25sdprojectone_projectsplus.Services.Authorization
 {
     /// <summary>
     /// Repository-backed authorization service registered as AuthorizationService.

@@ -1,10 +1,12 @@
 ﻿// src/Auth/AuthorizationService.cs
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace t5f25sdprojectone_projectsplus.Services.Interfaces
 {
+    public sealed record PermissionEvaluationResult(bool Allowed, string? Reason = null, string? GrantId = null, DateTimeOffset? ExpiresAt = null);
+
+    public sealed record ResourceContext(string ResourceType, string ResourceId, IDictionary<string, string>? Attributes = null);    
+
+    public sealed record PermissionEvalRequest(long userId, string ResourceId, string Action, IDictionary<string, string>? Attributes = null, ResourceContext? Context = null);
+
     /// <summary>
     /// Rich authorization surface consumed by controllers, workers and services.
     /// Implementations must return AuthorizationResult which includes decision, human-friendly explanation,
@@ -28,6 +30,11 @@ namespace t5f25sdprojectone_projectsplus.Services.Interfaces
         /// Invalidate any internal caches for the given user (used after role/permission changes or in tests).
         /// </summary>
         Task InvalidateUserCacheAsync(long userId);
+
+        Task<PermissionEvaluationResult> IsAuthorizedAsync(PermissionEvalRequest req, CancellationToken ct = default);
+
+        // Evaluate an arbitrary request payload (useful for the POST /v1/auth/perm/eval endpoint)
+        Task<PermissionEvaluationResult> EvaluateAsync(PermissionEvalRequest req, CancellationToken ct = default);
     }
 
     /// <summary>
@@ -48,4 +55,8 @@ namespace t5f25sdprojectone_projectsplus.Services.Interfaces
         public static AuthorizationResult Audit(string explain, params string[] sources) =>
             new(false, "Audit", explain ?? string.Empty, sources ?? new string[0]);
     }
+    // Basic check for current subject (from claims) against an action/resource within an optional context
+
+
 }
+

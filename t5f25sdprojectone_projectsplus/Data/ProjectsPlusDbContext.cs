@@ -51,6 +51,9 @@ namespace t5f25sdprojectone_projectsplus.Data
         public DbSet<UserRole> UserRoles { get; set; } = null!;
 
         // Add the audit entries DbSet
+        public DbSet<RefreshTokenEntity> RefreshTokens { get; set; } = null!;
+
+        // AuditEntries DbSet assumed already added per prior steps
         public DbSet<AuditEntryEntity> AuditEntries { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -79,7 +82,8 @@ namespace t5f25sdprojectone_projectsplus.Data
 
             // Audit
             modelBuilder.ApplyConfiguration(new AuditEntryEntityConfiguration());
-
+            modelBuilder.ApplyConfiguration(new RefreshTokenEntityConfiguration());
+       
             // Notes for operators and reviewers:
             // - Keep cross-table indexes and FK constraints defined in configuration classes.
             // - For large deployments, consider partitioning RolePermission or indexing RoleId first for efficient permission checks.
