@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using t5f25sdprojectone_projectsplus.Services.Interfaces;
+using t5f25sdprojectone_projectsplus.Services.Authorization.Interfaces;
 
-namespace t5f25sdprojectone_projectsplus.Services
+namespace t5f25sdprojectone_projectsplus.Services.Authorization
 {
     /// <summary>
     /// Permissive stub for Phase 4 wiring. Returns allow for all checks and provides simple batch helpers.

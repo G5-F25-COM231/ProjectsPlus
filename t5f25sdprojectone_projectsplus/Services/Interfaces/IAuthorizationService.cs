@@ -1,4 +1,4 @@
-﻿// Services/Interfaces/IAuthorizationService.cs
+﻿// src/Auth/AuthorizationService.cs
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,51 +6,46 @@ using System.Threading.Tasks;
 namespace t5f25sdprojectone_projectsplus.Services.Interfaces
 {
     /// <summary>
-    /// Centralized authorization service contract used by controllers and services.
-    /// Implementations must be side-effect free, fast, and deterministic for the same inputs.
-    /// This contract expresses a single authoritative check plus a few convenience checks commonly used by controllers.
+    /// Rich authorization surface consumed by controllers, workers and services.
+    /// Implementations must return AuthorizationResult which includes decision, human-friendly explanation,
+    /// and a list of source rule identifiers for auditability and deterministic unit tests.
     /// </summary>
     public interface IAuthorizationService
     {
         /// <summary>
-        /// Core authorization check.
-        /// - <paramref name="userId"/> identifies the actor performing the action.
-        /// - <paramref name="action"/> is a short, namespaced action string (examples: "Project.View", "Project.Edit", "Workspace.Create", "Admin.*").
-        /// - <paramref name="resourceType"/> optionally identifies the domain resource type (examples: "Project", "Workspace").
-        /// - <paramref name="resourceId"/> optionally identifies the resource instance.
-        /// Returns true when the user is authorized to perform the action on the resource.
+        /// Evaluate whether the user is allowed to perform the specified action on an optional resource.
+        /// - Deny-wins semantics are enforced by implementations (any matching Deny causes overall Deny).
+        /// - Implementations should be deterministic and return ExplainText + Sources for observability.
         /// </summary>
-        Task<bool> IsAuthorizedAsync(long userId, string action, string? resourceType = null, long? resourceId = null, CancellationToken ct = default);
+        Task<AuthorizationResult> IsAuthorizedAsync(long userId, string action, string? resourceType = null, long? resourceId = null, CancellationToken ct = default);
 
         /// <summary>
-        /// Convenience check: is the user authorized to view the given project.
-        /// Implementations may call through to IsAuthorizedAsync("Project.View", "Project", projectId).
+        /// Batch evaluation: return a decision per resource id. Implementations may optimize by reusing caches/queries.
         /// </summary>
-        Task<bool> CanViewProjectAsync(long userId, long projectId, CancellationToken ct = default);
+        Task<IReadOnlyDictionary<long, AuthorizationResult>> IsAuthorizedBatchAsync(long userId, string action, string resourceType, IReadOnlyList<long> resourceIds, CancellationToken ct = default);
 
         /// <summary>
-        /// Convenience check: is the user authorized to edit the given project.
-        /// Implementations may call through to IsAuthorizedAsync("Project.Edit", "Project", projectId).
+        /// Invalidate any internal caches for the given user (used after role/permission changes or in tests).
         /// </summary>
-        Task<bool> CanEditProjectAsync(long userId, long projectId, CancellationToken ct = default);
+        Task InvalidateUserCacheAsync(long userId);
+    }
 
-        /// <summary>
-        /// Convenience check: is the user authorized to perform the named global action (no specific resource).
-        /// Implementations may call through to IsAuthorizedAsync(action).
-        /// </summary>
-        Task<bool> CanPerformGlobalActionAsync(long userId, string action, CancellationToken ct = default);
+    /// <summary>
+    /// Immutable result returned by authorization checks.
+    /// - Allowed: true when final decision permits the action.
+    /// - Effect: "Allow", "Deny", or "Audit" (Audit treated as non-allowing decision but recorded).
+    /// - ExplainText: concise human-readable rationale for logging and test assertions.
+    /// - Sources: ordered list of rule Ids that influenced the decision (useful for deterministic tests).
+    /// </summary>
+    public sealed record AuthorizationResult(bool Allowed, string Effect, string ExplainText, IReadOnlyList<string> Sources)
+    {
+        public static AuthorizationResult Allow(string explain, params string[] sources) =>
+            new(true, "Allow", explain ?? string.Empty, sources ?? new string[0]);
 
-        /// <summary>
-        /// Convenience check: is the provided userId authenticated/active in the system.
-        /// Implementations should return false for anonymous or disabled users.
-        /// </summary>
-        Task<bool> IsAuthenticatedAsync(long userId, CancellationToken ct = default);
+        public static AuthorizationResult Deny(string explain, params string[] sources) =>
+            new(false, "Deny", explain ?? string.Empty, sources ?? new string[0]);
 
-        /// <summary>
-        /// Optional bulk check helper: given a user, an action and multiple resource ids,
-        /// return a map of resourceId => authorized (true/false). Useful to avoid N calls to IsAuthorizedAsync.
-        /// Implementations may return an empty dictionary if bulk checks are not supported.
-        /// </summary>
-        Task<IReadOnlyDictionary<long, bool>> IsAuthorizedForManyAsync(long userId, string action, string resourceType, IReadOnlyList<long> resourceIds, CancellationToken ct = default);
+        public static AuthorizationResult Audit(string explain, params string[] sources) =>
+            new(false, "Audit", explain ?? string.Empty, sources ?? new string[0]);
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using t5f25sdprojectone_projectsplus.Models.Projects;
 
-namespace t5f25sdprojectone_projectsplus.Data.EntityConfigurations
+namespace t5f25sdprojectone_projectsplus.Models.Configurations.Project
 {
     public class ProjectAuditConfiguration : IEntityTypeConfiguration<ProjectAudit>
     {

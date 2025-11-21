@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using t5f25sdprojectone_projectsplus.Models.Jobs;
 
-namespace t5f25sdprojectone_projectsplus.Data.EntityConfigurations
+namespace t5f25sdprojectone_projectsplus.Models.Configurations.Opsconfigs
 {
     public class JobLogEntityConfiguration : IEntityTypeConfiguration<JobLogEntity>
     {

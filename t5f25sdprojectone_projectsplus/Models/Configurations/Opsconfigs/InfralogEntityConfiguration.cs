@@ -1,9 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using t5f25sdprojectone_projectsplus.Models;
 
-namespace t5f25sdprojectone_projectsplus.Models.Configurations
+namespace t5f25sdprojectone_projectsplus.Models.Configurations.Opsconfigs
 {
     public class InfralogEntityConfiguration : IEntityTypeConfiguration<InfralogEntity>
     {

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using t5f25sdprojectone_projectsplus.Services.Interfaces;
 using t5f25sdprojectone_projectsplus.Models.Projects;
 using t5f25sdprojectone_projectsplus.Commons;
+using t5f25sdprojectone_projectsplus.Services.Authorization;
+using IAuthorizationService = t5f25sdprojectone_projectsplus.Services.Interfaces.IAuthorizationService;
 
 namespace t5f25sdprojectone_projectsplus.Controllers
 {
@@ -29,7 +31,7 @@ namespace t5f25sdprojectone_projectsplus.Controllers
             if (!Request.Headers.ContainsKey(_corr.HeaderName))
                 return BadRequest(new { error = "Missing correlation id", correlationHeader = _corr.HeaderName });
 
-            if (!await _auth.IsAuthorizedAsync(0, "Project.Create", "Project", null, ct))
+            if (!(await _auth.IsAuthorizedAsync(0, "Project.Create", "Project", null, ct)).Allowed)
                 return Forbid();
 
             var created = await _projects.CreateProjectAsync(request, ct).ConfigureAwait(false);
@@ -42,7 +44,7 @@ namespace t5f25sdprojectone_projectsplus.Controllers
             if (!Request.Headers.ContainsKey(_corr.HeaderName))
                 return BadRequest(new { error = "Missing correlation id", correlationHeader = _corr.HeaderName });
 
-            if (!await _auth.IsAuthorizedAsync(0, "Project.Edit", "Project", id, ct))
+            if (!(await _auth.IsAuthorizedAsync(0, "Project.Edit", "Project", id, ct)).Allowed)
                 return Forbid();
 
             patch.Id = id;
@@ -56,7 +58,7 @@ namespace t5f25sdprojectone_projectsplus.Controllers
             if (!Request.Headers.ContainsKey(_corr.HeaderName))
                 return BadRequest(new { error = "Missing correlation id", correlationHeader = _corr.HeaderName });
 
-            if (!await _auth.IsAuthorizedAsync(0, "Project.Submit", "Project", id, ct))
+            if (!(await _auth.IsAuthorizedAsync(0, "Project.Submit", "Project", id, ct)).Allowed)
                 return Forbid();
 
             var result = await _projects.SubmitProjectAsync(id, expectedVersion, body.SubmitterUserId, body.Comment, ct).ConfigureAwait(false);
@@ -66,7 +68,7 @@ namespace t5f25sdprojectone_projectsplus.Controllers
         [HttpGet("{id:long}")]
         public async Task<IActionResult> Get(long id, CancellationToken ct)
         {
-            if (!await _auth.IsAuthorizedAsync(0, "Project.View", "Project", id, ct))
+            if (!(await _auth.IsAuthorizedAsync(0, "Project.View", "Project", id, ct)).Allowed)
                 return Forbid();
 
             var view = await _projects.GetProjectViewAsync(id, ct).ConfigureAwait(false);
