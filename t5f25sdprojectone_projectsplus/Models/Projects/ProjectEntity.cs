@@ -19,6 +19,14 @@ namespace t5f25sdprojectone_projectsplus.Models.Projects
         // Project lifecycle status
         public ProjectStatus Status { get; set; } = ProjectStatus.Draft;
 
+        // --- ADD THIS FIELD ---
+        /// <summary>
+        /// Correlation identifier propagated from incoming requests (X-Correlation-Id).
+        /// Used for tracing across services and for idempotency/orchestration correlation.
+        /// Nullable so existing rows without a value remain valid.
+        /// </summary>
+        public string? CorrelationId { get; set; }
+
         // Add-on fields
         public long? AdditionOfId { get; set; }
         public string? AdditionType { get; set; }
