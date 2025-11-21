@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data;
+using t5f25sdprojectone_projectsplus.Models.Audit;
 using t5f25sdprojectone_projectsplus.Models.Projects;
 using t5f25sdprojectone_projectsplus.Repositories.Interfaces;
 
@@ -28,5 +29,28 @@ namespace t5f25sdprojectone_projectsplus.Repositories
             await _db.ProjectAudits.AddAsync(audit, ct).ConfigureAwait(false);
             await _db.SaveChangesAsync(ct).ConfigureAwait(false);
         }
+
+        // Implement the exact interface signature including CancellationToken
+        public async Task RecordAuthorizationAuditAsync(long? actorUserId, string action, string outcome, string? detail = null, CancellationToken ct = default)
+        {
+            ct.ThrowIfCancellationRequested();
+
+            if (string.IsNullOrWhiteSpace(action)) throw new ArgumentException("action is required", nameof(action));
+            if (string.IsNullOrWhiteSpace(outcome)) throw new ArgumentException("outcome is required", nameof(outcome));
+
+            var entity = new AuditEntryEntity
+            {
+                TimestampUtc = DateTime.UtcNow,
+                ActorUserId = actorUserId,
+                Action = action,
+                Outcome = outcome,
+                Detail = detail
+            };
+
+            _db.AuditEntries.Add(entity);
+            await _db.SaveChangesAsync(ct).ConfigureAwait(false);
+        }
+
     }
+
 }

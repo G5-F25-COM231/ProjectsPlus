@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data.EntityConfigurations;
 using t5f25sdprojectone_projectsplus.Models;
+using t5f25sdprojectone_projectsplus.Models.Audit;
 using t5f25sdprojectone_projectsplus.Models.Authorization;
 using t5f25sdprojectone_projectsplus.Models.Configurations;
+using t5f25sdprojectone_projectsplus.Models.Configurations.Audit;
 using t5f25sdprojectone_projectsplus.Models.Configurations.Authorization;
 using t5f25sdprojectone_projectsplus.Models.Configurations.Opsconfigs;
 using t5f25sdprojectone_projectsplus.Models.Configurations.Project;
@@ -48,6 +50,9 @@ namespace t5f25sdprojectone_projectsplus.Data
         public DbSet<RolePermission> RolePermissions { get; set; } = null!;
         public DbSet<UserRole> UserRoles { get; set; } = null!;
 
+        // Add the audit entries DbSet
+        public DbSet<AuditEntryEntity> AuditEntries { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -72,11 +77,19 @@ namespace t5f25sdprojectone_projectsplus.Data
             modelBuilder.ApplyConfiguration(new RolePermissionConfiguration());
             modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
 
+            // Audit
+            modelBuilder.ApplyConfiguration(new AuditEntryEntityConfiguration());
+
             // Notes for operators and reviewers:
             // - Keep cross-table indexes and FK constraints defined in configuration classes.
             // - For large deployments, consider partitioning RolePermission or indexing RoleId first for efficient permission checks.
             // - If operations prefer fewer tables, we can provide a compact variant (Role.PermissionsJson) but it trades queryability and referential integrity for operational simplicity.
             // - Any schema changes should include migration scripts, backfill plans for existing users, and a rollback strategy.
+        }
+
+        internal object? AddProjectsPlusWithInMemoryDb()
+        {
+            throw new NotImplementedException();
         }
     }
 }
