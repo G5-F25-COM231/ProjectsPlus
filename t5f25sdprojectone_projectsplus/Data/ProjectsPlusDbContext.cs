@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// src/Data/ProjectsPlusDbContext.cs
+using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data.EntityConfigurations;
 using t5f25sdprojectone_projectsplus.Models;
 using t5f25sdprojectone_projectsplus.Models.Configurations;
@@ -15,32 +16,35 @@ namespace t5f25sdprojectone_projectsplus.Data
         public ProjectsPlusDbContext(DbContextOptions<ProjectsPlusDbContext> options) : base(options) { }
        
         // Core domain DbSets
-        public DbSet<UserEntity> Users { get; set; }
-        public DbSet<ProjectEntity> Projects { get; set; }
-        public DbSet<ResourceRecordEntity> ResourceRecords { get; set; }
-        public DbSet<FileRecordEntity> FileRecords { get; set; }
-        public DbSet<WorkspaceEntity> Workspaces { get; set; }
+        public DbSet<UserEntity> Users { get; set; } = null!;
+        public DbSet<ProjectEntity> Projects { get; set; } = null!;
+        public DbSet<ResourceRecordEntity> ResourceRecords { get; set; } = null!;
+        public DbSet<FileRecordEntity> FileRecords { get; set; } = null!;
+        public DbSet<WorkspaceEntity> Workspaces { get; set; } = null!;
 
         // Operational logs and job artifacts
-        public DbSet<InfralogEntity> Infralogs { get; set; }
-        public DbSet<JobLogEntity> JobLogs { get; set; }
+        public DbSet<InfralogEntity> Infralogs { get; set; } = null!;
+        public DbSet<JobLogEntity> JobLogs { get; set; } = null!;
 
         public DbSet<ProjectAudit> ProjectAudits { get; set; } = null!;
+
+        public DbSet<ProjectStateChangeEntity> ProjectStateChanges { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Apply all entity configurations
+            // Apply all entity configurations in deterministic order
             modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new WorkspaceEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ProjectStateChangeEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ResourceRecordEntityConfiguration());
             modelBuilder.ApplyConfiguration(new FileRecordEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new WorkspaceEntityConfiguration());
             modelBuilder.ApplyConfiguration(new InfralogEntityConfiguration());
             modelBuilder.ApplyConfiguration(new JobLogEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ProjectAuditConfiguration());
             modelBuilder.ApplyConfiguration(new Models.SystemTypeID.SystemTypeEntityTypeConfiguration());
-
 
             // If there are additional configurations (seeds, cross-table indexes, FK conventions),
             // they can be added here in a deterministic order.

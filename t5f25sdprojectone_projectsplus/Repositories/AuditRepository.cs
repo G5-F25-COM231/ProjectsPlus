@@ -22,7 +22,7 @@ namespace t5f25sdprojectone_projectsplus.Repositories
             if (audit == null) throw new ArgumentNullException(nameof(audit));
 
             // Ensure timestamp is set deterministically if caller didn't set it
-            if (audit.Timestamp == default) audit.Timestamp = DateTimeOffset.UtcNow;
+            if (audit.CreatedAt == default) audit.CreatedAt = DateTimeOffset.UtcNow;
 
             // Persist as a new row; keep it simple and idempotent on caller side
             await _db.ProjectAudits.AddAsync(audit, ct).ConfigureAwait(false);

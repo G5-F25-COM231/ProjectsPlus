@@ -14,6 +14,8 @@ namespace t5f25sdprojectone_projectsplus.Models.Projects
         public string PayloadJson { get; set; }    // optional structured context
         public bool AllowRetry { get; set; } = false;
         public string RejectionType { get; set; }
+        public string? Comment { get;  set; }
+        public bool IsDeleted { get;  set; }
 
         protected override string GetHumanKey()
         {

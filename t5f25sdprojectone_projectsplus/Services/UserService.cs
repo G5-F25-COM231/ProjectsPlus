@@ -48,7 +48,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                     Entity = "User",
                     EntityId = created.Id,
                     Action = "Create",
-                    Timestamp = DateTimeOffset.UtcNow,
+                    CreatedAt = DateTimeOffset.UtcNow,
                     Data = $"Email:{created.NormalizedEmail}"
                 }, ct);
             }
@@ -95,7 +95,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                     Entity = "User",
                     EntityId = updated.Id,
                     Action = "Update",
-                    Timestamp = DateTimeOffset.UtcNow,
+                    CreatedAt = DateTimeOffset.UtcNow,
                     Data = $"v{updated.Version}"
                 }, ct);
             }
@@ -118,7 +118,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                     Entity = "User",
                     EntityId = id,
                     Action = "Delete",
-                    Timestamp = DateTimeOffset.UtcNow,
+                    CreatedAt = DateTimeOffset.UtcNow,
                     Data = $"v{expectedVersion}"
                 }, ct);
             }
@@ -145,7 +145,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                     Entity = "User",
                     EntityId = user.Id,
                     Action = "Authenticate",
-                    Timestamp = DateTimeOffset.UtcNow,
+                    CreatedAt = DateTimeOffset.UtcNow,
                     Data = null
                 }, ct);
             }
@@ -170,7 +170,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                     Entity = "User",
                     EntityId = userId,
                     Action = "AssignRole",
-                    Timestamp = DateTimeOffset.UtcNow,
+                    CreatedAt = DateTimeOffset.UtcNow,
                     Data = $"Role:{cleaned}"
                 }, ct);
             }
@@ -195,7 +195,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                     Entity = "User",
                     EntityId = userId,
                     Action = "RemoveRole",
-                    Timestamp = DateTimeOffset.UtcNow,
+                    CreatedAt = DateTimeOffset.UtcNow,
                     Data = $"Role:{cleaned}"
                 }, ct);
             }
