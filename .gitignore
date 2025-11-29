@@ -180,3 +180,5 @@ TestResults/
 # Ignore publish output
 publish/
 
+#files
+credentials.csv

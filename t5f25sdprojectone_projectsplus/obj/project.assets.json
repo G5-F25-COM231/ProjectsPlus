@@ -2,6 +2,163 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "AWSSDK.CloudWatchLogs/4.0.11.1": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.3, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.CloudWatchLogs.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.CloudWatchLogs.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.Core/4.0.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.DynamoDBv2/4.0.10": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.2, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.DynamoDBv2.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.DynamoDBv2.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.EC2/4.0.59": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.2, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.EC2.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.EC2.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.ECS/4.0.10.1": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.3, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.ECS.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.ECS.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.IdentityManagement/4.0.8.1": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.3, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.IdentityManagement.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.IdentityManagement.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.RDS/4.0.13": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.3, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.RDS.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.RDS.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.S3/4.0.13": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.2, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.S3.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.S3.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.SecretsManager/4.0.3": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.2, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.SecretsManager.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.SecretsManager.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.SimpleSystemsManagement/4.0.6.3": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.2, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.SimpleSystemsManagement.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.SimpleSystemsManagement.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Azure.Core/1.38.0": {
         "type": "package",
         "dependencies": {
@@ -1951,6 +2108,293 @@
     }
   },
   "libraries": {
+    "AWSSDK.CloudWatchLogs/4.0.11.1": {
+      "sha512": "ABfwjc6yL/fY2DOm4hfMhsqLBjs7r+2IkHyvTxzk8Acr35p7FXGGn7MMnmPRlDh6Kkt5qhUdtZYB9Gn7QO4w0A==",
+      "type": "package",
+      "path": "awssdk.cloudwatchlogs/4.0.11.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.CloudWatchLogs.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.cloudwatchlogs.4.0.11.1.nupkg.sha512",
+        "awssdk.cloudwatchlogs.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.CloudWatchLogs.dll",
+        "lib/net472/AWSSDK.CloudWatchLogs.pdb",
+        "lib/net472/AWSSDK.CloudWatchLogs.xml",
+        "lib/net8.0/AWSSDK.CloudWatchLogs.dll",
+        "lib/net8.0/AWSSDK.CloudWatchLogs.pdb",
+        "lib/net8.0/AWSSDK.CloudWatchLogs.xml",
+        "lib/netcoreapp3.1/AWSSDK.CloudWatchLogs.dll",
+        "lib/netcoreapp3.1/AWSSDK.CloudWatchLogs.pdb",
+        "lib/netcoreapp3.1/AWSSDK.CloudWatchLogs.xml",
+        "lib/netstandard2.0/AWSSDK.CloudWatchLogs.dll",
+        "lib/netstandard2.0/AWSSDK.CloudWatchLogs.pdb",
+        "lib/netstandard2.0/AWSSDK.CloudWatchLogs.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.Core/4.0.3.3": {
+      "sha512": "YQv10JuxnciWh0QwnkarSbge4gXQV1qTURf5jkBjNUH/3jYS9QrbxopA4TK1qdjfOfP37tqiJkLSrRRNqX81aw==",
+      "type": "package",
+      "path": "awssdk.core/4.0.3.3",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.core.4.0.3.3.nupkg.sha512",
+        "awssdk.core.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.Core.dll",
+        "lib/net472/AWSSDK.Core.pdb",
+        "lib/net472/AWSSDK.Core.xml",
+        "lib/net8.0/AWSSDK.Core.dll",
+        "lib/net8.0/AWSSDK.Core.pdb",
+        "lib/net8.0/AWSSDK.Core.xml",
+        "lib/netcoreapp3.1/AWSSDK.Core.dll",
+        "lib/netcoreapp3.1/AWSSDK.Core.pdb",
+        "lib/netcoreapp3.1/AWSSDK.Core.xml",
+        "lib/netstandard2.0/AWSSDK.Core.dll",
+        "lib/netstandard2.0/AWSSDK.Core.pdb",
+        "lib/netstandard2.0/AWSSDK.Core.xml",
+        "tools/account-management.ps1"
+      ]
+    },
+    "AWSSDK.DynamoDBv2/4.0.10": {
+      "sha512": "ZbI8PXgeF+XZ2ybCoNPQ+6GcGFxSxWPq5TcLoyGvG60Pl87ppSjaYtsFmjETQrWPFWevCJWr3mOe5puMOTp/Xg==",
+      "type": "package",
+      "path": "awssdk.dynamodbv2/4.0.10",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.DynamoDBv2.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.dynamodbv2.4.0.10.nupkg.sha512",
+        "awssdk.dynamodbv2.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.DynamoDBv2.dll",
+        "lib/net472/AWSSDK.DynamoDBv2.pdb",
+        "lib/net472/AWSSDK.DynamoDBv2.xml",
+        "lib/net8.0/AWSSDK.DynamoDBv2.dll",
+        "lib/net8.0/AWSSDK.DynamoDBv2.pdb",
+        "lib/net8.0/AWSSDK.DynamoDBv2.xml",
+        "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll",
+        "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.pdb",
+        "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.xml",
+        "lib/netstandard2.0/AWSSDK.DynamoDBv2.dll",
+        "lib/netstandard2.0/AWSSDK.DynamoDBv2.pdb",
+        "lib/netstandard2.0/AWSSDK.DynamoDBv2.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.EC2/4.0.59": {
+      "sha512": "HzyWQVrEPCrNBsNswWbHDWSFDag0jai9LjELOmVi2RoAY2J6ujXpxyZMJjFYNO9InNDnxO0DybqA7DAXUZQrHQ==",
+      "type": "package",
+      "path": "awssdk.ec2/4.0.59",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.EC2.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.ec2.4.0.59.nupkg.sha512",
+        "awssdk.ec2.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.EC2.dll",
+        "lib/net472/AWSSDK.EC2.pdb",
+        "lib/net472/AWSSDK.EC2.xml",
+        "lib/net8.0/AWSSDK.EC2.dll",
+        "lib/net8.0/AWSSDK.EC2.pdb",
+        "lib/net8.0/AWSSDK.EC2.xml",
+        "lib/netcoreapp3.1/AWSSDK.EC2.dll",
+        "lib/netcoreapp3.1/AWSSDK.EC2.pdb",
+        "lib/netcoreapp3.1/AWSSDK.EC2.xml",
+        "lib/netstandard2.0/AWSSDK.EC2.dll",
+        "lib/netstandard2.0/AWSSDK.EC2.pdb",
+        "lib/netstandard2.0/AWSSDK.EC2.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.ECS/4.0.10.1": {
+      "sha512": "YSsgtpn6kTJgFtnIl1KbXrF7IlP8qM6At44CXZbRjU9z+9XV1yNFuQRFW3Sd+95aCJF1YOokVlpPars0kF7rjQ==",
+      "type": "package",
+      "path": "awssdk.ecs/4.0.10.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.ECS.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.ecs.4.0.10.1.nupkg.sha512",
+        "awssdk.ecs.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.ECS.dll",
+        "lib/net472/AWSSDK.ECS.pdb",
+        "lib/net472/AWSSDK.ECS.xml",
+        "lib/net8.0/AWSSDK.ECS.dll",
+        "lib/net8.0/AWSSDK.ECS.pdb",
+        "lib/net8.0/AWSSDK.ECS.xml",
+        "lib/netcoreapp3.1/AWSSDK.ECS.dll",
+        "lib/netcoreapp3.1/AWSSDK.ECS.pdb",
+        "lib/netcoreapp3.1/AWSSDK.ECS.xml",
+        "lib/netstandard2.0/AWSSDK.ECS.dll",
+        "lib/netstandard2.0/AWSSDK.ECS.pdb",
+        "lib/netstandard2.0/AWSSDK.ECS.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.IdentityManagement/4.0.8.1": {
+      "sha512": "7Sfb3AS8A1nQKMznwuWT6sa8BESSiBDFSeBzzRiAZkTG5Z+bM3ZP1QGQdmFcj6Dg6vec0FfmvkRLJ3pPhjQrRQ==",
+      "type": "package",
+      "path": "awssdk.identitymanagement/4.0.8.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.IdentityManagement.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.identitymanagement.4.0.8.1.nupkg.sha512",
+        "awssdk.identitymanagement.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.IdentityManagement.dll",
+        "lib/net472/AWSSDK.IdentityManagement.pdb",
+        "lib/net472/AWSSDK.IdentityManagement.xml",
+        "lib/net8.0/AWSSDK.IdentityManagement.dll",
+        "lib/net8.0/AWSSDK.IdentityManagement.pdb",
+        "lib/net8.0/AWSSDK.IdentityManagement.xml",
+        "lib/netcoreapp3.1/AWSSDK.IdentityManagement.dll",
+        "lib/netcoreapp3.1/AWSSDK.IdentityManagement.pdb",
+        "lib/netcoreapp3.1/AWSSDK.IdentityManagement.xml",
+        "lib/netstandard2.0/AWSSDK.IdentityManagement.dll",
+        "lib/netstandard2.0/AWSSDK.IdentityManagement.pdb",
+        "lib/netstandard2.0/AWSSDK.IdentityManagement.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.RDS/4.0.13": {
+      "sha512": "VX6rnw2UviZJVQJJGgkcdtlijM21Cq0JYnbsRC/mNVo9q53+qwntkz2zzlr9inGbS6NhMMxlu1TDXsYPnqeLSQ==",
+      "type": "package",
+      "path": "awssdk.rds/4.0.13",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.RDS.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.rds.4.0.13.nupkg.sha512",
+        "awssdk.rds.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.RDS.dll",
+        "lib/net472/AWSSDK.RDS.pdb",
+        "lib/net472/AWSSDK.RDS.xml",
+        "lib/net8.0/AWSSDK.RDS.dll",
+        "lib/net8.0/AWSSDK.RDS.pdb",
+        "lib/net8.0/AWSSDK.RDS.xml",
+        "lib/netcoreapp3.1/AWSSDK.RDS.dll",
+        "lib/netcoreapp3.1/AWSSDK.RDS.pdb",
+        "lib/netcoreapp3.1/AWSSDK.RDS.xml",
+        "lib/netstandard2.0/AWSSDK.RDS.dll",
+        "lib/netstandard2.0/AWSSDK.RDS.pdb",
+        "lib/netstandard2.0/AWSSDK.RDS.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.S3/4.0.13": {
+      "sha512": "yoC6rxInWRYkDIetJDgR7Q2Q/CKwngxuobGnmOihYx/mPJ9yZdD2ikPR2ZqOPunpY26PUF3rvM9/HjDhd/k8wA==",
+      "type": "package",
+      "path": "awssdk.s3/4.0.13",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.S3.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.s3.4.0.13.nupkg.sha512",
+        "awssdk.s3.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.S3.dll",
+        "lib/net472/AWSSDK.S3.pdb",
+        "lib/net472/AWSSDK.S3.xml",
+        "lib/net8.0/AWSSDK.S3.dll",
+        "lib/net8.0/AWSSDK.S3.pdb",
+        "lib/net8.0/AWSSDK.S3.xml",
+        "lib/netcoreapp3.1/AWSSDK.S3.dll",
+        "lib/netcoreapp3.1/AWSSDK.S3.pdb",
+        "lib/netcoreapp3.1/AWSSDK.S3.xml",
+        "lib/netstandard2.0/AWSSDK.S3.dll",
+        "lib/netstandard2.0/AWSSDK.S3.pdb",
+        "lib/netstandard2.0/AWSSDK.S3.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.SecretsManager/4.0.3": {
+      "sha512": "1TM32jrv+2/qEqmD2+u7vXcA8+ZToNf/3FRNt7ZGx77uLwWWMye0XuKbI0QudJEqyDR/N4/VBoJgb7h40UK05g==",
+      "type": "package",
+      "path": "awssdk.secretsmanager/4.0.3",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.SecretsManager.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.secretsmanager.4.0.3.nupkg.sha512",
+        "awssdk.secretsmanager.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.SecretsManager.dll",
+        "lib/net472/AWSSDK.SecretsManager.pdb",
+        "lib/net472/AWSSDK.SecretsManager.xml",
+        "lib/net8.0/AWSSDK.SecretsManager.dll",
+        "lib/net8.0/AWSSDK.SecretsManager.pdb",
+        "lib/net8.0/AWSSDK.SecretsManager.xml",
+        "lib/netcoreapp3.1/AWSSDK.SecretsManager.dll",
+        "lib/netcoreapp3.1/AWSSDK.SecretsManager.pdb",
+        "lib/netcoreapp3.1/AWSSDK.SecretsManager.xml",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.dll",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.pdb",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.SimpleSystemsManagement/4.0.6.3": {
+      "sha512": "BAf4so+auMf/lfChBruZURU4raDOYD9+6Oq+qKe1V6/QLjsjl2wD2C4NuduR4gQAk6NQ4jZ6aREUQwTEUCD4Lw==",
+      "type": "package",
+      "path": "awssdk.simplesystemsmanagement/4.0.6.3",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.SimpleSystemsManagement.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.simplesystemsmanagement.4.0.6.3.nupkg.sha512",
+        "awssdk.simplesystemsmanagement.nuspec",
+        "images/AWSLogo.png",
+        "lib/net472/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/net472/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/net472/AWSSDK.SimpleSystemsManagement.xml",
+        "lib/net8.0/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/net8.0/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/net8.0/AWSSDK.SimpleSystemsManagement.xml",
+        "lib/netcoreapp3.1/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/netcoreapp3.1/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/netcoreapp3.1/AWSSDK.SimpleSystemsManagement.xml",
+        "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "Azure.Core/1.38.0": {
       "sha512": "IuEgCoVA0ef7E4pQtpC3+TkPbzaoQfa77HlfJDmfuaJUCVJmn7fT0izamZiryW5sYUFKizsftIxMkXKbgIcPMQ==",
       "type": "package",
@@ -4975,6 +5419,16 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "AWSSDK.CloudWatchLogs >= 4.0.11.1",
+      "AWSSDK.Core >= 4.0.3.3",
+      "AWSSDK.DynamoDBv2 >= 4.0.10",
+      "AWSSDK.EC2 >= 4.0.59",
+      "AWSSDK.ECS >= 4.0.10.1",
+      "AWSSDK.IdentityManagement >= 4.0.8.1",
+      "AWSSDK.RDS >= 4.0.13",
+      "AWSSDK.S3 >= 4.0.13",
+      "AWSSDK.SecretsManager >= 4.0.3",
+      "AWSSDK.SimpleSystemsManagement >= 4.0.6.3",
       "MSTest.TestFramework >= 4.0.2",
       "Microsoft.AspNetCore.Mvc.Testing >= 8.0.22",
       "Microsoft.Data.Sqlite.Core >= 8.0.22",
@@ -5040,6 +5494,46 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "AWSSDK.CloudWatchLogs": {
+            "target": "Package",
+            "version": "[4.0.11.1, )"
+          },
+          "AWSSDK.Core": {
+            "target": "Package",
+            "version": "[4.0.3.3, )"
+          },
+          "AWSSDK.DynamoDBv2": {
+            "target": "Package",
+            "version": "[4.0.10, )"
+          },
+          "AWSSDK.EC2": {
+            "target": "Package",
+            "version": "[4.0.59, )"
+          },
+          "AWSSDK.ECS": {
+            "target": "Package",
+            "version": "[4.0.10.1, )"
+          },
+          "AWSSDK.IdentityManagement": {
+            "target": "Package",
+            "version": "[4.0.8.1, )"
+          },
+          "AWSSDK.RDS": {
+            "target": "Package",
+            "version": "[4.0.13, )"
+          },
+          "AWSSDK.S3": {
+            "target": "Package",
+            "version": "[4.0.13, )"
+          },
+          "AWSSDK.SecretsManager": {
+            "target": "Package",
+            "version": "[4.0.3, )"
+          },
+          "AWSSDK.SimpleSystemsManagement": {
+            "target": "Package",
+            "version": "[4.0.6.3, )"
+          },
           "MSTest.TestFramework": {
             "target": "Package",
             "version": "[4.0.2, )"

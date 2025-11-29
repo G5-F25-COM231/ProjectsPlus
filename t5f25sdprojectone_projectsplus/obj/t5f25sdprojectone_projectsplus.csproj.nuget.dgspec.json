@@ -50,6 +50,46 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AWSSDK.CloudWatchLogs": {
+              "target": "Package",
+              "version": "[4.0.11.1, )"
+            },
+            "AWSSDK.Core": {
+              "target": "Package",
+              "version": "[4.0.3.3, )"
+            },
+            "AWSSDK.DynamoDBv2": {
+              "target": "Package",
+              "version": "[4.0.10, )"
+            },
+            "AWSSDK.EC2": {
+              "target": "Package",
+              "version": "[4.0.59, )"
+            },
+            "AWSSDK.ECS": {
+              "target": "Package",
+              "version": "[4.0.10.1, )"
+            },
+            "AWSSDK.IdentityManagement": {
+              "target": "Package",
+              "version": "[4.0.8.1, )"
+            },
+            "AWSSDK.RDS": {
+              "target": "Package",
+              "version": "[4.0.13, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[4.0.13, )"
+            },
+            "AWSSDK.SecretsManager": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "AWSSDK.SimpleSystemsManagement": {
+              "target": "Package",
+              "version": "[4.0.6.3, )"
+            },
             "MSTest.TestFramework": {
               "target": "Package",
               "version": "[4.0.2, )"

@@ -1,17 +1,49 @@
+using Amazon;
+using Amazon.S3;
 using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
 using t5f25sdprojectone_projectsplus.RegExtension;
+using t5f25sdprojectone_projectsplus.Services;
+using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureS3;
 
 namespace t5f25sdprojectone_projectsplus
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public async static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Common services
             builder.Services.AddRazorPages();
+
+            // ---------------------------------------------------------
+            //// s3 infra
+            //// create S3 client (or resolve how you normally do)
+            //var region = RegionEndpoint.USEast2;
+            //var s3Client = new AmazonS3Client(CredsReader.ReadFromCsv(), region);
+
+            //// run ensure BEFORE registering the dependent service
+            //var ensureS3 = new EnsureS3(s3Client, new IaC_ProjectsPlus.EnsureModules.Infralogger(), region.SystemName);            
+            //var s3Infra = await ensureS3.EnsureBucketAsync(new EnsureS3Request());
+
+            //// now register the fully-initialized S3BucketService instance
+            //var s3Service = new S3BucketService(s3Client, s3Infra); // ctor takes infra
+            //builder.Services.AddSingleton(s3Service);
+
+            // register other services and build/run host
+            //var app = builder.Build();
+            //app.MapGet("/", () => $"Bucket: {s3Service.Options.BucketName}");
+            //await app.RunAsync();
+
+            // one line: runs EnsureS3, waits for it, registers client and service
+            await builder.Services.AddAndInitializeS3Async(builder.Configuration);
+            // ---------------------------------------------------------
+
+            await builder.Services.AddAndInitializeDynamoDbAsync(builder.Configuration);
+
 
             // ---------------------------------------------------------
             // Option A: Register DbContext from configuration (recommended)
@@ -38,6 +70,9 @@ namespace t5f25sdprojectone_projectsplus
 
             var app = builder.Build();
 
+            app.MapGet("/", (S3BucketService s3) => $"Bucket: {s3.Options.BucketName}");
+            app.MapGet("/", (DynamodbService ddb) => $"Bucket: {ddb.Options.TableName}");
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
@@ -54,7 +89,8 @@ namespace t5f25sdprojectone_projectsplus
 
             app.MapRazorPages();
 
-            app.Run();
+            //app.Run();
+            await app.RunAsync();
         }
     }
 }

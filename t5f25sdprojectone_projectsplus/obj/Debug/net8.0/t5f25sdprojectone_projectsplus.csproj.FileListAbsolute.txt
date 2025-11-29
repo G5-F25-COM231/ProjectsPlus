@@ -451,3 +451,13 @@ E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Deve
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\Microsoft.Extensions.Logging.EventSource.dll
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.Core.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.DynamoDBv2.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.EC2.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.RDS.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.S3.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.SecretsManager.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.SimpleSystemsManagement.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.CloudWatchLogs.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.ECS.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\AWSSDK.IdentityManagement.dll

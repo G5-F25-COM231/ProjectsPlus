@@ -11,10 +11,13 @@ using Serilog.Core;
 using t5f25sdprojectone_projectsplus.Common.Correlation;
 using t5f25sdprojectone_projectsplus.Commons;
 using t5f25sdprojectone_projectsplus.Data;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.Interfaces;
 using t5f25sdprojectone_projectsplus.Models.Users;
 using t5f25sdprojectone_projectsplus.Repositories;
 using t5f25sdprojectone_projectsplus.Repositories.EF;
 using t5f25sdprojectone_projectsplus.Repositories.Interfaces;
+using t5f25sdprojectone_projectsplus.ScratchPlus;
 using t5f25sdprojectone_projectsplus.Services;
 using t5f25sdprojectone_projectsplus.Services.Authorization;
 using t5f25sdprojectone_projectsplus.Services.Authorization.Interfaces;
@@ -62,6 +65,7 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
 
             // Correlation options used by controllers and middleware
             services.AddSingleton(new CorrelationOptions { HeaderName = CorrelationMiddleware.HeaderName, RequireForExternal = true });
+            //services.AddSingleton<IInfraService, InfraService>();//**************************************
 
             // Serilog enricher registration (optional; Serilog can resolve this from DI when configured)
             services.AddSingleton<ILogEventEnricher, CorrelationEnricher>();
@@ -72,6 +76,10 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
             // If you later add alternative implementations (e.g., for tests),
             // replace these registrations at composition root.
             // ---------------------------------------------------------
+
+            // IInfraOrchestrator should be registered elsewhere; register InfraService as the application-level façade.
+            services.AddSingleton<IInfraService, InfraService>();
+
             services.AddScoped<IAuditRepository, AuditRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IProjectRepository, ProjectRepository>();
@@ -91,7 +99,7 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
             services.AddScoped<IWorkspaceService, WorkspaceService>();
 
             // Infra & orchestration stubs for Phase 4
-            services.AddScoped<IInfraOrchestrator, StubInfraOrchestrator>();
+            services.AddScoped<IInfraOrchestration, StubInfraOrchestrator>();
 
             // Password hashing
             services.AddScoped<IPasswordHasher<UserEntity>, PasswordHasher<UserEntity>>();
