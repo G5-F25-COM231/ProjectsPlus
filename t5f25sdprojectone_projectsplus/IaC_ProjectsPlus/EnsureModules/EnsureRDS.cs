@@ -4,7 +4,6 @@ using Amazon.EC2;
 using Amazon.RDS;
 using Amazon.RDS.Model;
 using Amazon.SecretsManager;
-using Newtonsoft.Json;
 using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureASM;
 using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureDDB;
 using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureVPC;
@@ -294,6 +293,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
                     Message = "DB instance created concurrently by another actor",
                     LoggedRecords = [new ResourceRecord { EnsureIdentifier = System.Text.Json.JsonSerializer.Serialize(racedInst) }]
                 };
+               
             }
 
             // 3) Wait until available
@@ -532,6 +532,19 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
                     Console.WriteLine($"[EnsureRDS] Error deleting {rec.Name}: {ex.Message}");
                 }
             }
+
+            // sequential, only call when the ensure instances are non-null
+            if (_smEnsure != null)
+            {
+                var sm = await _smEnsure.EnsureExistsAsync(ct: ct);
+                _ = await _smEnsure.EnsureDestroyAsync(sm.Entries[0].SecretName, ct: ct).ConfigureAwait(false);
+            }
+
+            if (_vpcEnsure != null)
+                _ = await _vpcEnsure.EnsureDestroyAsync(ct: ct).ConfigureAwait(false);
+
+
+
 
             return new EnsureDestroyResult
             {

@@ -46,7 +46,7 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
             {
                 var ensure = new EnsureDDB(ddbClient, new Infralogger(), region.SystemName);
                 ddbInfra = await ensure.EnsureCreateAsync(new EnsureDdbRequest(), cancellationToken).ConfigureAwait(false);
-                _ = await ensure.EnsureDestroyAsync(ddbInfra.TableName, cancellationToken);
+                //_ = await ensure.EnsureDestroyAsync(ddbInfra.TableName, cancellationToken);
             }
             catch (OperationCanceledException)
             {

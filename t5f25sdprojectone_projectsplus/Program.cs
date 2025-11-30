@@ -33,13 +33,17 @@ namespace t5f25sdprojectone_projectsplus
             //app.MapGet("/", () => $"Bucket: {s3Service.Options.BucketName}");
             //await app.RunAsync();
 
+
+            // ----------------------------------------------------------------------------------------////////////////
             // one line: runs EnsureS3, waits for it, registers client and service
-            builder.Services.AddAndInitializeS3bAsync(builder.Configuration).GetAwaiter().GetResult();
+            //builder.Services.AddAndInitializeS3bAsync(builder.Configuration).GetAwaiter().GetResult();
             // ---------------------------------------------------------
 
-            builder.Services.AddAndInitializeDDbAsync(builder.Configuration).GetAwaiter().GetResult();
+            //builder.Services.AddAndInitializeDDbAsync(builder.Configuration).GetAwaiter().GetResult();
 
-            builder.Services.AddAndInitializeRDSAsync(builder.Configuration).GetAwaiter().GetResult();
+            //builder.Services.AddAndInitializeRDSAsync(builder.Configuration).GetAwaiter().GetResult();
+            // -----------------------------------------------------------------------------------------////////////////
+
 
 
             // ---------------------------------------------------------
@@ -67,8 +71,10 @@ namespace t5f25sdprojectone_projectsplus
 
             var app = builder.Build();
 
-            app.MapGet("/s3b", (S3BucketService s3b) => $"Bucket: {s3b.Options.BucketName}");
-            app.MapGet("/ddb", (DynamodbService ddb) => $"Bucket: {ddb.Options.TableName}");
+            // ----------------------------------------------------------------------------------------////////////////
+            //app.MapGet("/s3b", (S3BucketService s3b) => $"Bucket: {s3b.Options.BucketName}");
+            //app.MapGet("/ddb", (DynamodbService ddb) => $"Bucket: {ddb.Options.TableName}");
+            // ----------------------------------------------------------------------------------------////////////////
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

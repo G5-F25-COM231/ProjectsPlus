@@ -54,7 +54,7 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
             {
                 var ensure = new EnsureRDS(rdsClient, ec2Client, asmClient, new Infralogger(), region.SystemName);
                 rdsInfra = await ensure.EnsureCreateAsync(new EnsureRdsRequest(), cancellationToken).ConfigureAwait(false);
-                _ = await ensure.EnsureDestroyAsync(rdsInfra.DBInstanceIdentifier); // destroy
+                //_ = await ensure.EnsureDestroyAsync(dbInstanceNameOrArn: rdsInfra.DBInstanceIdentifier, ct: cancellationToken); // destroy
             }
             catch (OperationCanceledException)
             {

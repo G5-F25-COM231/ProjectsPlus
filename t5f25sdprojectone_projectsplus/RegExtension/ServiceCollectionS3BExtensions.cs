@@ -45,7 +45,7 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
             {
                 var ensure = new EnsureS3B(s3Client, new Infralogger(), region.SystemName);
                 s3Infra = await ensure.EnsureBucketAsync(new EnsureS3Request(), cancellationToken).ConfigureAwait(false);
-                _ = await ensure.EnsureDestroyAsync(s3Infra.BucketName, cancellationToken); // destroy
+                //_ = await ensure.EnsureDestroyAsync(s3Infra.BucketName, cancellationToken); // destroy
             }
             catch (OperationCanceledException)
             {
