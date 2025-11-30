@@ -1,6 +1,9 @@
 ﻿using System.Text.Json;
 using Amazon.EC2;
 using Amazon.EC2.Model;
+using Amazon.RDS.Model;
+using Filter = Amazon.EC2.Model.Filter;
+using Tag = Amazon.EC2.Model.Tag;
 
 namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 {
@@ -557,6 +560,14 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         #endregion
 
         #region DTOs / VOs
+
+        public static async Task<string> GetMyPublicIpAsync()
+        {
+            // get public IP (simple, reliable endpoint)
+            using var http = new HttpClient();
+            var ip = (await http.GetStringAsync("https://checkip.amazonaws.com")).Trim(); // e.g. "203.0.113.45"
+            return $"{ip}/32";
+        }
 
         public sealed class EnsureVpcRequest
         {

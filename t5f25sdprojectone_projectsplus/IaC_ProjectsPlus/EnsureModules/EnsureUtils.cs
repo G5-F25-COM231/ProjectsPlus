@@ -180,10 +180,14 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         private readonly string logPath;
 
         public Infralogger(string? path = null)
-        {
-            var baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            logPath = string.IsNullOrWhiteSpace(path) ? Path.Combine(baseDir, "Infralogs.txt") : Path.GetFullPath(path);
+        {                    
+            string relative_path = Path.Combine("../../../IaC_ProjectsPlus", "Infralogs.txt");
+            logPath ??= Path.Combine(AppContext.BaseDirectory, relative_path);
             var dir = Path.GetDirectoryName(logPath);
+
+            //var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            //logPath = string.IsNullOrWhiteSpace(path) ? Path.Combine(baseDir, "Infralogs.txt") : Path.GetFullPath(path);
+
             if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir)) Directory.CreateDirectory(dir);
         }
 

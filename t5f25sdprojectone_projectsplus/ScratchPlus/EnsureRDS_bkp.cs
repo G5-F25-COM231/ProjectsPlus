@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 using Amazon.EC2.Model;
 using Amazon.RDS;
 using Amazon.RDS.Model;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
+using Infralogger = t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.Infralogger;
+using ResourceRecord = t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.ResourceRecord;
 
-namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
+namespace t5f25sdprojectone_projectsplus.ScratchPlus
 {
     public sealed class EnsureRDS_bkp
     {
@@ -25,7 +28,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         private EnsureRdsResult? _lastResult;
         private readonly object _stateLock = new();
 
-        public EnsureRDS_bkp(IAmazonRDS rds, Infralogger logger, string region)
+        public EnsureRDS_bkp(IAmazonRDS rds, IaC_ProjectsPlus.EnsureModules.Infralogger logger, string region)
         {
             _rds = rds ?? throw new ArgumentNullException(nameof(rds));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -201,10 +204,10 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
                     return new EnsureRdsDestroyResult { Destroyed = false, NotFound = true, DBInstanceIdentifier = idOrName, RemovedRecords = Array.Empty<ResourceRecord>(), Message = "No log entry and instance not found" };
                 }
 
-                matches.Add(new ResourceRecord { EnsureIdentifier = EnsureIdentifier, ResourceType = ResourceTypeName, Name = inst.DBInstanceIdentifier, Id = inst.DBInstanceArn ?? inst.DBInstanceIdentifier, Region = _region, CreatedAt = DateTime.UtcNow });
+                matches.Add(new IaC_ProjectsPlus.EnsureModules.ResourceRecord { EnsureIdentifier = EnsureIdentifier, ResourceType = ResourceTypeName, Name = inst.DBInstanceIdentifier, Id = inst.DBInstanceArn ?? inst.DBInstanceIdentifier, Region = _region, CreatedAt = DateTime.UtcNow });
             }
 
-            var removed = new List<ResourceRecord>();
+            var removed = new List<IaC_ProjectsPlus.EnsureModules.ResourceRecord>();
             var anyDeleted = false;
             foreach (var rec in matches)
             {
@@ -305,7 +308,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         {
             var max = Math.Max(1, timeoutSeconds);
             var delayMs = 5000;
-            var attempts = (max * 1000) / delayMs;
+            var attempts = max * 1000 / delayMs;
             for (int i = 0; i < attempts; i++)
             {
                 ct.ThrowIfCancellationRequested();
@@ -320,7 +323,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         {
             var max = Math.Max(1, timeoutSeconds);
             var delayMs = 5000;
-            var attempts = (max * 1000) / delayMs;
+            var attempts = max * 1000 / delayMs;
             for (int i = 0; i < attempts; i++)
             {
                 ct.ThrowIfCancellationRequested();

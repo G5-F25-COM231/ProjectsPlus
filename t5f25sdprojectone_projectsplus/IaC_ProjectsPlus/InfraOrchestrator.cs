@@ -13,6 +13,7 @@
 using System.Diagnostics;
 using System.Text.Json;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
+using t5f25sdprojectone_projectsplus.ScratchPlus;
 
 namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
 {
@@ -31,8 +32,8 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
         // injected ensures (concrete types or interfaces)
         private readonly EnsureIAM _iam;
         private readonly EnsureVPC _vpc;
-        private readonly EnsureS3 _s3;
-        private readonly EnsureSM _sm;
+        private readonly EnsureS3B _s3;
+        private readonly EnsureASM _sm;
         private readonly EnsureRDS _rds;
         private readonly EnsureECS _ecs;
         private readonly EnsureDDB _ddb;
@@ -45,8 +46,8 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
         public InfraOrchestrator(
             EnsureIAM iam,
             EnsureVPC vpc,
-            EnsureS3 s3,
-            EnsureSM sm,
+            EnsureS3B s3,
+            EnsureASM sm,
             EnsureRDS rds,
             EnsureECS ecs,
             EnsureDDB ddb,
@@ -131,7 +132,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
             var s3Step = await RunStepAsync("EnsureS3", async ct2 =>
             {
                 if (!req.CreateS3) return "skipped";
-                var sreq = new EnsureS3.EnsureS3Request { BaseName = req.S3BaseName, EnableVersioning = req.S3EnableVersioning };
+                var sreq = new EnsureS3B.EnsureS3Request { BaseName = req.S3BaseName, EnableVersioning = req.S3EnableVersioning };
                 var r = await _s3.EnsureBucketAsync(sreq, ct2).ConfigureAwait(false);
                 _infrastructure["S3"] = r!;
                 return r;
@@ -142,7 +143,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
             var smStep = await RunStepAsync("EnsureSM", async ct2 =>
             {
                 if (!req.CreateSecrets) return "skipped";
-                var smReq = new EnsureSM.EnsureSmRequest { BaseName = req.SecretBaseName, Description = $"RDS credential for {req.RdsBaseName}", SecretString = req.InitialDbPassword };
+                var smReq = new EnsureASM.EnsureSmRequest { BaseName = req.SecretBaseName, Description = $"RDS credential for {req.RdsBaseName}", SecretString = req.InitialDbPassword };
                 var r = await _sm.EnsureCreateAsync(smReq, ct2).ConfigureAwait(false);
                 _infrastructure["SM"] = r!;
                 return r;

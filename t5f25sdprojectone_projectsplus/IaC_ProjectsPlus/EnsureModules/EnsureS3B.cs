@@ -12,7 +12,7 @@ using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
 
 namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 {
-    public sealed class EnsureS3
+    public sealed class EnsureS3B
     {
         private readonly IAmazonS3 _s3;
         private readonly Infralogger _logger;
@@ -25,7 +25,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         private EnsureS3Result? _lastResult;
         private readonly object _stateLock = new();
 
-        public EnsureS3(IAmazonS3 s3, Infralogger logger, string region)
+        public EnsureS3B(IAmazonS3 s3, Infralogger logger, string region)
         {
             _s3 = s3 ?? throw new ArgumentNullException(nameof(s3));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -43,7 +43,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
             // derive safe bucket name: normalized fragment; append -s3 unless fragment is canonical prefix
             var fragment = EnsureUtils.normalizeName(req.BaseName);
             var candidateFragment = fragment == EnsureUtils.canonicalPrefix ? fragment : EnsureUtils.buildCanonicalName(fragment);
-            var bucketName = candidateFragment.EndsWith("-s3", StringComparison.OrdinalIgnoreCase) ? candidateFragment : $"{candidateFragment}-s3";
+            var bucketName = candidateFragment.EndsWith("-s3", StringComparison.OrdinalIgnoreCase) ? candidateFragment : $"{candidateFragment}-s3b";
 
             // S3 naming limits: ensure <= 63 chars and lowercase, trim if necessary
             bucketName = bucketName.ToLowerInvariant();
@@ -64,7 +64,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 
                     var already = new EnsureS3Result { Created = false, AlreadyExisted = true, BucketName = bucketName, Region = location ?? _region, Message = "Bucket already exists", LoggedRecords = Array.Empty<ResourceRecord>() };
                     lock (_stateLock) { _lastResult = already; }
-                    Console.WriteLine($"[EnsureS3] Bucket already exists: {bucketName}");
+                    Console.WriteLine($"[EnsureS3B] Bucket already exists: {bucketName}");
                     return already;
                 }
             }
@@ -389,6 +389,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
             public IReadOnlyList<ResourceRecord> RemovedRecords { get; init; } = Array.Empty<ResourceRecord>();
             public string? Message { get; init; }
         }
+
 
         #endregion
     }

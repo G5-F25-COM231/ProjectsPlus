@@ -11,18 +11,18 @@ using Microsoft.Extensions.Logging;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
 using t5f25sdprojectone_projectsplus.Services;
-using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureS3;
+using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureS3B;
 using Infralogger = t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.Infralogger;
 
 namespace t5f25sdprojectone_projectsplus.RegExtension
 {
-    public static class ServiceCollectionS3Extensions
+    public static class ServiceCollectionS3BExtensions
     {
         /// <summary>
         /// Ensures the S3 bucket exists, then registers the initialized AmazonS3Client and S3BucketService.
         /// Call and await this BEFORE calling builder.Build()/host.RunAsync().
         /// </summary>
-        public static async Task AddAndInitializeS3Async(
+        public static async Task AddAndInitializeS3bAsync(
             this IServiceCollection services,
             IConfiguration configuration,            
             RegionEndpoint? region = null,
@@ -43,8 +43,9 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
             EnsureS3Result s3Infra;
             try
             {
-                var ensure = new EnsureS3(s3Client, new Infralogger(), region.SystemName);
+                var ensure = new EnsureS3B(s3Client, new Infralogger(), region.SystemName);
                 s3Infra = await ensure.EnsureBucketAsync(new EnsureS3Request(), cancellationToken).ConfigureAwait(false);
+                _ = await ensure.EnsureDestroyAsync(s3Infra.BucketName, cancellationToken); // destroy
             }
             catch (OperationCanceledException)
             {

@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
+namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 {
     public static class OrchestratorResultHelpers
     {

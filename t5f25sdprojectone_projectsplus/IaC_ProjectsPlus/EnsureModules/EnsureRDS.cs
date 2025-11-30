@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
+using Amazon;
+using Amazon.EC2;
 using Amazon.RDS;
 using Amazon.RDS.Model;
 using Amazon.SecretsManager;
-using Amazon.SecretsManager.Model;
-using Amazon.Runtime;
-using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
+using Newtonsoft.Json;
+using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureASM;
+using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureDDB;
+using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureVPC;
 using Tag = Amazon.RDS.Model.Tag;
 
 namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
@@ -18,24 +15,71 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
     public sealed class EnsureRDS
     {
         private readonly IAmazonRDS _rds;
-        private readonly EnsureSM _smEnsure; // collaborator for secrets operations
+        private readonly IAmazonEC2 _ec2;
+        private readonly IAmazonSecretsManager _asm;
+        private readonly EnsureASM _smEnsure; // collaborator for secrets operations
+        private readonly EnsureVPC _vpcEnsure;
         private readonly Infralogger _logger;
         private readonly string _region;
 
         private const string EnsureIdentifier = "EnsureRDS";
         private const string ResourceTypeName = "RDSInstance";
 
-        public EnsureRDS(IAmazonRDS rds, EnsureSM smEnsure, Infralogger logger, string region)
+        public EnsureRDS(IAmazonRDS rds, IAmazonEC2 ec2, IAmazonSecretsManager asm, Infralogger logger, string region)
         {
             _rds = rds ?? throw new ArgumentNullException(nameof(rds));
-            _smEnsure = smEnsure ?? throw new ArgumentNullException(nameof(smEnsure));
+            _ec2 = ec2 ?? throw new ArgumentNullException(nameof(ec2));
+            _asm = asm ?? throw new ArgumentNullException(nameof(asm));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _region = string.IsNullOrWhiteSpace(region) ? "us-east-2" : region;
+
+            var reg = RegionEndpoint.USEast2.SystemName;
+            _smEnsure = new EnsureASM(_asm, logger, reg);
+            _vpcEnsure = new EnsureVPC(_ec2, logger, reg);
         }
 
         // Idempotent create that optionally uses Secrets Manager for password + rotation
         public async Task<EnsureRdsResult> EnsureCreateAsync(EnsureRdsRequest req, CancellationToken ct = default)
         {
+            var vpcInfra = await _vpcEnsure.EnsureVpcAsync(new EnsureVpcRequest() { CallerCidr = GetMyPublicIpAsync().GetAwaiter().GetResult() }, ct);
+            var asmInfra = await _smEnsure.EnsureCreateAsync(new EnsureSmRequest() { Description = "dbcreds" }, ct);
+
+
+
+            async Task<string> GetDbSubnet()
+            { //*******************************************
+
+                var dbSubnetGroup = EnsureUtils.buildCanonicalName(req.BaseName) + "_dbsbntgrp";
+                bool exists = false;
+                try
+                {
+                    var desc = await _rds.DescribeDBSubnetGroupsAsync(new DescribeDBSubnetGroupsRequest { DBSubnetGroupName = dbSubnetGroup }, ct);
+                    exists = desc.DBSubnetGroups?.Count > 0;
+                }
+                catch (DBSubnetGroupNotFoundException) { exists = false; }
+
+                if (!exists)
+                {
+                    Console.WriteLine($"Creating DB subnet group '{dbSubnetGroup}'...");
+                    await _rds.CreateDBSubnetGroupAsync(new CreateDBSubnetGroupRequest
+                    {
+                        DBSubnetGroupName = dbSubnetGroup,
+                        DBSubnetGroupDescription = "Public subnet group for RDS instance",
+                        SubnetIds = [.. vpcInfra.Profile.PublicSubnetIds] //vpcInfo.SubnetIds //------change to private subnets in production
+                    }, ct);
+                    return dbSubnetGroup;
+                }
+                else
+                {
+                    Console.WriteLine($"DB subnet group '{dbSubnetGroup}' already exists.");
+                    return dbSubnetGroup;
+                }
+
+            }
+
+            req.DBSubnetGroupName = await GetDbSubnet();
+            req.VpcSecurityGroupIds = [vpcInfra.Profile.RdsSecurityGroupId];
+
             if (req == null) throw new ArgumentNullException(nameof(req));
             ct.ThrowIfCancellationRequested();
 
@@ -52,7 +96,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
                 secretName = EnsureUtils.buildCanonicalName(req.SecretBaseName);
 
                 // Ask EnsureSM to create or return existing secret. EnsureSM.EnsureCreateAsync returns ARN in LoggedRecords.Id/SecretArn (see its DTO).
-                var smReq = new EnsureSM.EnsureSmRequest
+                var smReq = new EnsureASM.EnsureSmRequest
                 {
                     BaseName = req.SecretBaseName,
                     Description = $"RDS credential for {dbInstanceId}",
@@ -112,12 +156,39 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
             }
 
             // 2) Build create request with password from secret if available else from request
+            //var createReq = new CreateDBInstanceRequest
+            //{
+            //    DBInstanceIdentifier = dbInstanceId,
+            //    AllocatedStorage = req.AllocatedStorageGb,
+            //    DBInstanceClass = req.InstanceClass,
+            //    Engine = req.Engine,
+            //    MasterUsername = username,
+            //    MasterUserPassword = string.IsNullOrWhiteSpace(passwordFromSecret) ? req.MasterUserPassword : passwordFromSecret,
+            //    PubliclyAccessible = req.PubliclyAccessible,
+            //    MultiAZ = req.MultiAz,
+            //    StorageType = req.StorageType,
+            //    Port = req.Port,
+            //    BackupRetentionPeriod = req.BackupRetentionDays,
+            //    AutoMinorVersionUpgrade = req.AutoMinorVersionUpgrade,
+            //    Tags = new List<Tag>
+            //    {
+            //        new Tag { Key = "Project", Value = EnsureUtils.canonicalPrefix },
+            //        new Tag { Key = "Name", Value = dbInstanceId }
+            //    }
+            //};          
+
+            // assume dbInstanceId, username and passwordFromSecret are available in scope as in your snippet
             var createReq = new CreateDBInstanceRequest
             {
+                // identifiers
                 DBInstanceIdentifier = dbInstanceId,
+                DBName = string.IsNullOrWhiteSpace(req.DBName) ? null : req.DBName,
+
+                // core settings
                 AllocatedStorage = req.AllocatedStorageGb,
                 DBInstanceClass = req.InstanceClass,
                 Engine = req.Engine,
+                EngineVersion = string.IsNullOrWhiteSpace(req.EngineVersionString) ? req.EngineVersion : req.EngineVersionString,
                 MasterUsername = username,
                 MasterUserPassword = string.IsNullOrWhiteSpace(passwordFromSecret) ? req.MasterUserPassword : passwordFromSecret,
                 PubliclyAccessible = req.PubliclyAccessible,
@@ -126,12 +197,81 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
                 Port = req.Port,
                 BackupRetentionPeriod = req.BackupRetentionDays,
                 AutoMinorVersionUpgrade = req.AutoMinorVersionUpgrade,
-                Tags = new List<Tag>
-                {
-                    new Tag { Key = "Project", Value = EnsureUtils.canonicalPrefix },
-                    new Tag { Key = "Name", Value = dbInstanceId }
-                }
+
+                // placement / windows
+                AvailabilityZone = string.IsNullOrWhiteSpace(req.AvailabilityZone) ? null : req.AvailabilityZone,
+                PreferredMaintenanceWindow = string.IsNullOrWhiteSpace(req.PreferredMaintenanceWindow) ? null : req.PreferredMaintenanceWindow,
+                PreferredBackupWindow = string.IsNullOrWhiteSpace(req.PreferredBackupWindow) ? null : req.PreferredBackupWindow,
+
+                // storage / performance
+                Iops = req.Iops,
+                MaxAllocatedStorage = req.MaxAllocatedStorage,
+                StorageThroughput = req.StorageThroughput,
+                StorageEncrypted = req.StorageEncrypted,
+                KmsKeyId = string.IsNullOrWhiteSpace(req.KmsKeyId) ? null : req.KmsKeyId,
+
+                // snapshot / deletion
+                CopyTagsToSnapshot = req.CopyTagsToSnapshot,
+                DeletionProtection = req.DeletionProtection,
+
+                // monitoring / IAM
+                MonitoringInterval = req.MonitoringInterval,
+                MonitoringRoleArn = string.IsNullOrWhiteSpace(req.MonitoringRoleArn) ? null : req.MonitoringRoleArn,
+                EnableIAMDatabaseAuthentication = req.EnableIAMDatabaseAuthentication,
+
+                // performance insights
+                EnablePerformanceInsights = req.EnablePerformanceInsights,
+                PerformanceInsightsKMSKeyId = string.IsNullOrWhiteSpace(req.PerformanceInsightsKMSKeyId) ? null : req.PerformanceInsightsKMSKeyId,
+                PerformanceInsightsRetentionPeriod = req.PerformanceInsightsRetentionPeriod,
+
+                // engine / license / options
+                LicenseModel = string.IsNullOrWhiteSpace(req.LicenseModel) ? null : req.LicenseModel,
+                CharacterSetName = string.IsNullOrWhiteSpace(req.CharacterSetName) ? null : req.CharacterSetName,
+                CACertificateIdentifier = string.IsNullOrWhiteSpace(req.CACertificateIdentifier) ? null : req.CACertificateIdentifier,
+                DBClusterIdentifier = string.IsNullOrWhiteSpace(req.DBClusterIdentifier) ? null : req.DBClusterIdentifier,
+                Domain = string.IsNullOrWhiteSpace(req.Domain) ? null : req.Domain,
+                DomainIAMRoleName = string.IsNullOrWhiteSpace(req.DomainIAMRoleName) ? null : req.DomainIAMRoleName,
+                PromotionTier = req.PromotionTier,
+
+                // logs / processor features
+                EnableCloudwatchLogsExports = req.EnableCloudwatchLogsExports?.ToList(),
+                ProcessorFeatures = req.ProcessorFeatures?.ToList(),
+                //UseDefaultProcessorFeatures = req.UseDefaultProcessorFeatures,
+
+                // TDE
+                TdeCredentialArn = string.IsNullOrWhiteSpace(req.TdeCredentialArn) ? null : req.TdeCredentialArn,
+                TdeCredentialPassword = string.IsNullOrWhiteSpace(req.TdeCredentialPassword) ? null : req.TdeCredentialPassword,
+
+                // replica / source
+                //SourceDBInstanceIdentifier = string.IsNullOrWhiteSpace(req.SourceDBInstanceIdentifier) ? null : req.SourceDBInstanceIdentifier,
+
+                // networking / subnet / security groups                
+                DBSubnetGroupName = string.IsNullOrWhiteSpace(req.DBSubnetGroupName) ? null : req.DBSubnetGroupName,
+                VpcSecurityGroupIds = req.VpcSecurityGroupIds?.ToList(),
+                EnableCustomerOwnedIp = req.EnableCustomerOwnedIp,
+
+                // tags: prefer explicit Tags from req, otherwise use your default tags
+                Tags = (req.Tags != null && req.Tags.Count > 0)
+                    ? req.Tags.ToList()
+                    : new List<Tag> {
+                        new Tag { Key = "Project", Value = EnsureUtils.canonicalPrefix },
+                        new Tag { Key = "Name", Value = dbInstanceId },
+                        new Tag { Key = "Environment", Value = "dev" }
+                    }
             };
+
+            var replicaReq = new CreateDBInstanceReadReplicaRequest // for if a replica is needed.
+            {
+                DBInstanceIdentifier = createReq.DBInstanceIdentifier + "_" + "replica_a",
+                SourceDBInstanceIdentifier = createReq.DBInstanceIdentifier,
+                DBInstanceClass = req.InstanceClass,
+                // ...other fields as needed...
+            };
+
+
+            // Note: CreateDBInstanceRequest properties that are left null will be omitted by the SDK.
+            // Validate that any fields that must be present for your engine (e.g., Iops for io1) are set in req before calling CreateDBInstanceAsync.
+
             if (!string.IsNullOrWhiteSpace(req.DBSubnetGroupName)) createReq.DBSubnetGroupName = req.DBSubnetGroupName;
             if (!string.IsNullOrWhiteSpace(req.ParameterGroupName)) createReq.DBParameterGroupName = req.ParameterGroupName;
             if (!string.IsNullOrWhiteSpace(req.OptionGroupName)) createReq.OptionGroupName = req.OptionGroupName;
@@ -152,7 +292,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
                     DBInstanceIdentifier = dbInstanceId,
                     Endpoint = racedInst?.Endpoint?.Address,
                     Message = "DB instance created concurrently by another actor",
-                    LoggedRecords = Array.Empty<ResourceRecord>()
+                    LoggedRecords = [new ResourceRecord { EnsureIdentifier = System.Text.Json.JsonSerializer.Serialize(racedInst) }]
                 };
             }
 
@@ -182,7 +322,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
                     ["engine"] = req.Engine,
                     ["dbInstanceIdentifier"] = dbInstanceId
                 };
-                var payload = JsonSerializer.Serialize(connectionObj);
+                var payload = System.Text.Json.JsonSerializer.Serialize(connectionObj);
 
                 // Update secret value (merge or replace). We call the EnsureSM helper to append this payload into the secret.
                 try
@@ -286,6 +426,165 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         //-------------------------------------------
 
 
+        public async Task<EnsureExistsSummary> EnsureExistsAsync(string? dbInstanceNameOrArn = null, CancellationToken ct = default)
+        {
+            ct.ThrowIfCancellationRequested();
+
+            var all = _logger.readAll() ?? Array.Empty<ResourceRecord>();
+            var rdsRecords = all.Where(r => string.Equals(r.EnsureIdentifier, EnsureIdentifier, StringComparison.OrdinalIgnoreCase)
+                                          && string.Equals(r.ResourceType, ResourceTypeName, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            if (!string.IsNullOrWhiteSpace(dbInstanceNameOrArn))
+            {
+                var key = dbInstanceNameOrArn.Trim();
+                rdsRecords = rdsRecords.Where(r => string.Equals(r.Name, key, StringComparison.OrdinalIgnoreCase) || string.Equals(r.Id, key, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            var entries = new List<EnsureExistsEntry>();
+            foreach (var rec in rdsRecords)
+            {
+                ct.ThrowIfCancellationRequested();
+                var exists = await DescribeDbInstanceAsync(rec.Name, ct).ConfigureAwait(false) != null;
+                entries.Add(new EnsureExistsEntry { TableName = rec.Name, TableArn = rec.Id, LoggedAt = rec.CreatedAt, ExistsInCloud = exists });
+            }
+
+            var summary = new EnsureExistsSummary
+            {
+                Entries = entries,
+                Total = entries.Count,
+                Found = entries.Count(e => e.ExistsInCloud),
+                Missing = entries.Count(e => !e.ExistsInCloud)
+            };
+
+            return summary;
+        }
+
+        public async Task<EnsureDestroyResult> EnsureDestroyAsync(string dbInstanceNameOrArn, CancellationToken ct = default)
+        {
+            if (string.IsNullOrWhiteSpace(dbInstanceNameOrArn)) throw new ArgumentNullException(nameof(dbInstanceNameOrArn));
+            ct.ThrowIfCancellationRequested();
+
+            var all = _logger.readAll() ?? Array.Empty<ResourceRecord>();
+            var matches = all.Where(r => string.Equals(r.EnsureIdentifier, EnsureIdentifier, StringComparison.OrdinalIgnoreCase)
+                                      && string.Equals(r.ResourceType, ResourceTypeName, StringComparison.OrdinalIgnoreCase)
+                                      && (string.Equals(r.Name, dbInstanceNameOrArn, StringComparison.OrdinalIgnoreCase) || string.Equals(r.Id, dbInstanceNameOrArn, StringComparison.OrdinalIgnoreCase)))
+                             .ToList();
+
+            if (matches.Count == 0)
+            {
+                // If no log entry but instance exists in cloud, synthesize a record so we can attempt deletion
+                var existsInCloud = await DescribeDbInstanceAsync(dbInstanceNameOrArn, ct).ConfigureAwait(false) != null;
+                if (!existsInCloud)
+                {
+                    return new EnsureDestroyResult
+                    {
+                        Destroyed = false,
+                        NotFound = true,
+                        DBName = dbInstanceNameOrArn,
+                        Message = "No log entry and instance not found",
+                        RemovedRecords = Array.Empty<ResourceRecord>()
+                    };
+                }
+
+                matches.Add(new ResourceRecord { EnsureIdentifier = EnsureIdentifier, ResourceType = ResourceTypeName, Name = dbInstanceNameOrArn, Id = dbInstanceNameOrArn, Region = _region, CreatedAt = DateTime.UtcNow });
+            }
+
+            var removed = new List<ResourceRecord>();
+            var anyDeleted = false;
+
+            foreach (var rec in matches)
+            {
+                ct.ThrowIfCancellationRequested();
+                var exists = await DescribeDbInstanceAsync(rec.Name, ct).ConfigureAwait(false) != null;
+                if (!exists)
+                {
+                    // remove only log lines that match this EnsureIdentifier and the exact Name/Id
+                    TryRemoveLogRecord(rec);
+                    continue;
+                }
+
+                try
+                {
+                    // DeleteDBInstance: choose to skip final snapshot for best-effort destroy; callers can change behavior if needed.
+                    var delReq = new DeleteDBInstanceRequest
+                    {
+                        DBInstanceIdentifier = rec.Name,
+                        SkipFinalSnapshot = true,
+                        DeleteAutomatedBackups = true
+                    };
+
+                    await _rds.DeleteDBInstanceAsync(delReq, ct).ConfigureAwait(false);
+
+                    // Wait for deletion to complete
+                    await WaitForInstanceDeletedAsync(rec.Name, ct).ConfigureAwait(false);
+
+                    TryRemoveLogRecord(rec);
+                    removed.Add(rec);
+                    anyDeleted = true;
+                    Console.WriteLine($"[EnsureRDS] Deleted instance: {rec.Name}");
+                }
+                catch (DBInstanceNotFoundException)
+                {
+                    TryRemoveLogRecord(rec);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[EnsureRDS] Error deleting {rec.Name}: {ex.Message}");
+                }
+            }
+
+            return new EnsureDestroyResult
+            {
+                Destroyed = anyDeleted,
+                NotFound = removed.Count == 0,
+                DBName = dbInstanceNameOrArn,
+                Message = anyDeleted ? "Deleted and removed log entries" : "No instance deleted",
+                RemovedRecords = removed
+            };
+
+            // local helpers used by this method
+            async Task WaitForInstanceDeletedAsync(string id, CancellationToken token)
+            {
+                const int maxAttempts = 20;
+                const int delayMs = 1000;
+                for (int i = 0; i < maxAttempts; i++)
+                {
+                    token.ThrowIfCancellationRequested();
+                    try
+                    {
+                        var inst = await DescribeDbInstanceAsync(id, token).ConfigureAwait(false);
+                        if (inst == null) return;
+                    }
+                    catch (DBInstanceNotFoundException) { return; }
+                    catch { /* ignore transient */ }
+
+                    await Task.Delay(delayMs, token).ConfigureAwait(false);
+                }
+            }
+
+            void TryRemoveLogRecord(ResourceRecord rec)
+            {
+                try
+                {
+                    var lines = _logger.readAll()?.ToList() ?? new List<ResourceRecord>();
+                    var matchesLocal = lines.Where(r =>
+                        string.Equals(r.EnsureIdentifier, EnsureIdentifier, StringComparison.OrdinalIgnoreCase)
+                        && string.Equals(r.ResourceType, rec.ResourceType, StringComparison.OrdinalIgnoreCase)
+                        && string.Equals(r.Name, rec.Name, StringComparison.OrdinalIgnoreCase)
+                        && string.Equals(r.Id, rec.Id, StringComparison.OrdinalIgnoreCase)).ToList();
+
+                    if (matchesLocal.Count == 0) return;
+
+                    var kept = lines.Except(matchesLocal).ToList();
+                    _logger.clear();
+                    foreach (var k in kept) _logger.appendAsync(k).GetAwaiter().GetResult();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[EnsureRDS] Warning: failed to remove log record for {rec.Name}: {ex.Message}");
+                }
+            }
+        }
 
 
         //------------------------------------------
@@ -294,31 +593,105 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 
         public sealed class EnsureRdsRequest
         {
+            // original fields
             public string BaseName { get; init; } = "rds";
             public string Engine { get; init; } = "sqlserver-ex";
             public string? EngineVersion { get; init; }
             public string InstanceClass { get; init; } = "db.t3.micro";
             public int AllocatedStorageGb { get; init; } = 20;
             public string MasterUsername { get; init; } = "mssqlexadmin";
-            public string? MasterUserPassword { get; init; } = "adminjdevnforne+"; // optional if SecretBaseName used
+            public string? MasterUserPassword { get; init; } = "adminjdevnforne+";
             public bool PubliclyAccessible { get; init; } = true;
             public bool MultiAz { get; init; } = false;
             public string StorageType { get; init; } = "gp2";
             public int Port { get; init; } = 1433;
             public int BackupRetentionDays { get; init; } = 0;
             public bool AutoMinorVersionUpgrade { get; init; } = true;
-            public string? DBSubnetGroupName { get; init; }
+            public string? DBSubnetGroupName { get; set; }
             public string? ParameterGroupName { get; init; }
             public string? OptionGroupName { get; init; }
             public string? EngineVersionString { get; init; }
             public int AvailabilityTimeoutSeconds { get; init; } = 900;
 
             // Secrets integration
-            public string? SecretBaseName { get; init; } // if provided, EnsureRDS will create/use this secret
+            public string? SecretBaseName { get; init; }
             public IDictionary<string, string>? SecretTags { get; init; }
-            public string? SecretRotationLambdaArn { get; init; } // if provided, orchestrator will attempt to enable rotation with this lambda
+            public string? SecretRotationLambdaArn { get; init; }
             public int RotationAutomaticallyAfterDays { get; init; } = 30;
+
+            // VPC / SG / subnet options
+            public string? VpcId { get; init; }
+            public IList<string>? VpcSecurityGroupIds { get; set; }
+            public bool CreateSecurityGroup { get; init; } = false;
+            public string? SecurityGroupName { get; init; }
+            public string? SecurityGroupDescription { get; init; }
+            public IDictionary<string, string>? SecurityGroupTags { get; init; }
+            public IList<string>? SubnetIds { get; init; }
+
+            // --- Added CreateDBInstanceRequest-like members (not previously present) ---
+
+            // identifiers / naming
+            public string? DBInstanceIdentifier { get; init; }            // optional explicit identifier
+            public string? DBName { get; init; }                         // initial DB name
+
+            // availability / placement
+            public string? AvailabilityZone { get; init; }
+            public string? PreferredMaintenanceWindow { get; init; }
+            public string? PreferredBackupWindow { get; init; }
+
+            // storage / IOPS / autoscaling
+            public int? Iops { get; init; }
+            public int? MaxAllocatedStorage { get; init; }               // for autoscaling
+            public int? StorageThroughput { get; init; }                 // gp3 throughput
+            public bool? StorageEncrypted { get; init; }
+            public string? KmsKeyId { get; init; }
+
+            // snapshot / deletion
+            public bool? CopyTagsToSnapshot { get; init; }
+            public bool? DeletionProtection { get; init; }
+
+            // monitoring / IAM
+            public int? MonitoringInterval { get; init; }
+            public string? MonitoringRoleArn { get; init; }
+            public bool? EnableIAMDatabaseAuthentication { get; init; }
+
+            // performance insights
+            public bool? EnablePerformanceInsights { get; init; }
+            public string? PerformanceInsightsKMSKeyId { get; init; }
+            public int? PerformanceInsightsRetentionPeriod { get; init; }
+
+            // licensing / engine options
+            public string? LicenseModel { get; init; }
+            public string? CharacterSetName { get; init; }
+            public string? CACertificateIdentifier { get; init; }
+
+            // cluster / domain / promotion
+            public string? DBClusterIdentifier { get; init; }
+            public string? Domain { get; init; }
+            public string? DomainIAMRoleName { get; init; }
+            public int? PromotionTier { get; init; }
+
+            // logs / processor features / advanced
+            public IList<string>? EnableCloudwatchLogsExports { get; init; }
+            public IList<ProcessorFeature>? ProcessorFeatures { get; init; }
+            public bool? UseDefaultProcessorFeatures { get; init; }
+
+            // TDE
+            public string? TdeCredentialArn { get; init; }
+            public string? TdeCredentialPassword { get; init; }
+
+            // replica / source
+            public string? SourceDBInstanceIdentifier { get; init; }     // for read-replicas or restore-from
+
+            // networking / IP
+            public bool? EnableCustomerOwnedIp { get; init; }
+
+            // tags (AWS Tag objects)
+            public IList<Tag>? Tags { get; init; }
+
+            // any other CreateDBInstanceRequest fields you want to add later can be appended here
         }
+
 
         public sealed class EnsureRdsResult
         {
@@ -331,6 +704,15 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         }
 
         #endregion
+    }
+
+    public class EnsureDestroyResult
+    {
+        public bool Destroyed { get; set; }
+        public bool NotFound { get; set; }
+        public string DBName { get; set; }
+        public string Message { get; set; }
+        public IList<ResourceRecord> RemovedRecords { get; set; }
     }
 }
 

@@ -12,7 +12,7 @@ using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
 
 namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 {
-    public sealed class EnsureSM
+    public sealed class EnsureASM
     {
         private readonly IAmazonSecretsManager _sm;
         private readonly Infralogger _logger;
@@ -25,7 +25,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
         private EnsureSmResult? _lastResult;
         private readonly object _stateLock = new();
 
-        public EnsureSM(IAmazonSecretsManager sm, Infralogger logger, string region)
+        public EnsureASM(IAmazonSecretsManager sm, Infralogger logger, string region)
         {
             _sm = sm ?? throw new ArgumentNullException(nameof(sm));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -577,7 +577,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 
         public sealed class EnsureSmRequest
         {
-            public string BaseName { get; init; } = "sm";
+            public string BaseName { get; init; } = "asm";
             public string? Description { get; init; }
             public string? SecretString { get; init; } // plaintext secret content (optional)
             public Dictionary<string, string>? AdditionalTags { get; init; } // additional tags to add

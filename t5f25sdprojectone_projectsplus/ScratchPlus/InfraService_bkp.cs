@@ -9,9 +9,9 @@ using Amazon.S3.Util;
 using Amazon.SecretsManager.Model;
 using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
 
-
-namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
+namespace t5f25sdprojectone_projectsplus.ScratchPlus
 {
     public sealed class InfraService_bkp : IDisposable
     {
@@ -20,14 +20,13 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
         private readonly Infralogger _logger;
         private readonly string _region = "us-east-2";
         private readonly RegionEndpoint _regionEndpoint;
-        private readonly BasicAWSCredentials _basic;
+        private readonly AWSCredentials _basic;
         private bool _disposed;
 
         public InfraService_bkp(IAmazonS3? s3 = null, IAmazonDynamoDB? ddb = null, Infralogger? logger = null)
         {
-            var creds = CredsReader.ReadFromCsv();
             _regionEndpoint = RegionEndpoint.USEast2;
-            _basic = new BasicAWSCredentials(creds.AccessKeyId, creds.SecretAccessKey);
+            _basic = CredsReader.ReadFromCsv();
             _s3 = s3 ?? new AmazonS3Client(_basic, _regionEndpoint);
             _ddb = ddb ?? new AmazonDynamoDBClient(_basic, _regionEndpoint);
 

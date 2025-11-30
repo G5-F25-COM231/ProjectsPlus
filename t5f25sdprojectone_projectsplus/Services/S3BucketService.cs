@@ -3,7 +3,7 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
-using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureS3;
+using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureS3B;
 
 namespace t5f25sdprojectone_projectsplus.Services
 {

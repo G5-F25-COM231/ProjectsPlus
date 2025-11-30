@@ -1,18 +1,13 @@
-using Amazon;
-using Amazon.S3;
 using Microsoft.EntityFrameworkCore;
-using t5f25sdprojectone_projectsplus.Data;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
-using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
 using t5f25sdprojectone_projectsplus.RegExtension;
 using t5f25sdprojectone_projectsplus.Services;
-using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureS3;
 
 namespace t5f25sdprojectone_projectsplus
 {
     public class Program
     {
-        public async static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -39,10 +34,12 @@ namespace t5f25sdprojectone_projectsplus
             //await app.RunAsync();
 
             // one line: runs EnsureS3, waits for it, registers client and service
-            await builder.Services.AddAndInitializeS3Async(builder.Configuration);
+            builder.Services.AddAndInitializeS3bAsync(builder.Configuration).GetAwaiter().GetResult();
             // ---------------------------------------------------------
 
-            await builder.Services.AddAndInitializeDynamoDbAsync(builder.Configuration);
+            builder.Services.AddAndInitializeDDbAsync(builder.Configuration).GetAwaiter().GetResult();
+
+            builder.Services.AddAndInitializeRDSAsync(builder.Configuration).GetAwaiter().GetResult();
 
 
             // ---------------------------------------------------------
@@ -70,8 +67,8 @@ namespace t5f25sdprojectone_projectsplus
 
             var app = builder.Build();
 
-            app.MapGet("/", (S3BucketService s3) => $"Bucket: {s3.Options.BucketName}");
-            app.MapGet("/", (DynamodbService ddb) => $"Bucket: {ddb.Options.TableName}");
+            app.MapGet("/s3b", (S3BucketService s3b) => $"Bucket: {s3b.Options.BucketName}");
+            app.MapGet("/ddb", (DynamodbService ddb) => $"Bucket: {ddb.Options.TableName}");
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -89,8 +86,8 @@ namespace t5f25sdprojectone_projectsplus
 
             app.MapRazorPages();
 
-            //app.Run();
-            await app.RunAsync();
+            app.Run();
+            //await app.RunAsync();
         }
     }
 }

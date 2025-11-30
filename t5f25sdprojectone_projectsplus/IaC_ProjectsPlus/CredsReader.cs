@@ -4,19 +4,23 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
 {
     internal record AwsCredentials(string AccessKeyId, string SecretAccessKey);
 
+
+
     internal static class CredsReader
     {
         // Default path: <appdir>/credentials.csv (AWS console CSV export format)
+
         public static AWSCredentials ReadFromCsv(string? path = null)
         {
-            string? projectRoot = Directory.GetParent(Directory.GetCurrentDirectory())?.Parent?.Parent?.Parent?.FullName;
-            path ??= Path.Combine(projectRoot, "IaC_ProjectsPlus", "credentials.csv");
+            string filename = "credentials.csv";
+            string relative_path = Path.Combine("../../../IaC_ProjectsPlus", filename);
+            path ??= Path.Combine(AppContext.BaseDirectory, relative_path);            
             if (!File.Exists(path))
-                throw new FileNotFoundException("credentials.csv not found", path);
+                throw new FileNotFoundException("creds.csv not found", path);
 
             var lines = File.ReadAllLines(path).Where(l => !string.IsNullOrWhiteSpace(l)).ToArray();
             if (lines.Length < 2)
-                throw new InvalidOperationException("credentials.csv must contain a header and one credential row.");
+                throw new InvalidOperationException("creds.csv must contain a header and one credential row.");
 
             var header = SplitCsv(lines[0]);
             var row = SplitCsv(lines[1]);

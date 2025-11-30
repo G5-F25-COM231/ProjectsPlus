@@ -1,5 +1,5 @@
 ﻿// src/IaC_ProjectsPlus/IDestroyResult.cs
-namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
+namespace t5f25sdprojectone_projectsplus.ScratchPlus
 {
     public interface IDestroyResult
     {

@@ -78,7 +78,8 @@ namespace t5f25sdprojectone_projectsplus.RegExtension
             // ---------------------------------------------------------
 
             // IInfraOrchestrator should be registered elsewhere; register InfraService as the application-level façade.
-            services.AddSingleton<IInfraService, InfraService>();
+            //services.AddSingleton<IInfraOrchestrator, InfraOrchestrator>();
+            //services.AddSingleton<IInfraService, InfraService>();            
 
             services.AddScoped<IAuditRepository, AuditRepository>();
             services.AddScoped<IUserRepository, UserRepository>();

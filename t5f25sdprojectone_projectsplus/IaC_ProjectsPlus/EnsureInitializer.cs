@@ -20,8 +20,8 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
     {
         public EnsureIAM IAM { get; init; } = null!;
         public EnsureVPC VPC { get; init; } = null!;
-        public EnsureS3 S3 { get; init; } = null!;
-        public EnsureSM SM { get; init; } = null!;
+        public EnsureS3B S3 { get; init; } = null!;
+        public EnsureASM SM { get; init; } = null!;
         public EnsureRDS RDS { get; init; } = null!;
         public EnsureECS ECS { get; init; } = null!;
         public EnsureDDB DDB { get; init; } = null!;
@@ -51,9 +51,9 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
             // construct ensures — adjust constructors if your Ensure types differ
             var iam = new EnsureIAM(iamClient, logger, region.SystemName);
             var vpc = new EnsureVPC(ec2Client, logger, region.SystemName);
-            var s3 = new EnsureS3(s3Client, logger, region.SystemName);
-            var sm = new EnsureSM(secretsClient, logger, region.SystemName);
-            var rds = new EnsureRDS(rdsClient, sm, logger, region.SystemName); // example: RDS may accept SecretsManager helper
+            var s3 = new EnsureS3B(s3Client, logger, region.SystemName);
+            var sm = new EnsureASM(secretsClient, logger, region.SystemName);
+            var rds = new EnsureRDS(rdsClient, ec2Client, secretsClient, logger, region.SystemName); // example: RDS may accept SecretsManager helper
             var ecs = new EnsureECS(ecsClient, cwClient, logger, region.SystemName);
             var ddb = new EnsureDDB(ddbClient, logger, region.SystemName);
 

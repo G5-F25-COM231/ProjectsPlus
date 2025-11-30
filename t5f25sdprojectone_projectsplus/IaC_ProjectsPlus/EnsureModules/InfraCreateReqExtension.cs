@@ -3,7 +3,7 @@ using System;
 
 namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 {
-    public static class InfraCreateRequestExtensions
+    public static class InfraCreateReqExtension
     {
         // Default port for RDS when not provided explicitly on InfraCreateRequest.
         // Current orchestrator flow expects a method named RdsPortOrDefault.

@@ -12,8 +12,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
 
-namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
+namespace t5f25sdprojectone_projectsplus.ScratchPlus
 {
     public static class EnsureRDSCompatExtensions
     {
@@ -47,7 +48,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules
 
         // Try to invoke EnsureDestroyAsync on the concrete EnsureRDS instance via reflection.
         // Expected signature: Task<EnsureRdsDestroyResult> EnsureDestroyAsync(string idOrName, bool skipFinalSnapshot = true, CancellationToken ct = default)
-        public static Task<object?> EnsureDestroyAsync(this EnsureRDS ensure, string idOrName, bool skipFinalSnapshot = true, CancellationToken ct = default)
+        public static Task<object?> EnsureDestroyAsync(this EnsureRDS ensure, string idOrName, bool skipFinalSnapshot = false, CancellationToken ct = default)
         {
             if (ensure == null) throw new ArgumentNullException(nameof(ensure));
             var method = ensure.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public)
