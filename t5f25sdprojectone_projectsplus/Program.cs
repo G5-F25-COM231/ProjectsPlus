@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
 using t5f25sdprojectone_projectsplus.RegExtension;
-using t5f25sdprojectone_projectsplus.Services;
 
 namespace t5f25sdprojectone_projectsplus
 {
@@ -44,7 +42,12 @@ namespace t5f25sdprojectone_projectsplus
             //builder.Services.AddAndInitializeRDSAsync(builder.Configuration).GetAwaiter().GetResult();
             // -----------------------------------------------------------------------------------------////////////////
 
+            //github_surface
+            // -----------------------------------------------------------------------------------------////////////////
 
+            builder.Services.AddProjectsPlusGitHub(builder.Configuration);
+            
+            // -----------------------------------------------------------------------------------------////////////////
 
             // ---------------------------------------------------------
             // Option A: Register DbContext from configuration (recommended)

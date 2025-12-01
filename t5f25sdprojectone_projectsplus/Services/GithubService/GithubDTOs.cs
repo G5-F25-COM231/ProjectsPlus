@@ -83,8 +83,8 @@ namespace t5f25sdprojectone_projectsplus.Services.GithubService
         public ProjectCardType CardType { get; init; }
         public string Title { get; init; } = string.Empty;
         public string? Body { get; init; }
-        public string? LinkedRepo { get; init; } // owner/repo
-        public int? LinkedIssueNumber { get; init; }
+        public string? LinkedRepo { get; set; } // owner/repo
+        public int? LinkedIssueNumber { get; set; }
         public IReadOnlyList<string> Labels { get; init; } = Array.Empty<string>();
         public IReadOnlyList<string> Assignees { get; init; } = Array.Empty<string>();
         public IDictionary<string, string>? CustomFields { get; init; }
@@ -96,7 +96,7 @@ namespace t5f25sdprojectone_projectsplus.Services.GithubService
     public sealed class CollaboratorDto
     {
         public string Username { get; init; } = string.Empty;
-        public CollaboratorPermission Permission { get; init; }
+        public CollaboratorPermission Permission { get; set; }
         public bool IsPendingInvite { get; init; }
         public DateTime? InvitedAt { get; init; }
     }
@@ -120,8 +120,8 @@ namespace t5f25sdprojectone_projectsplus.Services.GithubService
         public string RequestedBy { get; init; } = string.Empty;
         public DateTime RequestedAt { get; init; }
         public IReadOnlyList<string> EntitiesRemoved { get; init; } = Array.Empty<string>();
-        public bool Success { get; init; }
-        public string? Message { get; init; }
+        public bool Success { get; set; }
+        public string? Message { get; set; }
     }
 
     #endregion
