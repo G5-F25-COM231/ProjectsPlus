@@ -9,6 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Repositories;
 
 namespace t5f25sdprojectone_projectsplus.Services.ComsService
 {

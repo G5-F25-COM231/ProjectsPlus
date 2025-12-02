@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces;
 
 namespace t5f25sdprojectone_projectsplus.Services.ComsService
 {

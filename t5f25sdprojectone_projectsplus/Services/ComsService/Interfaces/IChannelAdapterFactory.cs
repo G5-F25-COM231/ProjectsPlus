@@ -1,4 +1,4 @@
-﻿namespace t5f25sdprojectone_projectsplus.Services.ComsService
+﻿namespace t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces
 {
     public interface IChannelAdapterFactory
     {

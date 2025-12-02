@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Repositories;
 
-namespace t5f25sdprojectone_projectsplus.Services.ComsService
+namespace t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces
 {
     public interface IConnectionManager
     {

@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Repositories;
 using IDatabase = StackExchange.Redis.IDatabase;
 
 namespace t5f25sdprojectone_projectsplus.Services.ComsService

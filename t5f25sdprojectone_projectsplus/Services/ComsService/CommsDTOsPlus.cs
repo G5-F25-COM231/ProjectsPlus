@@ -3,6 +3,8 @@
 // Designed for EF Core (MS SQL Server Express), S3 for binaries, and DynamoDB for small metadata.
 // Namespace aligns with existing project structure.
 
+using t5f25sdprojectone_projectsplus.Services.ComsService.Repositories;
+
 namespace t5f25sdprojectone_projectsplus.Services.ComsService
 {
     #region Enums
@@ -142,6 +144,17 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         public DateTime? ScheduledFor { get; set; }
         public string? CorrelationId { get; set; } // link to project/job/message
         public IDictionary<string, string>? Metadata { get; set; }
+    }
+
+    public sealed class NotificationCreateDto
+    {
+        public string Channel { get; init; } = string.Empty;
+        public string Recipient { get; init; } = string.Empty;
+        public string? Subject { get; init; }
+        public string Body { get; init; } = string.Empty;
+        public string? VariablesJson { get; init; }
+        public DateTime? ScheduledForUtc { get; init; }
+        public byte Priority { get; init; } = 1;
     }
 
     public sealed class TemplateReferenceDto

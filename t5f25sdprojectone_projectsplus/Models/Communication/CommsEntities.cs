@@ -85,6 +85,9 @@ namespace t5f25sdprojectone_projectsplus.Models.Communication
         public DateTime? LastAttemptAt { get; set; }
         public string? ProviderMessageId { get; set; }
         public string? MetadataJson { get; set; }
+        public string? LastError { get; internal set; }
+        public DateTime SentAt { get; internal set; }
+        public Dictionary<string, string> Metadata { get; internal set; }
     }
 
     public sealed class CommAuditEntity
@@ -98,6 +101,8 @@ namespace t5f25sdprojectone_projectsplus.Models.Communication
         public string? ErrorMessage { get; set; }
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
         public string? PayloadJson { get; set; }
+        public string? EventType { get; internal set; }
+        public string? CorrelationId { get; internal set; }
     }
 
     public sealed class DeadLetterEntity

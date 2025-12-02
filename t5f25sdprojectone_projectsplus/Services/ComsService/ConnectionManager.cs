@@ -7,6 +7,8 @@ using System.Net.WebSockets;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Repositories;
 
 namespace t5f25sdprojectone_projectsplus.Services.ComsService
 {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace t5f25sdprojectone_projectsplus.Services.ComsService
+namespace t5f25sdprojectone_projectsplus.Services.ComsService.Repositories
 {
     public sealed class RealtimeEnvelope
     {

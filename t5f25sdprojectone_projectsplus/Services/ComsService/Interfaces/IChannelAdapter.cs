@@ -3,7 +3,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace t5f25sdprojectone_projectsplus.Services.ComsService
+namespace t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces
 {
     public interface IChannelAdapter
     {
