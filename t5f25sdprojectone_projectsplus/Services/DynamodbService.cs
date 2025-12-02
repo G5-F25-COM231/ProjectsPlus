@@ -10,8 +10,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.Interfaces;
 
-namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
+namespace t5f25sdprojectone_projectsplus.Services
 {
     public sealed class DynamodbServiceOptions
     {
@@ -37,8 +38,8 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
                 throw new ArgumentException("TableName must be provided in options.", nameof(options));
         }
 
-        public DynamodbServiceOptions Options => _options; 
-
+        public DynamodbServiceOptions Options => _options;
+       
         public async Task<DdbPutResult> PutItemAsync(DdbPutRequest req, CancellationToken ct = default)
         {
             var tableName = string.IsNullOrWhiteSpace(req?.TableName) ? _options.TableName : req.TableName;

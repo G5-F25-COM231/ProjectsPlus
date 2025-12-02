@@ -8,8 +8,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using t5f25sdprojectone_projectsplus.Services;
 
-namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
+namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.Interfaces
 {
     // ---------- DynamoDB (DDB) ----------
 
@@ -20,6 +21,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
     /// </summary>
     public interface IDynamodbService
     {
+        DynamodbServiceOptions Options { get; }
         Task<DdbPutResult> PutItemAsync(DdbPutRequest req, CancellationToken ct = default);
         Task<DdbGetResult> GetItemAsync(DdbGetRequest req, CancellationToken ct = default);
         Task<DdbDeleteResult> DeleteItemAsync(DdbDeleteRequest req, CancellationToken ct = default);
@@ -161,6 +163,7 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
     /// </summary>
     public interface IS3BucketService
     {
+        S3BucketServiceOptions Options { get; }
         Task<S3EnsureBucketResult> EnsureBucketAsync(S3EnsureBucketRequest req, CancellationToken ct = default);
         Task<S3PutObjectResult> PutObjectAsync(S3PutObjectRequest req, CancellationToken ct = default);
         Task<S3GetObjectResult> GetObjectAsync(S3GetObjectRequest req, CancellationToken ct = default);
@@ -199,13 +202,30 @@ namespace t5f25sdprojectone_projectsplus.IaC_ProjectsPlus
         public bool Overwrite { get; init; } = true;
     }
 
-    public sealed class S3PutObjectResult
+    public class ObjectInfo
     {
-        public bool Success { get; init; }
-        public string? ETag { get; init; }
-        public string? Location { get; init; }
-        public string? Message { get; init; }
+        public string Bucket { get; set; }
+        public string Key { get; set; }
+        public string Arn { get; set; }
+        public string AwsUrl { get; set; }          // presigned URL
+        public string Location { get; set; }        // s3://bucket/key
+        public string ETag { get; set; }
+        public DateTime? LastModified { get; set; }
+        public long? Size { get; set; }
+        public string ContentType { get; set; }
+        public string StorageClass { get; set; }
+        public IDictionary<string, string> Metadata { get; set; }
     }
+
+    public class S3PutObjectResult
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public string ETag { get; set; }
+        public string Location { get; set; }
+        public ObjectInfo ObjectInfo { get; set; }
+    }
+
 
     public sealed class S3GetObjectRequest
     {

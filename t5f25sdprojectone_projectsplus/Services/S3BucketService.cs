@@ -1,8 +1,9 @@
 ﻿using Amazon;
+using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
 using Amazon.S3;
 using Amazon.S3.Model;
-using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.Interfaces;
 using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureS3B;
 
 namespace t5f25sdprojectone_projectsplus.Services
@@ -40,6 +41,7 @@ namespace t5f25sdprojectone_projectsplus.Services
         }
 
         public S3BucketServiceOptions Options => _options;
+            
 
         // Helper to check bucket existence without DoesS3BucketExistV2Async
         private async Task<bool> BucketExistsAsync(string bucketName, CancellationToken ct)
@@ -120,9 +122,11 @@ namespace t5f25sdprojectone_projectsplus.Services
             }
         }
 
+
         public async Task<S3PutObjectResult> PutObjectAsync(S3PutObjectRequest req, CancellationToken ct = default)
         {
             var bucket = string.IsNullOrWhiteSpace(req.BucketName) ? _options.BucketName : req.BucketName;
+
             try
             {
                 var putReq = new PutObjectRequest
@@ -139,13 +143,55 @@ namespace t5f25sdprojectone_projectsplus.Services
                         putReq.Metadata.Add(kv.Key, kv.Value);
                 }
 
-                var resp = await _client.PutObjectAsync(putReq, ct).ConfigureAwait(false);
+                // Upload
+                var putResp = await _client.PutObjectAsync(putReq, ct).ConfigureAwait(false);
+
+                // Fetch metadata (lightweight)
+                var metaResp = await _client.GetObjectMetadataAsync(bucket, req.Key, ct).ConfigureAwait(false);
+
+                // Build ARN (S3 does not return ARN; construct it)
+                var arn = $"arn:aws:s3:::{bucket}/{req.Key}";
+
+                // Create presigned URL (signed by AWS credentials). Adjust expiry as needed.
+                var presignRequest = new GetPreSignedUrlRequest
+                {
+                    BucketName = bucket,
+                    Key = req.Key,
+                    Expires = DateTime.UtcNow.AddMinutes(15),
+                    Verb = HttpVerb.GET
+                };
+                var presignedUrl = _client.GetPreSignedURL(presignRequest);
+
+                // Collect metadata dictionary (if any)
+                IDictionary<string, string> returnedMetadata = null;
+                if (metaResp.Metadata != null && metaResp.Metadata.Keys.Count > 0)
+                {
+                    returnedMetadata = metaResp.Metadata.Keys
+                        .Cast<string>()
+                        .ToDictionary(k => k, k => metaResp.Metadata[k]);
+                }
+
+                var objectInfo = new ObjectInfo
+                {
+                    Bucket = bucket,
+                    Key = req.Key,
+                    Arn = arn,
+                    AwsUrl = presignedUrl,
+                    Location = $"s3://{bucket}/{req.Key}",
+                    ETag = putResp.ETag,
+                    LastModified = metaResp.LastModified,
+                    Size = metaResp.ContentLength,
+                    ContentType = metaResp.Headers.ContentType,
+                    StorageClass = metaResp.Headers["x-amz-storage-class"],
+                    Metadata = returnedMetadata
+                };
 
                 return new S3PutObjectResult
                 {
                     Success = true,
-                    ETag = resp.ETag,
-                    Location = $"s3://{bucket}/{req.Key}"
+                    ETag = putResp.ETag,
+                    Location = objectInfo.Location,
+                    ObjectInfo = objectInfo
                 };
             }
             catch (Exception ex)
@@ -153,6 +199,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                 return new S3PutObjectResult { Success = false, Message = ex.Message };
             }
         }
+
 
         public async Task<S3GetObjectResult> GetObjectAsync(S3GetObjectRequest req, CancellationToken ct = default)
         {
@@ -174,6 +221,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                 // resp.LastModified is DateTime? in some SDKs; handle nullable safely
                 DateTime? lastModifiedUtc = resp.LastModified.HasValue ? resp.LastModified.Value.ToUniversalTime() : null;
 
+               
                 return new S3GetObjectResult
                 {
                     Found = true,
@@ -297,5 +345,7 @@ namespace t5f25sdprojectone_projectsplus.Services
                 _disposed = true;
             }
         }
+
+        
     }
 }

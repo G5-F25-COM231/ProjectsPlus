@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules;
+using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.Interfaces;
 using t5f25sdprojectone_projectsplus.Services;
 using static t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.EnsureS3B;
 using Infralogger = t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.EnsureModules.Infralogger;

@@ -134,6 +134,10 @@
               "target": "Package",
               "version": "[4.3.0, )"
             },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.10.1, )"
+            },
             "xunit": {
               "target": "Package",
               "version": "[2.9.3, )"

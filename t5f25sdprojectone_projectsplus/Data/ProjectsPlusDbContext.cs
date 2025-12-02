@@ -1,19 +1,18 @@
 ﻿// src/Data/ProjectsPlusDbContext.cs
 using Microsoft.EntityFrameworkCore;
-using t5f25sdprojectone_projectsplus.Data.EntityConfigurations;
+using t5f25sdprojectone_projectsplus.Data.Configurations;
+using t5f25sdprojectone_projectsplus.Data.Configurations.Audit;
+using t5f25sdprojectone_projectsplus.Data.Configurations.Authorization;
+using t5f25sdprojectone_projectsplus.Data.Configurations.Communication;
+using t5f25sdprojectone_projectsplus.Data.Configurations.Opsconfigs;
+using t5f25sdprojectone_projectsplus.Data.Configurations.Project;
 using t5f25sdprojectone_projectsplus.Models;
 using t5f25sdprojectone_projectsplus.Models.Audit;
 using t5f25sdprojectone_projectsplus.Models.Authorization;
-using t5f25sdprojectone_projectsplus.Models.Configurations;
-using t5f25sdprojectone_projectsplus.Models.Configurations.Audit;
-using t5f25sdprojectone_projectsplus.Models.Configurations.Authorization;
-using t5f25sdprojectone_projectsplus.Models.Configurations.Opsconfigs;
-using t5f25sdprojectone_projectsplus.Models.Configurations.Project;
+using t5f25sdprojectone_projectsplus.Models.Communication;
 using t5f25sdprojectone_projectsplus.Models.Jobs;
 using t5f25sdprojectone_projectsplus.Models.Projects;
 using t5f25sdprojectone_projectsplus.Models.ResourceRecords;
-using t5f25sdprojectone_projectsplus.Models.Users;
-using t5f25sdprojectone_projectsplus.Models.Workspaces;
 
 namespace t5f25sdprojectone_projectsplus.Data
 {
@@ -28,11 +27,11 @@ namespace t5f25sdprojectone_projectsplus.Data
         public ProjectsPlusDbContext(DbContextOptions<ProjectsPlusDbContext> options) : base(options) { }
 
         // Core domain DbSets
-        public DbSet<UserEntity> Users { get; set; } = null!;
+        public DbSet<Models.Users.UserEntity> Users { get; set; } = null!;
         public DbSet<ProjectEntity> Projects { get; set; } = null!;
         public DbSet<ResourceRecordEntity> ResourceRecords { get; set; } = null!;
         public DbSet<FileRecordEntity> FileRecords { get; set; } = null!;
-        public DbSet<WorkspaceEntity> Workspaces { get; set; } = null!;
+        public DbSet<Models.Workspaces.WorkspaceEntity> Workspaces { get; set; } = null!;
 
         // Operational logs and job artifacts
         public DbSet<InfralogEntity> Infralogs { get; set; } = null!;
@@ -55,6 +54,24 @@ namespace t5f25sdprojectone_projectsplus.Data
 
         // AuditEntries DbSet assumed already added per prior steps
         public DbSet<AuditEntryEntity> AuditEntries { get; set; } = null!;
+
+        // -----------------------------------------------------------------------------------------////////////////
+        // comms
+
+        //public DbSet<UserEntity> Users => Set<UserEntity>();
+        //public DbSet<WorkspaceEntity> Workspaces => Set<WorkspaceEntity>();
+        public DbSet<RoomEntity> Rooms => Set<RoomEntity>();
+        public DbSet<RoomMemberEntity> RoomMembers => Set<RoomMemberEntity>();
+        public DbSet<MessageEntity> Messages => Set<MessageEntity>();
+        public DbSet<MessageAttachmentEntity> MessageAttachments => Set<MessageAttachmentEntity>();
+        public DbSet<NotificationEntity> Notifications => Set<NotificationEntity>();
+        public DbSet<CommAuditEntity> CommAudit => Set<CommAuditEntity>();
+        public DbSet<DeadLetterEntity> DeadLetters => Set<DeadLetterEntity>();
+        public DbSet<TemplateEntity> Templates => Set<TemplateEntity>();
+        public DbSet<PresenceEventEntity> PresenceEvents => Set<PresenceEventEntity>();
+
+
+        // -----------------------------------------------------------------------------------------////////////////
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -83,7 +100,19 @@ namespace t5f25sdprojectone_projectsplus.Data
             // Audit
             modelBuilder.ApplyConfiguration(new AuditEntryEntityConfiguration());
             modelBuilder.ApplyConfiguration(new RefreshTokenEntityConfiguration());
-       
+
+            // Comms
+            modelBuilder.ApplyConfiguration(new RoomEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new RoomMemberEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new MessageEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new MessageAttachmentEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new NotificationEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new CommAuditEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new DeadLetterEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new TemplateEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PresenceEventEntityConfiguration());
+
+
             // Notes for operators and reviewers:
             // - Keep cross-table indexes and FK constraints defined in configuration classes.
             // - For large deployments, consider partitioning RolePermission or indexing RoleId first for efficient permission checks.

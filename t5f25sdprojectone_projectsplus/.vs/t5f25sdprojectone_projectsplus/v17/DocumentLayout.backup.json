@@ -3,92 +3,52 @@
   "WorkspaceRootPath": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\regextension\\servicecollectiongithextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:regextension\\servicecollectiongithextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\repositories\\notificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\repositories\\notificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\controllers\\githcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:controllers\\githcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\commsdtosplus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\commsdtosplus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\repositories\\auditrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\repositories\\auditrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\attachmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\attachmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\dynamodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\dynamodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\s3bucketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\s3bucketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\interfaces\\storagecontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\interfaces\\storagecontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\repositories\\messagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\repositories\\messagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\notificationcenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\notificationcenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\controllers\\comscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:controllers\\comscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\commsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\commsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\regextension\\projectsplusservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:regextension\\projectsplusservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\regextension\\servicecollectionddbextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:regextension\\servicecollectionddbextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubwebhookhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubwebhookhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubmanager.purge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubmanager.purge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubmanager.contributions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubmanager.contributions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubmanager.repos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubmanager.repos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubmanager.collaborators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubmanager.collaborators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubmanager.projects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubmanager.projects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubhttpclientfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubhttpclientfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubcredsprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubcredsprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubcredsplus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubcredsplus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\commservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\commservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\icommservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\icommservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\githubservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\githubservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\githubservice\\igithubservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\githubservice\\igithubservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\regextension\\servicecollections3bextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:regextension\\servicecollections3bextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\regextension\\servicecollectionrdsextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:regextension\\servicecollectionrdsextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\infralogs.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\infralogs.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\ensuremodules\\ensurerds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -111,60 +71,8 @@
       "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\ensuremodules\\ensures3b.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\scratchplus\\stubinfraorchestrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:scratchplus\\stubinfraorchestrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\scratchplus\\ensures3destroyresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:scratchplus\\ensures3destroyresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\scratchplus\\idestroyresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:scratchplus\\idestroyresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\scratchplus\\ensurerdscompatextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:scratchplus\\ensurerdscompatextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\infralogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\infralogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\infraorchestrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\infraorchestrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\credsreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\credsreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\scratchplus\\infraservice_bkp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:scratchplus\\infraservice_bkp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\s3bucketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\s3bucketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\infraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\infraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\interfaces\\storagecontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\interfaces\\storagecontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\ensuremodules\\ensureecs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -175,24 +83,8 @@
       "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\ensuremodules\\infracontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\controllers\\projectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:controllers\\projectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\configurations\\userentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\configurations\\userentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\ensuremodules\\ensureiam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\ensuremodules\\ensureiam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\old\\iac_projectsplus\\infraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:old\\iac_projectsplus\\infraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -202,47 +94,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GitHController.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Controllers\\GitHController.cs",
-              "RelativeDocumentMoniker": "Controllers\\GitHController.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Controllers\\GitHController.cs",
-              "RelativeToolTip": "Controllers\\GitHController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T14:22:37.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ServiceCollectionGitHExtensions.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ServiceCollectionGitHExtensions.cs",
-              "RelativeDocumentMoniker": "RegExtension\\ServiceCollectionGitHExtensions.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ServiceCollectionGitHExtensions.cs",
-              "RelativeToolTip": "RegExtension\\ServiceCollectionGitHExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T14:04:08.812Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GitHubWebhookHandler.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubWebhookHandler.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GitHubWebhookHandler.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubWebhookHandler.cs",
-              "RelativeToolTip": "Services\\GithubService\\GitHubWebhookHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T13:58:31.368Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{9a7cebbb-dc5c-4986-bc49-962da46aa506}"
@@ -257,460 +110,159 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ServiceCollectionDDBExtensions.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ServiceCollectionDDBExtensions.cs",
-              "RelativeDocumentMoniker": "RegExtension\\ServiceCollectionDDBExtensions.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ServiceCollectionDDBExtensions.cs",
-              "RelativeToolTip": "RegExtension\\ServiceCollectionDDBExtensions.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADAAAAASAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "NotificationRepository.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\Repositories\\NotificationRepository.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\Repositories\\NotificationRepository.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\Repositories\\NotificationRepository.cs",
+              "RelativeToolTip": "Services\\ComsService\\Repositories\\NotificationRepository.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAgwGUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T18:09:25.805Z",
+              "WhenOpened": "2025-12-02T01:55:44.924Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProjectsPlusServiceCollectionExtensions.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ProjectsPlusServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "RegExtension\\ProjectsPlusServiceCollectionExtensions.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ProjectsPlusServiceCollectionExtensions.cs",
-              "RelativeToolTip": "RegExtension\\ProjectsPlusServiceCollectionExtensions.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CommsDTOsPlus.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\CommsDTOsPlus.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\CommsDTOsPlus.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\CommsDTOsPlus.cs",
+              "RelativeToolTip": "Services\\ComsService\\CommsDTOsPlus.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAA7wEwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T08:53:06.106Z",
+              "WhenOpened": "2025-12-02T01:34:14.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAqwCwAAAAcAAAAAAAAAA==",
+              "Title": "AuditRepository.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\Repositories\\AuditRepository.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\Repositories\\AuditRepository.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\Repositories\\AuditRepository.cs",
+              "RelativeToolTip": "Services\\ComsService\\Repositories\\AuditRepository.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAH4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T17:11:48.241Z",
+              "WhenOpened": "2025-12-02T01:33:16.29Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "GitHubManager.Purge.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Purge.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GitHubManager.Purge.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Purge.cs",
-              "RelativeToolTip": "Services\\GithubService\\GitHubManager.Purge.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T13:51:53.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GitHubManager.Contributions.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Contributions.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GitHubManager.Contributions.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Contributions.cs",
-              "RelativeToolTip": "Services\\GithubService\\GitHubManager.Contributions.cs",
-              "ViewState": "AgIAAJsBAAAAAAAAAAAgwJ8BAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T13:25:35.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GithubDTOs.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GithubDTOs.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GithubDTOs.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GithubDTOs.cs",
-              "RelativeToolTip": "Services\\GithubService\\GithubDTOs.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAqwH8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T13:23:01.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "GitHubManager.Collaborators.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Collaborators.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GitHubManager.Collaborators.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Collaborators.cs",
-              "RelativeToolTip": "Services\\GithubService\\GitHubManager.Collaborators.cs",
-              "ViewState": "AgIAANQAAAAAAAAAAAAAAJEAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T13:20:22.474Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GitHubManager.Projects.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Projects.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GitHubManager.Projects.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Projects.cs",
-              "RelativeToolTip": "Services\\GithubService\\GitHubManager.Projects.cs",
-              "ViewState": "AgIAAD0CAAAAAAAAAAAlwLACAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T12:53:22.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GitHubManager.Repos.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Repos.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GitHubManager.Repos.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubManager.Repos.cs",
-              "RelativeToolTip": "Services\\GithubService\\GitHubManager.Repos.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAzwA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T12:48:41.774Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "GitHubHttpClientFactory.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubHttpClientFactory.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GitHubHttpClientFactory.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GitHubHttpClientFactory.cs",
-              "RelativeToolTip": "Services\\GithubService\\GitHubHttpClientFactory.cs",
-              "ViewState": "AgIAAIcBAAAAAAAAAAAuwKIBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T12:40:38.905Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "GithubCredsProvider.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GithubCredsProvider.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GithubCredsProvider.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GithubCredsProvider.cs",
-              "RelativeToolTip": "Services\\GithubService\\GithubCredsProvider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T12:37:24.214Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "GithubCredsPlus.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GithubCredsPlus.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GithubCredsPlus.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GithubCredsPlus.cs",
-              "RelativeToolTip": "Services\\GithubService\\GithubCredsPlus.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAOcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T00:20:38.064Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CommService.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\CommService.cs",
-              "RelativeDocumentMoniker": "Services\\ComsService\\CommService.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\CommService.cs",
-              "RelativeToolTip": "Services\\ComsService\\CommService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T23:20:16.428Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ICommService.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\ICommService.cs",
-              "RelativeDocumentMoniker": "Services\\ComsService\\ICommService.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\ICommService.cs",
-              "RelativeToolTip": "Services\\ComsService\\ICommService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T23:19:42.062Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "GithubService.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GithubService.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\GithubService.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\GithubService.cs",
-              "RelativeToolTip": "Services\\GithubService\\GithubService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T23:17:53.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IGithubService.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\IGithubService.cs",
-              "RelativeDocumentMoniker": "Services\\GithubService\\IGithubService.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\GithubService\\IGithubService.cs",
-              "RelativeToolTip": "Services\\GithubService\\IGithubService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T23:15:50.367Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Infralogs.txt",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\Infralogs.txt",
-              "RelativeDocumentMoniker": "IaC_ProjectsPlus\\Infralogs.txt",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\Infralogs.txt",
-              "RelativeToolTip": "IaC_ProjectsPlus\\Infralogs.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-11-30T04:06:38.119Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ServiceCollectionRDSExtensions.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ServiceCollectionRDSExtensions.cs",
-              "RelativeDocumentMoniker": "RegExtension\\ServiceCollectionRDSExtensions.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ServiceCollectionRDSExtensions.cs",
-              "RelativeToolTip": "RegExtension\\ServiceCollectionRDSExtensions.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAQwDgAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T23:44:16.422Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ServiceCollectionS3BExtensions.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ServiceCollectionS3BExtensions.cs",
-              "RelativeDocumentMoniker": "RegExtension\\ServiceCollectionS3BExtensions.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\RegExtension\\ServiceCollectionS3BExtensions.cs",
-              "RelativeToolTip": "RegExtension\\ServiceCollectionS3BExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T17:35:18.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "EnsureRDSCompatExtensions.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\EnsureRDSCompatExtensions.cs",
-              "RelativeDocumentMoniker": "ScratchPlus\\EnsureRDSCompatExtensions.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\EnsureRDSCompatExtensions.cs",
-              "RelativeToolTip": "ScratchPlus\\EnsureRDSCompatExtensions.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAwDgAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T01:01:08.476Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "EnsureS3DestroyResult.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\EnsureS3DestroyResult.cs",
-              "RelativeDocumentMoniker": "ScratchPlus\\EnsureS3DestroyResult.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\EnsureS3DestroyResult.cs",
-              "RelativeToolTip": "ScratchPlus\\EnsureS3DestroyResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T01:57:13.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "IDestroyResult.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\IDestroyResult.cs",
-              "RelativeDocumentMoniker": "ScratchPlus\\IDestroyResult.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\IDestroyResult.cs",
-              "RelativeToolTip": "ScratchPlus\\IDestroyResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T01:57:20.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "StubInfraOrchestrator.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\StubInfraOrchestrator.cs",
-              "RelativeDocumentMoniker": "ScratchPlus\\StubInfraOrchestrator.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\StubInfraOrchestrator.cs",
-              "RelativeToolTip": "ScratchPlus\\StubInfraOrchestrator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T01:57:26.99Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Infralogger.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\Infralogger.cs",
-              "RelativeDocumentMoniker": "IaC_ProjectsPlus\\Infralogger.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\Infralogger.cs",
-              "RelativeToolTip": "IaC_ProjectsPlus\\Infralogger.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T14:15:17.513Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "CredsReader.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\CredsReader.cs",
-              "RelativeDocumentMoniker": "IaC_ProjectsPlus\\CredsReader.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\CredsReader.cs",
-              "RelativeToolTip": "IaC_ProjectsPlus\\CredsReader.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T09:40:51.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "S3BucketService.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\S3BucketService.cs",
-              "RelativeDocumentMoniker": "Services\\S3BucketService.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\S3BucketService.cs",
-              "RelativeToolTip": "Services\\S3BucketService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T15:21:40.426Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-29T18:57:04.028Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-29T18:57:06.773Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "InfraService_bkp.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\InfraService_bkp.cs",
-              "RelativeDocumentMoniker": "ScratchPlus\\InfraService_bkp.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\ScratchPlus\\InfraService_bkp.cs",
-              "RelativeToolTip": "ScratchPlus\\InfraService_bkp.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T18:57:50.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "ProjectService.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ProjectService.cs",
-              "RelativeDocumentMoniker": "Services\\ProjectService.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ProjectService.cs",
-              "RelativeToolTip": "Services\\ProjectService.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAwCMAAABxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T16:16:13.059Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "UserEntityConfiguration.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Configurations\\UserEntityConfiguration.cs",
-              "RelativeDocumentMoniker": "Models\\Configurations\\UserEntityConfiguration.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Configurations\\UserEntityConfiguration.cs",
-              "RelativeToolTip": "Models\\Configurations\\UserEntityConfiguration.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAQwGgAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T19:46:54.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "InfraService.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\InfraService.cs",
-              "RelativeDocumentMoniker": "IaC_ProjectsPlus\\InfraService.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\InfraService.cs",
-              "RelativeToolTip": "IaC_ProjectsPlus\\InfraService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAI4AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T03:15:41.399Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
               "Title": "StorageContracts.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\Interfaces\\StorageContracts.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\Interfaces\\StorageContracts.cs",
               "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\Interfaces\\StorageContracts.cs",
               "RelativeToolTip": "IaC_ProjectsPlus\\Interfaces\\StorageContracts.cs",
-              "ViewState": "AgIAAOQAAAAAAAAAAAAkwPAAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAqwKUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T09:29:57.542Z"
+              "WhenOpened": "2025-12-02T00:42:17.31Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AttachmentService.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\AttachmentService.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\AttachmentService.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\AttachmentService.cs",
+              "RelativeToolTip": "Services\\ComsService\\AttachmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:13:11.964Z"
+              "WhenOpened": "2025-12-02T00:24:33.736Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "ProjectsController.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Controllers\\ProjectsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProjectsController.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Controllers\\ProjectsController.cs",
-              "RelativeToolTip": "Controllers\\ProjectsController.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "DynamodbService.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\DynamodbService.cs",
+              "RelativeDocumentMoniker": "Services\\DynamodbService.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\DynamodbService.cs",
+              "RelativeToolTip": "Services\\DynamodbService.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA9wCkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:13:58.384Z"
+              "WhenOpened": "2025-12-02T00:21:18.24Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "InfraService.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\OLD\\IaC_ProjectsPlus\\InfraService.cs",
-              "RelativeDocumentMoniker": "OLD\\IaC_ProjectsPlus\\InfraService.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\OLD\\IaC_ProjectsPlus\\InfraService.cs",
-              "RelativeToolTip": "OLD\\IaC_ProjectsPlus\\InfraService.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "MessageRepository.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\Repositories\\MessageRepository.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\Repositories\\MessageRepository.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\Repositories\\MessageRepository.cs",
+              "RelativeToolTip": "Services\\ComsService\\Repositories\\MessageRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T01:38:06.182Z"
+              "WhenOpened": "2025-12-02T00:14:01.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NotificationCenter.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\NotificationCenter.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\NotificationCenter.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\NotificationCenter.cs",
+              "RelativeToolTip": "Services\\ComsService\\NotificationCenter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T00:08:26.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "S3BucketService.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\S3BucketService.cs",
+              "RelativeDocumentMoniker": "Services\\S3BucketService.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\S3BucketService.cs",
+              "RelativeToolTip": "Services\\S3BucketService.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAwwCoAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T21:59:53.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ComsController.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Controllers\\ComsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ComsController.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Controllers\\ComsController.cs",
+              "RelativeToolTip": "Controllers\\ComsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:46:51.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CommsService.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\CommsService.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\CommsService.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\CommsService.cs",
+              "RelativeToolTip": "Services\\ComsService\\CommsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:56:20.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAqwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T17:11:48.241Z",
+              "EditorCaption": ""
             }
           ]
         },
@@ -745,7 +297,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 17,
               "Title": "InfraOrchestrator.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\InfraOrchestrator.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\InfraOrchestrator.cs",
@@ -758,7 +310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 19,
               "Title": "InfraContracts.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\EnsureModules\\InfraContracts.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\EnsureModules\\InfraContracts.cs",
@@ -770,7 +322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 12,
               "Title": "EnsureRDS.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\EnsureModules\\EnsureRDS.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\EnsureModules\\EnsureRDS.cs",
@@ -783,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 16,
               "Title": "EnsureS3B.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\EnsureModules\\EnsureS3B.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\EnsureModules\\EnsureS3B.cs",
@@ -796,7 +348,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 15,
               "Title": "EnsureDDB.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\EnsureModules\\EnsureDDB.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\EnsureModules\\EnsureDDB.cs",
@@ -809,7 +361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 20,
               "Title": "EnsureIAM.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\EnsureModules\\EnsureIAM.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\EnsureModules\\EnsureIAM.cs",
@@ -821,7 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 18,
               "Title": "EnsureECS.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\EnsureModules\\EnsureECS.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\EnsureModules\\EnsureECS.cs",
@@ -833,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 14,
               "Title": "EnsureASM.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\EnsureModules\\EnsureASM.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\EnsureModules\\EnsureASM.cs",
@@ -846,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 13,
               "Title": "EnsureVPC.cs",
               "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\EnsureModules\\EnsureVPC.cs",
               "RelativeDocumentMoniker": "IaC_ProjectsPlus\\EnsureModules\\EnsureVPC.cs",
