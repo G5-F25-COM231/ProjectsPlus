@@ -25,7 +25,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         public async Task<string> SendAsync(NotificationEntity notification, CancellationToken ct = default)
         {
             // send to user id (recipient expected to be user id string)
-            if (!Guid.TryParse(notification.Recipient, out var userId))
+            if (!long.TryParse(notification.Recipient, out var userId))
             {
                 // if recipient is numeric id or other format, adapt as needed
                 _logger.LogWarning("InApp recipient not a GUID {Recipient}", notification.Recipient);

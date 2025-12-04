@@ -11,7 +11,15 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService.InMemory
 {
     // In-memory ITemplateRepository implementation for local development and tests.
     // API mirrors TemplateRepositoryEf: GetByIdAsync, ListAsync, CreateAsync, UpdateAsync, DeleteAsync.
-   
+
+    public interface ITemplateRepository
+    {
+        Task<TemplateDto> CreateAsync(TemplateDto template, CancellationToken ct = default);
+        Task<TemplateDto?> GetAsync(string templateId, CancellationToken ct = default);
+        Task<PagedResult<TemplateDto>> ListAsync(TemplateScope? scope, string? scopeKey, int pageSize, string? continuationToken, CancellationToken ct = default);
+        Task<TemplateDto> UpdateAsync(TemplateDto template, CancellationToken ct = default);
+        Task<bool> DeleteAsync(string templateId, CancellationToken ct = default);
+    }
     public class TemplateRepositoryInMemory : ITemplateRepository
     {
         private readonly ConcurrentDictionary<string, TemplateDto> _store = new(StringComparer.OrdinalIgnoreCase);

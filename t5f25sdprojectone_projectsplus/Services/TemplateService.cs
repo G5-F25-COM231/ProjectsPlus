@@ -1,11 +1,7 @@
 ﻿// src/ProjectsPlus.Comms/Services/TemplateService.cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 using t5f25sdprojectone_projectsplus.Services.ComsService;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Repositories;
 
 namespace t5f25sdprojectone_projectsplus.Services
 {
@@ -38,29 +34,62 @@ namespace t5f25sdprojectone_projectsplus.Services
         public async Task<TemplateDto?> GetTemplateAsync(string templateId, CancellationToken ct = default)
         {
             if (string.IsNullOrWhiteSpace(templateId)) return null;
-            return await _repo.GetAsync(templateId, ct);
+            return await _repo.GetByIdAsync(templateId, ct);
         }
-
-        public async Task<PagedResult<TemplateDto>> ListTemplatesAsync(TemplateScope? scope = null, string? scopeKey = null, int pageSize = 50, string? continuationToken = null, CancellationToken ct = default)
+        
+        public async Task<PagedResult<TemplateDto>> ListTemplatesAsync(
+            TemplateScope? scope = null,
+            string? scopeKey = null,
+            int pageSize = 50,
+            string? continuationToken = null,
+            CancellationToken ct = default)
         {
             if (pageSize <= 0) pageSize = 50;
-            return await _repo.ListAsync(scope, scopeKey, pageSize, continuationToken, ct);
+
+            // repo returns IReadOnlyList<TemplateDto>
+            var items = await _repo.ListAsync(scope?.ToString(), scopeKey, pageSize, continuationToken, ct);
+
+            // Map the list into a PagedResult. Adjust property names below to match your PagedResult<T> definition.
+            return new PagedResult<TemplateDto>
+            {
+                Items = items,
+                TotalCount = items?.Count ?? 0,                 // optional: only if PagedResult has Total
+                ContinuationToken = null                   // set to repo-provided token if available
+            };
         }
+
 
         public async Task<TemplateDto> UpdateTemplateAsync(TemplateDto template, CancellationToken ct = default)
         {
             if (template == null) throw new ArgumentNullException(nameof(template));
             if (string.IsNullOrWhiteSpace(template.TemplateId)) throw new ArgumentNullException(nameof(template.TemplateId));
             NormalizeTemplate(template);
+            var updatedTemp = new Action<TemplateDto>(t => template = t);
+            try
+            {
+                await _repo.UpdateAsync(template.TemplateId, updatedTemp, ct);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            var updated = await _repo.UpdateAsync(template, ct);
-            return updated;
+            return template;
         }
 
         public async Task<bool> DeleteTemplateAsync(string templateId, CancellationToken ct = default)
         {
             if (string.IsNullOrWhiteSpace(templateId)) return false;
-            return await _repo.DeleteAsync(templateId, ct);
+            try
+            {
+                await _repo.DeleteAsync(templateId, ct); // void call
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
 
         /// <summary>

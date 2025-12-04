@@ -1,10 +1,7 @@
 ﻿// src/ProjectsPlus.Data/Configurations/CommsEntityConfigurations.cs
-using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using t5f25sdprojectone_projectsplus.Models.Communication;
-using t5f25sdprojectone_projectsplus.Models.Users;
-using t5f25sdprojectone_projectsplus.Models.Workspaces;
 
 // Configure conversions for JSON-like properties if you want to map to POCOs in the future.
 // Example converters can be added in repository/service layer when mapping DTOs <-> Entities.
@@ -84,25 +81,26 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
                 new RoomMemberEntity
                 {
                     RoomId = Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                    UserId = Guid.Parse("1000L"),
+                    UserId = 1001,
                     Role = "owner",
-                    JoinedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1, 0, 0, 0), DateTimeKind.Utc)
+                    JoinedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
                 },
                 new RoomMemberEntity
                 {
                     RoomId = Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                    UserId = Guid.Parse("1001L"),
+                    UserId = 1002,
                     Role = "member",
-                    JoinedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 2, 0, 0, 0), DateTimeKind.Utc)
+                    JoinedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 2), DateTimeKind.Utc)
                 },
                 new RoomMemberEntity
                 {
                     RoomId = Guid.Parse("33333333-3333-3333-3333-333333333333"),
-                    UserId = Guid.Parse("1002L"),
+                    UserId = 1003,
                     Role = "member",
-                    JoinedAt = DateTime.SpecifyKind(new DateTime(2025, 3, 2, 0, 0, 0), DateTimeKind.Utc)
+                    JoinedAt = DateTime.SpecifyKind(new DateTime(2025, 3, 2), DateTimeKind.Utc)
                 }
             );
+
         }
     }
 
@@ -135,52 +133,53 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
 
             // Seeds (3) - MessageId and RoomId are GUIDs; SenderUserId/RecipientUserId are long
             builder.HasData(
-                new MessageEntity
-                {
-                    MessageId = Guid.Parse("aaaaaaaa-0000-0000-0000-000000000001"),
-                    RoomId = Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                    ThreadRootId = null,
-                    SenderUserId = Guid.Parse("1000L"),
-                    RecipientUserId = null,
-                    Body = "Welcome to the General room.",
-                    BodyHtml = "<p>Welcome to the <strong>General</strong> room.</p>",
-                    Snippet = "Welcome to the General room.",
-                    CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1, 12, 0, 0), DateTimeKind.Utc),
-                    IsDeleted = false,
-                    Visibility = "visible",
-                    MetadataJson = "{\"pinned\":false}"
-                },
-                new MessageEntity
-                {
-                    MessageId = Guid.Parse("aaaaaaaa-0000-0000-0000-000000000002"),
-                    RoomId = Guid.Parse("22222222-2222-2222-2222-222222222222"),
-                    ThreadRootId = null,
-                    SenderUserId = Guid.Parse("1001L"),
-                    RecipientUserId = null,
-                    Body = "Announcement: maintenance window tomorrow.",
-                    BodyHtml = "<p><em>Announcement:</em> maintenance window tomorrow.</p>",
-                    Snippet = "Announcement: maintenance window tomorrow.",
-                    CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 2, 10, 9, 30, 0), DateTimeKind.Utc),
-                    IsDeleted = false,
-                    Visibility = "visible",
-                    MetadataJson = "{\"announcement\":true}"
-                },
-                new MessageEntity
-                {
-                    MessageId = Guid.Parse("aaaaaaaa-0000-0000-0000-000000000003"),
-                    RoomId = Guid.Parse("33333333-3333-3333-3333-333333333333"),
-                    ThreadRootId = null,
-                    SenderUserId = Guid.Parse("1002L"),
-                    RecipientUserId = null,
-                    Body = "Sprint planning notes attached.",
-                    BodyHtml = "<p>Sprint planning notes attached.</p>",
-                    Snippet = "Sprint planning notes attached.",
-                    CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 3, 5, 14, 0, 0), DateTimeKind.Utc),
-                    IsDeleted = false,
-                    Visibility = "visible",
-                    MetadataJson = "{\"tags\":[\"planning\",\"sprint\"]}"
-                }
-            );
+                 new MessageEntity
+                 {
+                     MessageId = Guid.Parse("aaaaaaaa-0000-0000-0000-000000000001"),
+                     RoomId = Guid.Parse("11111111-1111-1111-1111-111111111111"),
+                     ThreadRootId = null,
+                     SenderUserId = 1001,
+                     RecipientUserId = null,
+                     Body = "Welcome to the General room.",
+                     BodyHtml = "<p>Welcome to the <strong>General</strong> room.</p>",
+                     Snippet = "Welcome to the General room.",
+                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1, 12, 0, 0), DateTimeKind.Utc),
+                     IsDeleted = false,
+                     Visibility = "visible",
+                     MetadataJson = "{\"pinned\":false}"
+                 },
+                 new MessageEntity
+                 {
+                     MessageId = Guid.Parse("aaaaaaaa-0000-0000-0000-000000000002"),
+                     RoomId = Guid.Parse("22222222-2222-2222-2222-222222222222"),
+                     ThreadRootId = null,
+                     SenderUserId = 1002,
+                     RecipientUserId = null,
+                     Body = "Announcement: maintenance window tomorrow.",
+                     BodyHtml = "<p><em>Announcement:</em> maintenance window tomorrow.</p>",
+                     Snippet = "Announcement: maintenance window tomorrow.",
+                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 2, 10, 9, 30, 0), DateTimeKind.Utc),
+                     IsDeleted = false,
+                     Visibility = "visible",
+                     MetadataJson = "{\"announcement\":true}"
+                 },
+                 new MessageEntity
+                 {
+                     MessageId = Guid.Parse("aaaaaaaa-0000-0000-0000-000000000003"),
+                     RoomId = Guid.Parse("33333333-3333-3333-3333-333333333333"),
+                     ThreadRootId = null,
+                     SenderUserId = 1003,
+                     RecipientUserId = null,
+                     Body = "Sprint planning notes attached.",
+                     BodyHtml = "<p>Sprint planning notes attached.</p>",
+                     Snippet = "Sprint planning notes attached.",
+                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 3, 5, 14, 0, 0), DateTimeKind.Utc),
+                     IsDeleted = false,
+                     Visibility = "visible",
+                     MetadataJson = "{\"tags\":[\"planning\",\"sprint\"]}"
+                 }
+             );
+
         }
     }
 
@@ -216,7 +215,7 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
                     StoragePointer = "s3://projectsplus-attachments/welcome.pdf",
                     DdbId = "att-0001",
                     SizeBytes = 102400,
-                    UploaderUserId = Guid.Parse("1000L"),
+                    UploaderUserId = Guid.Parse("00000000-0000-0000-0000-000000000001"),
                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1, 12, 1, 0), DateTimeKind.Utc)
                 },
                 new MessageAttachmentEntity
@@ -228,7 +227,7 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
                     StoragePointer = "s3://projectsplus-attachments/maintenance-details.txt",
                     DdbId = "att-0002",
                     SizeBytes = 2048,
-                    UploaderUserId = Guid.Parse("1001L"),
+                    UploaderUserId = Guid.Parse("00000000-0000-0000-0000-000000000002"),
                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 2, 10, 9, 31, 0), DateTimeKind.Utc)
                 },
                 new MessageAttachmentEntity
@@ -240,10 +239,11 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
                     StoragePointer = "s3://projectsplus-attachments/sprint-plan.xlsx",
                     DdbId = "att-0003",
                     SizeBytes = 512000,
-                    UploaderUserId = Guid.Parse("1002L"),
+                    UploaderUserId = Guid.Parse("00000000-0000-0000-0000-000000000003"),
                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 3, 5, 14, 1, 0), DateTimeKind.Utc)
                 }
             );
+
         }
     }
 
@@ -276,52 +276,53 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
 
             // Seeds (3) - NotificationId are GUIDs
             builder.HasData(
-                new NotificationEntity
-                {
-                    NotificationId = Guid.Parse("cccccccc-0000-0000-0000-000000000001"),
-                    Channel = "Email",
-                    Recipient = "user1@example.edu",
-                    Subject = "Welcome to ProjectsPlus",
-                    Body = "Welcome! This is your first notification.",
-                    VariablesJson = "{\"userId\":1000}",
-                    Priority = 1,
-                    Status = "pending",
-                    Attempts = 0,
-                    ScheduledFor = null,
-                    CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1, 12, 2, 0), DateTimeKind.Utc),
-                    MetadataJson = "{\"source\":\"system\"}"
-                },
-                new NotificationEntity
-                {
-                    NotificationId = Guid.Parse("cccccccc-0000-0000-0000-000000000002"),
-                    Channel = "Webhook",
-                    Recipient = "https://hooks.example.com/notify",
-                    Subject = null,
-                    Body = "{\"event\":\"maintenance\",\"when\":\"2025-02-11T02:00:00Z\"}",
-                    VariablesJson = "{\"workspaceId\":\"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa\"}",
-                    Priority = 2,
-                    Status = "pending",
-                    Attempts = 0,
-                    ScheduledFor = DateTime.SpecifyKind(new DateTime(2025, 2, 10, 9, 0, 0), DateTimeKind.Utc),
-                    CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 2, 9, 12, 0, 0), DateTimeKind.Utc),
-                    MetadataJson = "{\"retryPolicy\":\"exponential\"}"
-                },
-                new NotificationEntity
-                {
-                    NotificationId = Guid.Parse("cccccccc-0000-0000-0000-000000000003"),
-                    Channel = "InApp",
-                    Recipient = "1002", // user id as string
-                    Subject = "Sprint Reminder",
-                    Body = "Don't forget sprint planning at 15:00 UTC.",
-                    VariablesJson = "{\"roomId\":\"33333333-3333-3333-3333-333333333333\"}",
-                    Priority = 1,
-                    Status = "pending",
-                    Attempts = 0,
-                    ScheduledFor = null,
-                    CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 3, 5, 13, 0, 0), DateTimeKind.Utc),
-                    MetadataJson = "{\"source\":\"scheduler\"}"
-                }
-            );
+                 new NotificationEntity
+                 {
+                     NotificationId = Guid.Parse("cccccccc-0000-0000-0000-000000000001"),
+                     Channel = "Email",
+                     Recipient = Guid.Parse("00000000-0000-0000-0000-000000000001").ToString(),
+                     Subject = "Welcome to ProjectsPlus",
+                     Body = "Welcome! This is your first notification.",
+                     VariablesJson = "{\"userId\":\"00000000-0000-0000-0000-000000000001\"}",
+                     Priority = 1,
+                     Status = "pending",
+                     Attempts = 0,
+                     ScheduledFor = null,
+                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1, 12, 2, 0), DateTimeKind.Utc),
+                     MetadataJson = "{\"source\":\"system\"}"
+                 },
+                 new NotificationEntity
+                 {
+                     NotificationId = Guid.Parse("cccccccc-0000-0000-0000-000000000002"),
+                     Channel = "Webhook",
+                     Recipient = "https://hooks.example.com/notify",
+                     Subject = null,
+                     Body = "{\"event\":\"maintenance\",\"when\":\"2025-02-11T02:00:00Z\"}",
+                     VariablesJson = "{\"workspaceId\":\"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa\"}",
+                     Priority = 2,
+                     Status = "pending",
+                     Attempts = 0,
+                     ScheduledFor = DateTime.SpecifyKind(new DateTime(2025, 2, 10, 9, 0, 0), DateTimeKind.Utc),
+                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 2, 9, 12, 0, 0), DateTimeKind.Utc),
+                     MetadataJson = "{\"retryPolicy\":\"exponential\"}"
+                 },
+                 new NotificationEntity
+                 {
+                     NotificationId = Guid.Parse("cccccccc-0000-0000-0000-000000000003"),
+                     Channel = "InApp",
+                     Recipient = Guid.Parse("00000000-0000-0000-0000-000000000003").ToString(),
+                     Subject = "Sprint Reminder",
+                     Body = "Don't forget sprint planning at 15:00 UTC.",
+                     VariablesJson = "{\"roomId\":\"33333333-3333-3333-3333-333333333333\"}",
+                     Priority = 1,
+                     Status = "pending",
+                     Attempts = 0,
+                     ScheduledFor = null,
+                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 3, 5, 13, 0, 0), DateTimeKind.Utc),
+                     MetadataJson = "{\"source\":\"scheduler\"}"
+                 }
+             );
+
         }
     }
 
@@ -537,7 +538,7 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
                 new PresenceEventEntity
                 {
                     PresenceEventId = Guid.Parse("ffffffff-0000-0000-0000-000000000001"),
-                    UserId = Guid.Parse("1000L"),
+                    UserId = Guid.Parse("00000000-0000-0000-0000-000000000001"),
                     Status = "Online",
                     TimestampUtc = DateTime.SpecifyKind(new DateTime(2025, 6, 1, 12, 0, 0), DateTimeKind.Utc),
                     ConnectionId = "conn-1000-1",
@@ -546,7 +547,7 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
                 new PresenceEventEntity
                 {
                     PresenceEventId = Guid.Parse("ffffffff-0000-0000-0000-000000000002"),
-                    UserId = Guid.Parse("1001L"),
+                    UserId = Guid.Parse("00000000-0000-0000-0000-000000000002"),
                     Status = "Away",
                     TimestampUtc = DateTime.SpecifyKind(new DateTime(2025, 6, 1, 12, 5, 0), DateTimeKind.Utc),
                     ConnectionId = "conn-1001-1",
@@ -555,13 +556,14 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Communication
                 new PresenceEventEntity
                 {
                     PresenceEventId = Guid.Parse("ffffffff-0000-0000-0000-000000000003"),
-                    UserId = Guid.Parse("1002L"),
+                    UserId = Guid.Parse("00000000-0000-0000-0000-000000000003"),
                     Status = "Offline",
                     TimestampUtc = DateTime.SpecifyKind(new DateTime(2025, 6, 1, 11, 50, 0), DateTimeKind.Utc),
                     ConnectionId = null,
                     MetadataJson = "{\"reason\":\"manual-signout\"}"
                 }
             );
+
         }
     }
 }

@@ -46,18 +46,39 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         private readonly CommQueueWorkerOptions _opts;
         private readonly Random _rng = new();
 
+        private readonly IServiceProvider _services;
+        
         public CommQueueWorker(
-            ILogger<CommQueueWorker> logger,
-            INotificationRepository notificationRepo,
-            NotificationCenter notificationCenter,
-            ICommAuditStore auditStore,
-            IOptions<CommQueueWorkerOptions> options)
+            IServiceProvider services//,
+            //ILogger<CommQueueWorker> logger,
+            //INotificationRepository notificationRepo,
+            //ICommAuditStore auditStore,
+            //IOptions<CommQueueWorkerOptions> options
+          )
         {
+            
+
+            _services = services;
+            using var scope = _services.CreateScope();
+            var repo = scope.ServiceProvider.GetRequiredService<INotificationRepository>();
+            var ntc = scope.ServiceProvider.GetRequiredService<NotificationCenter>();
+            var cas = scope.ServiceProvider.GetRequiredService<ICommAuditStore>();
+            var opts = scope.ServiceProvider.GetRequiredService<IOptions<CommQueueWorkerOptions>>();
+            var logger = scope.ServiceProvider.GetRequiredService<ILogger<CommQueueWorker>>();
+
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _notificationRepo = notificationRepo ?? throw new ArgumentNullException(nameof(notificationRepo));
-            _notificationCenter = notificationCenter ?? throw new ArgumentNullException(nameof(notificationCenter));
-            _auditStore = auditStore ?? throw new ArgumentNullException(nameof(auditStore));
-            _opts = options?.Value ?? new CommQueueWorkerOptions();
+            _notificationRepo = repo ?? throw new ArgumentNullException(nameof(repo));
+            _notificationCenter = ntc ?? throw new ArgumentNullException(nameof(ntc));
+            _auditStore = cas ?? throw new ArgumentNullException(nameof(cas));
+            _opts = opts?.Value ?? throw new ArgumentNullException(nameof(opts));
+
+
+            //_logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            //_notificationRepo = notificationRepo ?? throw new ArgumentNullException(nameof(notificationRepo));
+            //_notificationCenter = notificationCenter ?? throw new ArgumentNullException(nameof(notificationCenter));
+            //_auditStore = auditStore ?? throw new ArgumentNullException(nameof(auditStore));
+            //_opts = options?.Value ?? new CommQueueWorkerOptions();
+
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)

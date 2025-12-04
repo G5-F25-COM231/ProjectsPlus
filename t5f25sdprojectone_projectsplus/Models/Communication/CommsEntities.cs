@@ -22,7 +22,7 @@ namespace t5f25sdprojectone_projectsplus.Models.Communication
         public Guid? WorkspaceId { get; set; }
         public string Name { get; set; } = string.Empty;
         public bool IsPrivate { get; set; } = true;
-        public Guid? CreatedBy { get; set; }
+        public long? CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public string? MetadataJson { get; set; }
     }
@@ -30,7 +30,7 @@ namespace t5f25sdprojectone_projectsplus.Models.Communication
     public sealed class RoomMemberEntity
     {
         public Guid RoomId { get; set; }
-        public Guid UserId { get; set; }
+        public long UserId { get; set; }
         public string Role { get; set; } = "member";
         public DateTime JoinedAt { get; set; } = DateTime.UtcNow;
 
@@ -44,8 +44,8 @@ namespace t5f25sdprojectone_projectsplus.Models.Communication
         public Guid MessageId { get; set; }
         public Guid? RoomId { get; set; }
         public Guid? ThreadRootId { get; set; }
-        public Guid? SenderUserId { get; set; }
-        public Guid? RecipientUserId { get; set; } // for DMs
+        public long? SenderUserId { get; set; }
+        public long? RecipientUserId { get; set; } // for DMs
         public string? Body { get; set; }
         public string? BodyHtml { get; set; }
         public string? Snippet { get; set; }
@@ -87,7 +87,7 @@ namespace t5f25sdprojectone_projectsplus.Models.Communication
         public string? MetadataJson { get; set; }
         public string? LastError { get; internal set; }
         public DateTime SentAt { get; internal set; }
-        public Dictionary<string, string> Metadata { get; internal set; }
+        public Dictionary<string, string>? Metadata { get; set; }
     }
 
     public sealed class CommAuditEntity
@@ -114,6 +114,9 @@ namespace t5f25sdprojectone_projectsplus.Models.Communication
         public string? LastError { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public string? PayloadJson { get; set; }
+        public string? Channel { get; internal set; }
+        public string? Recipient { get; internal set; }
+        public string? Error { get; internal set; }
     }
 
     public sealed class TemplateEntity
@@ -129,6 +132,7 @@ namespace t5f25sdprojectone_projectsplus.Models.Communication
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
+        public string? Channel { get; internal set; }
     }
 
     public sealed class PresenceEventEntity

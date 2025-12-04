@@ -27,7 +27,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<RoomDto> CreateRoomAsync(Guid workspaceId, string name, Guid createdBy, bool isPrivate = true, CancellationToken ct = default)
+        public async Task<RoomDto> CreateRoomAsync(Guid workspaceId, string name, long createdBy, bool isPrivate = true, CancellationToken ct = default)
         {
             var room = new RoomEntity
             {
@@ -53,7 +53,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
             };
         }
 
-        public async Task JoinRoomAsync(Guid roomId, Guid userId, CancellationToken ct = default)
+        public async Task JoinRoomAsync(Guid roomId, long userId, CancellationToken ct = default)
         {
             var exists = await _db.RoomMembers.AnyAsync(m => m.RoomId == roomId && m.UserId == userId, ct).ConfigureAwait(false);
             if (exists) return;
@@ -76,10 +76,10 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
                 Payload = new Dictionary<string, object?> { ["userId"] = userId, ["roomId"] = roomId }
             };
 
-            try { await _connections.BroadcastToRoomAsync(roomId.ToString("D"), env).ConfigureAwait(false); } catch (Exception ex) { _logger.LogDebug(ex, "Broadcast join failed"); }
+            try { await _connections.BroadcastToRoomAsync(roomId, env).ConfigureAwait(false); } catch (Exception ex) { _logger.LogDebug(ex, "Broadcast join failed"); }
         }
 
-        public async Task LeaveRoomAsync(Guid roomId, Guid userId, CancellationToken ct = default)
+        public async Task LeaveRoomAsync(Guid roomId, long userId, CancellationToken ct = default)
         {
             var member = await _db.RoomMembers.FirstOrDefaultAsync(m => m.RoomId == roomId && m.UserId == userId, ct).ConfigureAwait(false);
             if (member == null) return;
@@ -96,7 +96,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
             try { await _connections.BroadcastToRoomAsync(roomId.ToString("D"), env).ConfigureAwait(false); } catch (Exception ex) { _logger.LogDebug(ex, "Broadcast leave failed"); }
         }
 
-        public async Task<ChatMessageDto> PostMessageAsync(Guid roomId, Guid senderUserId, string body, IEnumerable<AttachmentDescriptor>? attachments = null, CancellationToken ct = default)
+        public async Task<ChatMessageDto> PostMessageAsync(Guid roomId, long senderUserId, string body, IEnumerable<AttachmentDescriptor>? attachments = null, CancellationToken ct = default)
         {
             var room = await _db.Rooms.FirstOrDefaultAsync(r => r.RoomId == roomId, ct).ConfigureAwait(false);
             if (room == null) throw new InvalidOperationException("Room not found");
@@ -144,7 +144,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
                 }
             };
 
-            try { await _connections.BroadcastToRoomAsync(roomId.ToString("D"), envelope).ConfigureAwait(false); } catch (Exception ex) { _logger.LogWarning(ex, "BroadcastToRoomAsync failed for room {RoomId}", roomId); }
+            try { await _connections.BroadcastToRoomAsync(roomId, envelope).ConfigureAwait(false); } catch (Exception ex) { _logger.LogWarning(ex, "BroadcastToRoomAsync failed for room {RoomId}", roomId); }
 
             return dto;
         }
@@ -170,7 +170,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
             return members;
         }
 
-        public async Task KickMemberAsync(Guid roomId, Guid moderatorUserId, Guid targetUserId, CancellationToken ct = default)
+        public async Task KickMemberAsync(Guid roomId, long moderatorUserId, long targetUserId, CancellationToken ct = default)
         {
             var mod = await _db.RoomMembers.FirstOrDefaultAsync(m => m.RoomId == roomId && m.UserId == moderatorUserId, ct).ConfigureAwait(false);
             if (mod == null || !string.Equals(mod.Role, "moderator", StringComparison.OrdinalIgnoreCase))
@@ -189,11 +189,11 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
                 Payload = new Dictionary<string, object?> { ["roomId"] = roomId, ["kickedBy"] = moderatorUserId }
             };
 
-            try { await _connections.SendToUserAsync(targetUserId, envelope).ConfigureAwait(false); } catch { }
-            try { await _connections.BroadcastToRoomAsync(roomId.ToString("D"), envelope).ConfigureAwait(false); } catch { }
+            try { await _connections.SendToUserAsync(targetUserId, envelope, ct).ConfigureAwait(false); } catch { }
+            try { await _connections.BroadcastToRoomAsync(roomId, envelope, ct).ConfigureAwait(false); } catch { }
         }
 
-        public Task AddConnectionToRoomAsync(string roomId, string connectionId, Guid? userId)
+        public Task AddConnectionToRoomAsync(string roomId, string connectionId, long? userId)
         {
             var env = new RealtimeEnvelope
             {
@@ -201,10 +201,10 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
                 To = roomId,
                 Payload = new Dictionary<string, object?> { ["connectionId"] = connectionId, ["userId"] = userId?.ToString("D") }
             };
-            return _connections.BroadcastToRoomAsync(roomId, env);
+            return _connections.BroadcastToRoomAsync(Guid.Parse(roomId), env);
         }
 
-        public Task RemoveConnectionFromRoomAsync(string roomId, string connectionId, Guid? userId)
+        public Task RemoveConnectionFromRoomAsync(string roomId, string connectionId, long? userId)
         {
             var env = new RealtimeEnvelope
             {
@@ -212,10 +212,10 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
                 To = roomId,
                 Payload = new Dictionary<string, object?> { ["connectionId"] = connectionId, ["userId"] = userId?.ToString("D") }
             };
-            return _connections.BroadcastToRoomAsync(roomId, env);
+            return _connections.BroadcastToRoomAsync(Guid.Parse(roomId), env);
         }
 
-        public async Task HandleRealtimeMessageAsync(RealtimeEnvelope envelope, string connectionId, Guid? userId, CancellationToken ct = default)
+        public async Task HandleRealtimeMessageAsync(RealtimeEnvelope envelope, string connectionId, long? userId, CancellationToken ct = default)
         {
             if (envelope?.Payload == null) return;
 
@@ -230,8 +230,8 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
                 try { attachments = JsonSerializer.Deserialize<List<AttachmentDescriptor>>(je.GetRawText()); } catch { attachments = null; }
             }
 
-            var senderId = userId ?? Guid.Empty;
-            await PostMessageAsync(roomId, senderId, body, attachments, ct).ConfigureAwait(false);
+            var senderId = userId ?? null;
+            await PostMessageAsync(roomId, (long)senderId, body, attachments, ct).ConfigureAwait(false);
         }
     }
 }

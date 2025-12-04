@@ -10,7 +10,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces
 {
     public interface IMessageCenter
     {
-        Task HandleRealtimeInboundAsync(RealtimeEnvelope envelope, string connectionId, Guid? userId, CancellationToken ct = default);
+        Task HandleRealtimeInboundAsync(RealtimeEnvelope envelope, string connectionId, long? userId, CancellationToken ct = default);
     }
 }
 

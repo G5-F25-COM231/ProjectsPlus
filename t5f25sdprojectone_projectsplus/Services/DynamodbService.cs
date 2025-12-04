@@ -39,6 +39,7 @@ namespace t5f25sdprojectone_projectsplus.Services
         }
 
         public DynamodbServiceOptions Options => _options;
+        public IAmazonDynamoDB DdbClient => _client;
        
         public async Task<DdbPutResult> PutItemAsync(DdbPutRequest req, CancellationToken ct = default)
         {

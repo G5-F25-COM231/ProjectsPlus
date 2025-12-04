@@ -7,10 +7,12 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Amazon.ECS.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces;
 using t5f25sdprojectone_projectsplus.Services.ComsService.Repositories;
+using Task = System.Threading.Tasks.Task;
 
 namespace t5f25sdprojectone_projectsplus.Services.ComsService
 {
@@ -20,7 +22,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         public int ReceiveBufferSize { get; init; } = 4 * 1024;
         public TimeSpan KeepAliveInterval { get; init; } = TimeSpan.FromSeconds(30);
         // Authentication delegate: returns userId if authenticated, otherwise null
-        public Func<HttpContext, Task<Guid?>>? AuthenticateAsync { get; init; }
+        public Func<HttpContext, Task<long?>>? AuthenticateAsync { get; init; }
     }
 
     public class WebSocketHandlerMiddleware
@@ -32,18 +34,25 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         private readonly IMessageCenter? _messageCenter;
         private readonly IChatroomService? _chatroomService;
 
-        public WebSocketHandlerMiddleware(RequestDelegate next,
+        private readonly IServiceProvider _services;
+        public WebSocketHandlerMiddleware(
+            IServiceProvider services,
+            RequestDelegate next,
             WebSocketHandlerOptions opts,
             IConnectionManager connections,
             ILogger<WebSocketHandlerMiddleware> logger,
             IMessageCenter? messageCenter = null,
             IChatroomService? chatroomService = null)
         {
+            _services = services;
+            using var scope = _services.CreateScope();
+            var msgc = scope.ServiceProvider.GetRequiredService<IMessageCenter>();
+
             _next = next;
             _opts = opts ?? new WebSocketHandlerOptions();
             _connections = connections;
             _logger = logger;
-            _messageCenter = messageCenter;
+            _messageCenter = messageCenter ?? msgc;
             _chatroomService = chatroomService;
         }
 
@@ -56,7 +65,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
             }
 
             // Authenticate (optional)
-            Guid? userId = null;
+            long? userId = null;
             if (_opts.AuthenticateAsync != null)
             {
                 try { userId = await _opts.AuthenticateAsync(context).ConfigureAwait(false); }
@@ -81,7 +90,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
             }
         }
 
-        private async Task ReceiveLoopAsync(string connectionId, WebSocket socket, Guid? userId, CancellationToken ct)
+        private async Task ReceiveLoopAsync(string connectionId, WebSocket socket, long? userId, CancellationToken ct)
         {
             var buffer = new byte[_opts.ReceiveBufferSize];
             var seg = new ArraySegment<byte>(buffer);
@@ -117,14 +126,14 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
                 }
 
                 // Update presence last seen
-                await _connections.SetPresenceAsync(connectionId, new PresenceState { Status = "online", LastSeenUtc = DateTime.UtcNow }).ConfigureAwait(false);
+                await _connections.SetPresenceAsync(connectionId, new PresenceState { Status = "online", LastSeenUtc = DateTime.UtcNow }, ct).ConfigureAwait(false);
 
                 // Route envelope by type
                 await RouteEnvelopeAsync(connectionId, userId, env!, ct).ConfigureAwait(false);
             }
         }
 
-        private async Task RouteEnvelopeAsync(string connectionId, Guid? userId, RealtimeEnvelope env, CancellationToken ct)
+        private async Task RouteEnvelopeAsync(string connectionId, long? userId, RealtimeEnvelope env, CancellationToken ct)
         {
             try
             {

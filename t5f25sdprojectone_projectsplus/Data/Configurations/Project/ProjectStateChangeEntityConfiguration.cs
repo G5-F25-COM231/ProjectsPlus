@@ -34,7 +34,7 @@ namespace t5f25sdprojectone_projectsplus.Data.Configurations.Project
 
             // Audit columns
             builder.Property(x => x.CreatedAt).IsRequired();
-            builder.Property(x => x.UpdatedAt).IsRequired(false);
+            builder.Property(x => x.UpdatedAt).IsRequired(true);
 
             // Version available for idempotency or optimistic checks on the change itself if needed
             // Default: not used as concurrency token for the change rows (append-only)

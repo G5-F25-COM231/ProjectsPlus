@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Amazon.ECS.Model;
 using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data;
-using t5f25sdprojectone_projectsplus.Models.Communication;
 using t5f25sdprojectone_projectsplus.IaC_ProjectsPlus.Interfaces;
+using t5f25sdprojectone_projectsplus.Models.Communication;
 
 namespace t5f25sdprojectone_projectsplus.Services.ComsService
 {
@@ -23,13 +24,14 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         private readonly IS3BucketService _s3;
         private readonly IDynamodbService _ddb;
         private readonly string _bucketName;
-        private readonly string _ddbTableName;
-
+        private readonly string _ddbTableName;        
         public AttachmentService(
-            ProjectsPlusDbContext db,
+            IServiceProvider svc,
             IS3BucketService s3BucketService,
             IDynamodbService dynamoDbService)
-        {
+        {            
+            using var scope = svc.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<ProjectsPlusDbContext>();
             _db = db ?? throw new ArgumentNullException(nameof(db));
             _s3 = s3BucketService ?? throw new ArgumentNullException(nameof(s3BucketService));
             _ddb = dynamoDbService ?? throw new ArgumentNullException(nameof(dynamoDbService));

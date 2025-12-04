@@ -109,7 +109,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService.Repositories
             };
         }
 
-        public async Task<PagedResult<ChatMessageDto>> GetUserInboxAsync(Guid userId, int limit, string? continuationToken, CancellationToken ct = default)
+        public async Task<PagedResult<ChatMessageDto>> GetUserInboxAsync(long userId, int limit, string? continuationToken, CancellationToken ct = default)
         {
             if (limit <= 0) limit = 50;
             DateTime? before = null;

@@ -10,7 +10,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService.Repositories
         [JsonPropertyName("id")]
         public string? Id { get; set; } = Guid.NewGuid().ToString("D");
 
-        [JsonPropertyName("type")]
+        [JsonPropertyName("type")] // "message", "typing", "presence", "ack", "status"
         public string Type { get; set; } = "message"; // e.g., "message", "presence", "ack", "control"
 
         [JsonPropertyName("from")]
@@ -27,5 +27,14 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService.Repositories
 
         [JsonPropertyName("ts")]
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+
+        [JsonPropertyName("messageid")]
+        public string? MessageId { get; set; }
+
+        [JsonPropertyName("roomid")]
+        public string? RoomId { get; set; } 
+        
+        [JsonPropertyName("body")]
+        public string? Body { get; set; }
     }
 }

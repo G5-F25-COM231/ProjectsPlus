@@ -94,7 +94,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         public Guid? WorkspaceId { get; set; }
         public string Name { get; set; } = string.Empty;
         public bool IsPrivate { get; set; } = true;
-        public Guid? CreatedBy { get; set; }
+        public long? CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
         public IDictionary<string, object?>? Metadata { get; set; }
     }
@@ -104,8 +104,8 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         public Guid MessageId { get; set; } = Guid.NewGuid();
         public Guid? RoomId { get; set; }
         public Guid? ThreadRootId { get; set; }
-        public Guid? SenderUserId { get; set; }
-        public Guid? RecipientUserId { get; set; } // for DMs
+        public long? SenderUserId { get; set; }
+        public long? RecipientUserId { get; set; } // for DMs
         public string? Body { get; set; }
         public string? BodyHtml { get; set; }
         public string? Snippet { get; set; }
@@ -114,6 +114,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         public bool IsDeleted { get; set; }
         public IDictionary<string, object?>? Metadata { get; set; }
         public IReadOnlyList<AttachmentDescriptor>? Attachments { get; set; }
+
     }
 
     public sealed class AttachmentDescriptor
@@ -178,7 +179,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
     }
-
+    
 
     public sealed class SendResultDto
     {
@@ -217,15 +218,15 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
 
     #region Realtime and WebSocket
 
-    public sealed class WsEnvelope
-    {
-        public string Type { get; set; } = string.Empty; // "message", "typing", "presence", "ack", "status"
-        public string? MessageId { get; set; }
-        public Guid? RoomId { get; set; }
-        public Guid? ToUserId { get; set; }
-        public string? Body { get; set; }
-        public IDictionary<string, object?>? Meta { get; set; }
-    }
+    //public sealed class WsEnvelope
+    //{
+    //    public string Type { get; set; } = string.Empty; // "message", "typing", "presence", "ack", "status"
+    //    public string? MessageId { get; set; }
+    //    public Guid? RoomId { get; set; }
+    //    public Guid? ToUserId { get; set; }
+    //    public string? Body { get; set; }
+    //    public IDictionary<string, object?>? Meta { get; set; }
+    //}
 
     public sealed class PresenceEventDto
     {
@@ -255,16 +256,16 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
     // Chatroom service manages rooms, membership, posting, moderation
     public interface IChatroomService
     {
-        Task<RoomDto> CreateRoomAsync(Guid workspaceId, string name, Guid createdBy, bool isPrivate = true, CancellationToken ct = default);
-        Task JoinRoomAsync(Guid roomId, Guid userId, CancellationToken ct = default);
-        Task LeaveRoomAsync(Guid roomId, Guid userId, CancellationToken ct = default);
-        Task<ChatMessageDto> PostMessageAsync(Guid roomId, Guid senderUserId, string body, IEnumerable<AttachmentDescriptor>? attachments = null, CancellationToken ct = default);
+        Task<RoomDto> CreateRoomAsync(Guid workspaceId, string name, long createdBy, bool isPrivate = true, CancellationToken ct = default);
+        Task JoinRoomAsync(Guid roomId, long userId, CancellationToken ct = default);
+        Task LeaveRoomAsync(Guid roomId, long userId, CancellationToken ct = default);
+        Task<ChatMessageDto> PostMessageAsync(Guid roomId, long senderUserId, string body, IEnumerable<AttachmentDescriptor>? attachments = null, CancellationToken ct = default);
         Task<IReadOnlyList<ChatMessageDto>> GetRoomMembersAsync(Guid roomId, CancellationToken ct = default);
-        Task KickMemberAsync(Guid roomId, Guid moderatorUserId, Guid targetUserId, CancellationToken ct = default);
+        Task KickMemberAsync(Guid roomId, long moderatorUserId, long targetUserId, CancellationToken ct = default);
 
-        Task AddConnectionToRoomAsync(string roomId, string connectionId, Guid? userId);
-        Task RemoveConnectionFromRoomAsync(string roomId, string connectionId, Guid? userId);
-        Task HandleRealtimeMessageAsync(RealtimeEnvelope envelope, string connectionId, Guid? userId, CancellationToken ct = default);
+        Task AddConnectionToRoomAsync(string roomId, string connectionId, long? userId);
+        Task RemoveConnectionFromRoomAsync(string roomId, string connectionId, long? userId);
+        Task HandleRealtimeMessageAsync(RealtimeEnvelope envelope, string connectionId, long? userId, CancellationToken ct = default);
     }
 
     // Notification center orchestrates templates, channel selection, queueing
@@ -398,7 +399,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
     {
         Task SaveMessageAsync(ChatMessageDto msg, CancellationToken ct = default);
         Task<PagedResult<ChatMessageDto>> GetRoomMessagesAsync(Guid roomId, int limit, string? continuationToken, CancellationToken ct = default);
-        Task<PagedResult<ChatMessageDto>> GetUserInboxAsync(Guid userId, int limit, string? continuationToken, CancellationToken ct = default);
+        Task<PagedResult<ChatMessageDto>> GetUserInboxAsync(long userId, int limit, string? continuationToken, CancellationToken ct = default);
         Task MarkMessageReadAsync(Guid userId, Guid messageId, CancellationToken ct = default);
         Task AddAttachmentAsync(AttachmentDescriptor att, CancellationToken ct = default);
         Task<IReadOnlyList<AttachmentDescriptor>> GetAttachmentsForMessageAsync(Guid messageId, CancellationToken ct = default);
@@ -420,16 +421,6 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
         Task UpdateNotificationAttemptAsync(Guid notificationId, int attempts, string? providerMessageId, string? status, DateTime? scheduledFor = null, CancellationToken ct = default);
         Task MoveToDeadLetterAsync(Guid notificationId, string reason, CancellationToken ct = default);
         Task RescheduleAsync(Guid notificationId, DateTime nextRun, CancellationToken ct = default);
-    }
-
-
-    public interface ITemplateRepository
-    {
-        Task<TemplateDto> CreateAsync(TemplateDto template, CancellationToken ct = default);
-        Task<TemplateDto?> GetAsync(string templateId, CancellationToken ct = default);
-        Task<PagedResult<TemplateDto>> ListAsync(TemplateScope? scope, string? scopeKey, int pageSize, string? continuationToken, CancellationToken ct = default);
-        Task<TemplateDto> UpdateAsync(TemplateDto template, CancellationToken ct = default);
-        Task<bool> DeleteAsync(string templateId, CancellationToken ct = default);
     }
 
     #endregion

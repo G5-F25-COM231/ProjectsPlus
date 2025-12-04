@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using t5f25sdprojectone_projectsplus.Services.ComsService.Interfaces;
 
 namespace t5f25sdprojectone_projectsplus.Services.ComsService
 {
@@ -281,4 +282,11 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
 
         #endregion
     }
+
+
+    public interface IChannelAdapterFactory
+    {
+        IChannelAdapter GetAdapter(ChannelType channel);
+    }
+
 }

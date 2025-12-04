@@ -63,7 +63,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService.Repositories
                 var members = req.InitialMemberUserIds.Select(uid => new RoomMemberEntity
                 {
                     RoomId = entity.RoomId,
-                    UserId = ConvertLongToGuid(uid),
+                    UserId = uid,
                     Role = "member",
                     JoinedAt = now
                 }).ToList();
@@ -99,7 +99,7 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService.Repositories
             var entity = new RoomMemberEntity
             {
                 RoomId = roomId,
-                UserId = ConvertLongToGuid(userId),
+                UserId = userId,
                 Role = string.IsNullOrWhiteSpace(role) ? "member" : role,
                 JoinedAt = DateTime.UtcNow
             };

@@ -1,5 +1,8 @@
 ﻿// src/Data/ProjectsPlusDbContext.cs
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using t5f25sdprojectone_projectsplus.Data.Configurations;
 using t5f25sdprojectone_projectsplus.Data.Configurations.Audit;
 using t5f25sdprojectone_projectsplus.Data.Configurations.Authorization;
@@ -13,6 +16,8 @@ using t5f25sdprojectone_projectsplus.Models.Communication;
 using t5f25sdprojectone_projectsplus.Models.Jobs;
 using t5f25sdprojectone_projectsplus.Models.Projects;
 using t5f25sdprojectone_projectsplus.Models.ResourceRecords;
+using t5f25sdprojectone_projectsplus.Services.ComsService.RedisPatches;
+using t5f25sdprojectone_projectsplus.Services.ComsService.RedisPatches.MssqlAdapter;
 
 namespace t5f25sdprojectone_projectsplus.Data
 {
@@ -56,6 +61,12 @@ namespace t5f25sdprojectone_projectsplus.Data
         public DbSet<AuditEntryEntity> AuditEntries { get; set; } = null!;
 
         // -----------------------------------------------------------------------------------------////////////////
+        //redis patch
+        public DbSet<KeyValueEntity> KeyValues { get; set; } = null!;
+        public DbSet<SetEntity> Sets { get; set; } = null!;
+        public DbSet<PubSubMessageEntity> PubSubMessages { get; set; } = null!;
+
+        // -----------------------------------------------------------------------------------------////////////////
         // comms
 
         //public DbSet<UserEntity> Users => Set<UserEntity>();
@@ -75,7 +86,84 @@ namespace t5f25sdprojectone_projectsplus.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // converters
+            var dtToDto = new ValueConverter<DateTime, DateTimeOffset>(
+                d => new DateTimeOffset(DateTime.SpecifyKind(d, DateTimeKind.Utc), TimeSpan.Zero),
+                dto => dto.UtcDateTime);
+
+            var nullableDtToDto = new ValueConverter<DateTime?, DateTimeOffset?>(
+                d => d.HasValue ? new DateTimeOffset(DateTime.SpecifyKind(d.Value, DateTimeKind.Utc), TimeSpan.Zero) : (DateTimeOffset?)null,
+                dto => dto.HasValue ? dto.Value.UtcDateTime : (DateTime?)null);
+
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                foreach (var property in entityType.GetProperties())
+                {
+                    if (property.ClrType == typeof(DateTime))
+                    {
+                        modelBuilder.Entity(entityType.ClrType)
+                            .Property(property.Name)
+                            .HasConversion(dtToDto)
+                            .HasColumnType("datetimeoffset");
+                    }
+                    else if (property.ClrType == typeof(DateTime?))
+                    {
+                        modelBuilder.Entity(entityType.ClrType)
+                            .Property(property.Name)
+                            .HasConversion(nullableDtToDto)
+                            .HasColumnType("datetimeoffset");
+                    }
+                }
+            }
+
+            //---------------------------------------------------/////////////////////////////
+
+            // converters (explicit null for optional JsonSerializerOptions)
+            // Converter: Dictionary<string,string>? <-> string?
+            var dictConverter = new ValueConverter<Dictionary<string, string>?, string?>(
+                dict => dict == null ? null : JsonSerializer.Serialize(dict, (JsonSerializerOptions?)null),
+                json => string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<Dictionary<string, string>>(json, (JsonSerializerOptions?)null)
+            );
+
+            // Comparer for change tracking
+            var dictComparer = new ValueComparer<Dictionary<string, string>?>(
+                (a, b) => JsonSerializer.Serialize(a, (JsonSerializerOptions?)null) == JsonSerializer.Serialize(b, (JsonSerializerOptions?)null),
+                v => v == null ? 0 : JsonSerializer.Serialize(v, (JsonSerializerOptions?)null).GetHashCode(),
+                v => v == null ? null : JsonSerializer.Deserialize<Dictionary<string, string>>(JsonSerializer.Serialize(v, (JsonSerializerOptions?)null), (JsonSerializerOptions?)null)
+            );
+
+            modelBuilder.Entity<NotificationEntity>(b =>
+            {
+                b.Property(e => e.Metadata)
+                 .HasConversion(dictConverter)
+                 .Metadata.SetValueComparer(dictComparer);
+
+                // SQL Server
+                b.Property(e => e.Metadata).HasColumnType("nvarchar(max)");
+
+                // If using PostgreSQL (Npgsql), use:
+                // b.Property(e => e.Metadata).HasColumnType("jsonb");
+            });
+
+            //---------------------------------------------------/////////////////////////////
+
+            //modelBuilder.Entity<KeyValueEntity>().HasKey(k => k.Id);
+            //modelBuilder.Entity<SetEntity>().HasKey(s => s.Id);
+            //modelBuilder.Entity<PubSubMessageEntity>().HasKey(p => p.Id);
+
+            //modelBuilder.Entity<PubSubMessageEntity>()
+            //    .HasIndex(p => new { p.Channel, p.CreatedAtUtc });
+
+            modelBuilder.ApplyConfiguration(new DbKeyValueEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new DbSetEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new DbPubSubMessageEntityConfiguration());
+
+
+            //---------------------------------------------------/////////////////////////////
+
             base.OnModelCreating(modelBuilder);
+
+            //---------------------------------------------------/////////////////////////////
 
             // Apply domain configurations in deterministic order.
             // Keep the call order explicit to avoid surprising FK/index ordering across providers.

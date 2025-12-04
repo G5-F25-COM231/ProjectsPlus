@@ -26,11 +26,13 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
     {
         private readonly SmtpClient _client;
         private readonly SmtpAdapterOptions _opts;
+        private readonly IEmailSender _sendEmail;
         private readonly ILogger<SmtpEmailAdapter> _logger;
         private bool _disposed;
 
-        public SmtpEmailAdapter(IOptions<SmtpAdapterOptions> opts, ILogger<SmtpEmailAdapter> logger)
+        public SmtpEmailAdapter(IOptions<SmtpAdapterOptions> opts, IEmailSender sendEmail, ILogger<SmtpEmailAdapter> logger)
         {
+            _sendEmail = sendEmail ?? throw new ArgumentNullException(nameof(sendEmail)); 
             _opts = opts?.Value ?? throw new ArgumentNullException(nameof(opts));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
@@ -97,6 +99,11 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
             return result;
         }
 
+        public async Task<SendResultDto> SendEmailAsync(EmailDto email, CancellationToken ct = default)
+        {
+            return await _sendEmail.SendEmailAsync(email, ct);
+        }
+
         public void Dispose()
         {
             if (!_disposed)
@@ -105,5 +112,6 @@ namespace t5f25sdprojectone_projectsplus.Services.ComsService
                 _disposed = true;
             }
         }
+               
     }
 }

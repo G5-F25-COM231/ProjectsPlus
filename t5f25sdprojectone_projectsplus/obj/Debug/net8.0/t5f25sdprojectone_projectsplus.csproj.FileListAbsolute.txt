@@ -464,3 +464,9 @@ E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Deve
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\StackExchange.Redis.dll
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\System.IO.Hashing.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\MailKit.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\MimeKit.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\FluentAssertions.dll
