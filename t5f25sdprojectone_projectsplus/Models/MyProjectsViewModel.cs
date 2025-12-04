@@ -4,5 +4,6 @@
     {
         public List<Project> Projects { get; set; } = new List<Project>();
         public User CurrentUser { get; set; } = null!;
+        public List<ProjectTask> Tasks { get; set; } = null!;
     }
 }
