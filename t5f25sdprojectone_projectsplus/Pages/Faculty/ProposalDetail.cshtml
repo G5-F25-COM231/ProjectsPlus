@@ -1,0 +1,136 @@
+@page "/faculty/proposal"
+@{
+    ViewData["Title"] = "My Comments";
+}
+
+<div class="container-fluid px-0">
+    <div class="row justify-content-center">
+        <div class="col-xl-9 col-lg-10">
+
+            <!-- Page header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <p class="text-muted small mb-1">Faculty · Comments</p>
+                    <h1 class="h4 fw-semibold mb-0">My Comments</h1>
+                </div>
+                <span class="badge rounded-pill text-bg-light small d-flex align-items-center">
+                    <i class="fa-solid fa-user-graduate me-2"></i>
+                    Dr. Eleanor Vance
+                </span>
+            </div>
+
+            <!-- New feedback widget (top card) -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body">
+                    <p class="text-uppercase small text-muted mb-1">Comment on:</p>
+                    <h2 class="h6 fw-semibold mb-2 mb-lg-1">
+                        AI-Powered Student Performance Analytics
+                    </h2>
+
+                    <p class="text-muted small mb-3">
+                        Review this student proposal and share feedback before you approve or reject it.
+                        Your comments will be visible to the project team.
+                    </p>
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold">
+                            Your feedback <span class="fw-normal text-muted">(required)</span>
+                        </label>
+                        <textarea class="form-control form-control-sm"
+                                  rows="4"
+                                  placeholder="Write constructive, specific feedback the team can act on…"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-semibold">
+                            Suggested next step
+                        </label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill">
+                                <i class="fa-solid fa-pen-to-square me-1"></i> Minor edits
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill">
+                                <i class="fa-solid fa-rotate-left me-1"></i> Major revision
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill">
+                                <i class="fa-solid fa-circle-check me-1"></i> Ready to approve
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2">
+                        <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm rounded-pill px-3">
+                            <i class="fa-solid fa-paper-plane me-1"></i>
+                            Submit Feedback
+                        </button>
+                    </div>
+
+                    <p class="text-muted small mt-2 mb-0">
+                        Note: This is a frontend-only page. Feedback will be saved once the backend is connected.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Existing comment card 1 -->
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body">
+                    <p class="text-uppercase small text-muted mb-1">Comment on:</p>
+                    <a href="#" class="small fw-semibold text-decoration-none">
+                        Eco-Drone for Forest Monitoring
+                    </a>
+
+                    <div class="d-flex justify-content-between align-items-start mt-2">
+                        <p class="text-muted small mb-0 me-3">
+                            "Excellent progress on the sensor integration. The data logging mechanism looks robust.
+                            Suggestion: let's discuss adding a fail-safe return-to-base protocol in the next meeting.
+                            This would be a critical feature for real-world deployment."
+                        </p>
+                        <span class="small text-muted text-nowrap">2 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing comment card 2 -->
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body">
+                    <p class="text-uppercase small text-muted mb-1">Comment on:</p>
+                    <a href="#" class="small fw-semibold text-decoration-none">
+                        Machine Learning for Disease Prediction
+                    </a>
+
+                    <div class="d-flex justify-content-between align-items-start mt-2">
+                        <p class="text-muted small mb-0 me-3">
+                            "The initial model’s accuracy is promising. Remember to account for potential biases in the
+                            training dataset. Have you considered using cross-validation to ensure the model generalizes
+                            well to new data? Let's review the feature selection process."
+                        </p>
+                        <span class="small text-muted text-nowrap">5 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing comment card 3 -->
+            <div class="card border-0 shadow-sm mb-5">
+                <div class="card-body">
+                    <p class="text-uppercase small text-muted mb-1">Comment on:</p>
+                    <a href="#" class="small fw-semibold text-decoration-none">
+                        Decentralized Social Media Platform
+                    </a>
+
+                    <div class="d-flex justify-content-between align-items-start mt-2">
+                        <p class="text-muted small mb-0 me-3">
+                            "The project has been completed successfully. Great job on the final presentation and
+                            documentation. The smart contract implementation was particularly impressive. This is a
+                            strong portfolio piece for all team members."
+                        </p>
+                        <span class="small text-muted text-nowrap">1 week ago</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
