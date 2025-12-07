@@ -1,0 +1,63 @@
+﻿@page
+@model MyTasksModel
+@{
+    ViewData["Title"] = "My Tasks";
+    Layout = "_Layout";
+}
+
+<h1>My Tasks</h1>
+
+<p>This page will show tasks assigned to the current student.</p>
+
+<section aria-labelledby="myTasksTitle">
+
+    <h2 id="myTasksTitle">Assigned Tasks</h2>
+
+    @* LOADING STATE *@
+    @if (Model.IsLoading)
+    {
+        <p><em>Loading tasks...</em></p>
+    }
+    else
+    {
+        @* EMPTY STATE *@
+        if (Model.AssignedTasks == null || !Model.AssignedTasks.Any())
+        {
+            <div class="empty-state">
+                <p>No tasks assigned yet 🎉</p>
+                <p>You will see your tasks here when assigned by your instructor.</p>
+            </div>
+        }
+        else
+        {
+            @* TASK LIST *@
+            <ul>
+                @foreach (var task in Model.AssignedTasks)
+                {
+                    <li tabindex="0">
+                        <strong>@task.Title</strong>
+
+                        @if (task.IsDone)
+                        {
+                            <span class="text-success">✓ Done</span>
+                        }
+                        else
+                        {
+                            <form method="post"
+                                  asp-page-handler="MarkDone"
+                                  asp-route-id="@task.Id"
+                                  style="display:inline;">
+
+                                <button type="submit"
+                                        class="btn btn-sm btn-primary"
+                                        aria-label="Mark task @task.Title as complete">
+                                    Mark Done
+                                </button>
+                            </form>
+                        }
+                    </li>
+                }
+            </ul>
+        }
+    }
+</section>

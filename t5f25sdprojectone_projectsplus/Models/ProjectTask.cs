@@ -21,6 +21,7 @@ namespace t5f25sdprojectone_projectsplus.Models
         public string? Description { get; set; }
         public byte Status { get; set; } // 0=Pending,1=InProgress,2=Blocked,3=Completed
         public decimal? EstimateHours { get; set; }
+        public bool IsDone { get; set; } = false;
         public DateTimeOffset? DueDate { get; set; }
 
         // Audit
