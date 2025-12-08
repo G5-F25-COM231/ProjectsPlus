@@ -79,12 +79,14 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+@* jQuery local file removed – not needed and was causing 404 *@
+@* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
 
-    <!-- Bootstrap JS from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
