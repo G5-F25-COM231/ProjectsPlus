@@ -179,6 +179,7 @@ C:\Users\cpb12\OneDrive\Desktop\Fall2025\Capstone1\ProjectsPlus\t5f25sdprojecton
 C:\Users\cpb12\OneDrive\Desktop\Fall2025\Capstone1\ProjectsPlus\t5f25sdprojectone_projectsplus\obj\Debug\net8.0\t5f25sdprojectone_projectsplus.pdb
 C:\Users\cpb12\OneDrive\Desktop\Fall2025\Capstone1\ProjectsPlus\t5f25sdprojectone_projectsplus\obj\Debug\net8.0\t5f25sdprojectone_projectsplus.genruntimeconfig.cache
 C:\Users\cpb12\OneDrive\Desktop\Fall2025\Capstone1\ProjectsPlus\t5f25sdprojectone_projectsplus\obj\Debug\net8.0\ref\t5f25sdprojectone_projectsplus.dll
+<<<<<<< HEAD
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\MvcTestingAppManifest.json
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\refs\Microsoft.AspNetCore.Antiforgery.dll
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -550,3 +551,5 @@ E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Deve
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 E:\COL - SEM - A\Courses - A\Semester C - 5\Courses - C\COMP 231 - Software Development Project I\T5T25+\ProjectsPlus\ProjectsPlus\t5f25sdprojectone_projectsplus\obj\Debug\net8.0\MvcTestingAppManifest.json
+=======
+>>>>>>> feature/60-review-queue-ui
