@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,18 +7,48 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Services\" />
-    <Folder Include="Repositories\" />
+    <Compile Remove="Chat\**" />
+    <Compile Remove="OLD\**" />
+    <Compile Remove="Repositories\OLDR\**" />
+    <Content Remove="Chat\**" />
+    <Content Remove="OLD\**" />
+    <Content Remove="Repositories\OLDR\**" />
+    <EmbeddedResource Remove="Chat\**" />
+    <EmbeddedResource Remove="OLD\**" />
+    <EmbeddedResource Remove="Repositories\OLDR\**" />
+    <None Remove="Chat\**" />
+    <None Remove="OLD\**" />
+    <None Remove="Repositories\OLDR\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\DesignDocs\logo_20251105_102716.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.21" />
+    <PackageReference Include="AWSSDK.CloudWatchLogs" Version="4.0.11.1" />
+    <PackageReference Include="AWSSDK.Core" Version="4.0.3.3" />
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="4.0.10" />
+    <PackageReference Include="AWSSDK.EC2" Version="4.0.59" />
+    <PackageReference Include="AWSSDK.ECS" Version="4.0.10.1" />
+    <PackageReference Include="AWSSDK.IdentityManagement" Version="4.0.8.1" />
+    <PackageReference Include="AWSSDK.RDS" Version="4.0.13" />
+    <PackageReference Include="AWSSDK.S3" Version="4.0.13" />
+    <PackageReference Include="AWSSDK.SecretsManager" Version="4.0.3" />
+    <PackageReference Include="AWSSDK.SimpleSystemsManagement" Version="4.0.6.3" />
+    <PackageReference Include="FluentAssertions" Version="8.8.0" />
+    <PackageReference Include="MailKit" Version="4.14.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.22" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.22" />
+    <PackageReference Include="MimeKit" Version="4.14.0" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Octokit" Version="14.0.0" />
+    <PackageReference Include="Serilog" Version="4.3.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.10.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.9.3" />
   </ItemGroup>
 
 </Project>
