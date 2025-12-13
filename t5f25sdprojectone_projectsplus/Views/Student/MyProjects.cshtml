@@ -1,0 +1,486 @@
+﻿@model t5f25sdprojectone_projectsplus.Models.MyProjectsViewModel
+
+@{
+    ViewData["Title"] = "My Projects";
+}
+
+@functions {
+    public Tuple<string, string> GetStatusDetails(byte status)
+    {
+        return status switch
+        {
+            0 => Tuple.Create("Pending", "bg-warning text-dark"),
+            1 => Tuple.Create("Approved", "bg-primary"),
+            2 => Tuple.Create("Open", "bg-success"),
+            3 => Tuple.Create("In Progress", "bg-info text-dark"),
+            4 => Tuple.Create("Completed", "bg-secondary"),
+            _ => Tuple.Create("Unknown", "bg-dark"),
+        };
+    }
+
+    public string GetSkillLevelText(byte skillLevel)
+    {
+        return skillLevel switch
+        {
+            1 => "Beginner",
+            2 => "Intermediate",
+            3 => "Advanced",
+            _ => "Unknown"
+        };
+    }
+
+    public int GetProgressPercentage(byte status)
+    {
+        return status switch
+        {
+            0 => 0,
+            1 => 25,
+            2 => 0, //new project
+            3 => 75,
+            4 => 100,
+            _ => 0
+        };
+    }
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-3 col-lg-2 bg-light vh-100 p-3 d-flex flex-column">
+            <div class="d-flex align-items-center mb-4">
+                <div class="me-3">
+                    <img src="/images/avatar.jpg"
+                         class="rounded-circle"
+                         width="40"
+                         height="40"
+                         alt="@Model.CurrentUser.DisplayName Avatar">
+                </div>
+
+                <div class="d-flex flex-column">
+                    <h6 class="mb-0 fw-bold">@Model.CurrentUser.DisplayName</h6>
+                    <small class="text-muted">Student</small>
+                </div>
+            </div>
+
+            <nav class="nav nav-pills flex-column mb-4">
+                <!-- My Projects: active if ActiveSidebar != Profile AND ActiveTab != New -->
+                <a href="/Student/MyProjects"
+                   class="nav-link @(
+                              (ViewData["ActiveSidebar"]?.ToString() != "Profile" && ViewData["ActiveTab"]?.ToString() != "New")
+                              ? "active" : "")">
+                    <i class="bi bi-folder me-2"></i>
+                    My Projects
+                </a>
+                <!-- Join a Project: active if ActiveSidebar != Profile AND ActiveTab == New -->
+                <a href="/Student/MyProjects?activeTab=New"
+                   class="nav-link @(
+                              (ViewData["ActiveSidebar"]?.ToString() != "Profile" && ViewData["ActiveTab"]?.ToString() == "New")
+                              ? "active" : "")">
+                    <i class="bi bi-search me-2"></i>
+                    Join a Project
+                </a>
+                <!-- Chat (inactive for now) -->
+                <a href="#" class="nav-link">
+                    <i class="bi bi-chat-square me-2"></i>
+                    Chat
+                </a>
+                <!-- Profile: active if ActiveSidebar == Profile -->
+                <a href="/Student/MyProjects?activeSidebar=Profile"
+                   class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "Profile" ? "active" : "")">
+                    <i class="bi bi-person me-2"></i> 
+                    Profile
+                </a>
+            </nav>
+
+            <div class="mb-4">
+                <h6>Task List</h6>
+                <ul class="list-group list-group-flush">
+                    @foreach (var group in Model.Projects.SelectMany(p => p.Tasks).GroupBy(t => t.Status))
+                    {
+                        var statusName = group.Key switch
+                        {
+                            0 => "To Do",
+                            1 => "In Progress",
+                            3 => "Done",
+                            _ => "Unknown"
+                        };
+
+                        <li class="list-group-item">
+                            <strong>@statusName:</strong><br />
+                            @foreach (var task in group)
+                            {
+                                var badgeClass = task.Status switch
+                                {
+                                    0 => "bg-warning text-dark",
+                                    1 => "bg-info text-dark",
+                                    3 => "bg-success",
+                                    _ => "bg-secondary"
+                                };
+                                <div class="task-item badge @badgeClass me-1 mb-1"
+                                     data-taskid="@task.Id"
+                                     style="cursor:pointer" 
+                                     onclick="onTaskClick(@task.Id)">
+                                    @task.Title
+                                </div>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="mt-auto">
+                <button class="btn btn-primary w-100" onclick="location.href='/Student/NewProject'">
+                    + New Project
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 p-4">
+            <div class="col-md-8">
+                <div id="task-details-panel" class="card shadow-sm p-3" style="display:none;">
+                    <h1 class="h3 mb-4">Task</h1>
+                    <h4 id="td-title" class="mb-3"></h4>
+
+                    <div class="mb-2">
+                        <strong>Description:</strong>
+                        <p id="td-description" class="text-muted"></p>
+                    </div>
+
+                    <div class="mb-2 d-flex align-items-center">
+                        <strong>Status:</strong>
+                        <select id="td-status" class="form-select" style="width: 150px;">
+                            <option value="0">To Do</option>
+                            <option value="1">In Progress</option>
+                            <option value="3">Done</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-2">
+                        <strong>Due Date:</strong>
+                        <span id="td-due"></span>
+                    </div>
+
+                    <div class="mb-2">
+                        <strong>Assigned To:</strong>
+                        <span id="td-assignee">@Model.CurrentUser.DisplayName</span>
+                    </div>
+
+                    <div class="mb-2">
+                        <strong>Assigned By:</strong>
+                        <span id="td-assigner"></span>
+                    </div>
+
+                    <hr class="my-3">
+                    <div id="github-card" class="card p-3 bg-light border-0">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="mb-0 text-dark"><i class="bi bi-github"></i> GitHub</h5>
+                            <span class="badge bg-success">In Sync</span>
+                        </div>
+
+                        <p class="text-muted small mb-1">Repository:</p>
+                        <p class="mb-2">
+                            <a id="td-github-repo-link" href="#" target="_blank" class="text-decoration-none">
+                                <span id="td-github-repo-name"></span>
+                            </a>
+                            <i class="bi bi-box-arrow-up-right small"></i>
+                        </p>
+
+                        <p class="text-muted small mb-1">Recent Commits:</p>
+                        <div class="list-group list-group-flush small">
+                            <div class="list-group-item px-0 d-flex align-items-start border-0 bg-light">
+                                <i class="bi bi-git me-2 mt-1 text-muted"></i>
+                                <div>
+                                    <p class="mb-0">feat: initial schema draft</p>
+                                    <span class="text-muted">1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="list-group-item px-0 d-flex align-items-start border-0 bg-light">
+                                <i class="bi bi-git me-2 mt-1 text-muted"></i>
+                                <div>
+                                    <p class="mb-0">docs: update contribution guide</p>
+                                    <span class="text-muted">4 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <button id="td-github-button" class="btn btn-dark w-100">
+                                <i class="bi bi-github me-2"></i> Go to GitHub
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="project-or-profile-content">
+                @if (ViewData["ActiveSidebar"]?.ToString() == "Profile")
+                {
+                    <h1 class="h3 mb-4">Profile</h1>
+                    <!-- Display profile info -->
+                    <div class="card shadow-sm mb-3">
+                        <div class="card-body">
+                            <p><strong>Display Name:</strong> @Model.CurrentUser.DisplayName</p>
+                            <p><strong>Email:</strong> @Model.CurrentUser.Email</p>
+                            <p><strong>Verified:</strong> @(Model.CurrentUser.Verified ? "Yes" : "No")</p>
+                            <p><strong>Created At:</strong> @Model.CurrentUser.CreatedAt</p>
+                            <p><strong>Updated At:</strong> @Model.CurrentUser.UpdatedAt</p>
+                        </div>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h1 class="h3">My Projects</h1>
+                        <div>
+                            <button class="btn btn-outline-secondary me-2"><i class="bi bi-bell"></i></button>
+                            <button class="btn btn-outline-danger">Logout</button>
+                        </div>
+                    </div>
+
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs mb-3" id="projectTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link @(ViewData["ActiveTab"]?.ToString() == "Ongoing" ? "active" : "")" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing" type="button"
+                                    onclick="location.href='/Student/MyProjects?activeTab=Ongoing'">
+                                Ongoing
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link @(ViewData["ActiveTab"]?.ToString() == "Completed" ? "active" : "")" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed" type="button"
+                                    onclick="location.href='/Student/MyProjects?activeTab=Completed'">
+                                Completed
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link @(ViewData["ActiveTab"]?.ToString() == "New" ? "active" : "")" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button"
+                                    onclick="location.href='/Student/MyProjects?activeTab=New'">
+                                New
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="projectTabsContent">
+
+                        <!-- ============================ -->
+                        <!-- Ongoing Tab -->
+                        <!-- ============================ -->
+                        <div class="tab-pane fade @(ViewData["ActiveTab"]?.ToString() == "Ongoing" ? "show active" : "")" id="ongoing">
+                            <div class="input-group mb-3 w-50">
+                                <input type="text" class="form-control project-search" data-target="#ongoing" placeholder="Search ongoing projects...">
+                            </div>
+
+                            <div class="row g-4 project-container">
+                                @foreach (var project in Model.Projects.Where(p => p.Status == 3))
+                                {
+                                    var statusDetails = GetStatusDetails(project.Status);
+                                    var progress = GetProgressPercentage(project.Status);
+                                    <div class="col-md-4 project-card">
+                                        <div class="card h-100 shadow-sm">
+                                            <div class="card-body d-flex flex-column">
+                                                <h5 class="card-title">@project.Title</h5>
+                                                @if (!string.IsNullOrWhiteSpace(project.Description))
+                                                {
+                                                    <p class="card-text">@project.Description</p>
+                                                }
+                                                <p><strong>Skill:</strong> @GetSkillLevelText(project.SkillLevel)</p>
+
+                                                @if (!string.IsNullOrWhiteSpace(project.GithubRepoUrl))
+                                                {
+                                                    <a href="@project.GithubRepoUrl" class="btn btn-sm btn-outline-secondary" target="_blank">GitHub Repo</a>
+                                                }
+
+                                                <div class="progress mb-2 mt-3">
+                                                    <div class="progress-bar @statusDetails.Item2" style="width:@progress%;">@progress%</div>
+                                                </div>
+
+                                                <div class="mt-auto d-flex justify-content-between">
+                                                    <button class="btn btn-outline-primary btn-sm" 
+                                                        onclick="location.href='/Student/ProjectDetails?projectId=@project.Id'">View Details</button>
+                                                    <button class="btn btn-primary btn-sm">Continue</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- ============================ -->
+                        <!-- Completed Tab -->
+                        <!-- ============================ -->
+                        <div class="tab-pane fade @(ViewData["ActiveTab"]?.ToString() == "Completed" ? "show active" : "")" id="completed">
+                            <div class="input-group mb-3 w-50">
+                                <input type="text" class="form-control project-search" data-target="#completed" placeholder="Search completed projects...">
+                            </div>
+
+                            <div class="row g-4 project-container">
+                                @foreach (var project in Model.Projects.Where(p => p.Status == 4))
+                                {
+                                    var statusDetails = GetStatusDetails(project.Status);
+                                    var progress = GetProgressPercentage(project.Status);
+                                    <div class="col-md-4 project-card">
+                                        <div class="card h-100 shadow-sm">
+                                            <div class="card-body d-flex flex-column">
+                                                <h5 class="card-title">@project.Title</h5>
+                                                @if (!string.IsNullOrWhiteSpace(project.Description))
+                                                {
+                                                    <p class="card-text">@project.Description</p>
+                                                }
+                                                <p><strong>Skill:</strong> @GetSkillLevelText(project.SkillLevel)</p>
+
+                                                @if (!string.IsNullOrWhiteSpace(project.GithubRepoUrl))
+                                                {
+                                                    <a href="@project.GithubRepoUrl" class="btn btn-sm btn-outline-secondary" target="_blank">GitHub Repo</a>
+                                                }
+
+                                                <div class="progress mb-2 mt-3">
+                                                    <div class="progress-bar @statusDetails.Item2" style="width:@progress%;">@progress%</div>
+                                                </div>
+
+                                                <div class="mt-auto d-flex justify-content-between">
+                                                    <button class="btn btn-outline-primary btn-sm" 
+                                                        onclick="location.href='/Student/ProjectDetails?projectId=@project.Id'">View Details</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- ============================ -->
+                        <!-- New Projects Tab -->
+                        <!-- ============================ -->
+                        <div class="tab-pane fade @(ViewData["ActiveTab"]?.ToString() == "New" ? "show active" : "")" id="new">
+                            <div class="input-group mb-3 w-50">
+                                <input type="text" class="form-control project-search" data-target="#new" placeholder="Search new projects...">
+                            </div>
+
+                            <div class="row g-4 project-container">
+                                @foreach (var project in Model.Projects.Where(p => p.Status == 2))
+                                {
+                                    var statusDetails = GetStatusDetails(project.Status);
+                                    var progress = GetProgressPercentage(project.Status);
+                                    <div class="col-md-4 project-card">
+                                        <div class="card h-100 shadow-sm">
+                                            <div class="card-body d-flex flex-column">
+                                                <h5 class="card-title">@project.Title</h5>
+                                                @if (!string.IsNullOrWhiteSpace(project.Description))
+                                                {
+                                                    <p class="card-text">@project.Description</p>
+                                                }
+                                                <p><strong>Skill:</strong> @GetSkillLevelText(project.SkillLevel)</p>
+
+                                                @if (!string.IsNullOrWhiteSpace(project.GithubRepoUrl))
+                                                {
+                                                    <a href="@project.GithubRepoUrl" class="btn btn-sm btn-outline-secondary" target="_blank">GitHub Repo</a>
+                                                }
+
+                                                <div class="progress mb-2 mt-3">
+                                                    <div class="progress-bar @statusDetails.Item2" style="width:@progress%;">@progress%</div>
+                                                </div>
+
+                                                <div class="mt-auto d-flex justify-content-between">
+                                                    <button class="btn btn-outline-primary btn-sm" 
+                                                        onclick="location.href='/Student/ProjectDetails?projectId=@project.Id'">View Details</button>
+                                                    <button id="apply-@project.Id" class="btn btn-primary btn-sm"
+                                                            onclick="applyForProject(@project.Id)">
+                                                        Apply to Join
+                                                    </button>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </main>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Search inside each tab separately
+        document.querySelectorAll('.project-search').forEach(input => {
+            input.addEventListener('input', function () {
+                const tabId = this.dataset.target;
+                const container = document.querySelector(`${tabId} .project-container`);
+                const cards = container.querySelectorAll('.project-card');
+                const val = this.value.toLowerCase();
+
+                cards.forEach(card => {
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    card.style.display = title.includes(val) ? '' : 'none';
+                });
+            });
+        });
+
+        function applyForProject(projectId) {
+            const button = document.getElementById(`apply-${projectId}`);
+
+            // Instantly change the button's appearance and state
+            button.disabled = true; // Disable the button
+            button.classList.remove('btn-primary'); // Remove the blue color
+            button.classList.add('btn-secondary'); // Change to neutral/gray color
+            button.innerHTML = 'Waiting for Approval'; // Change the text
+
+            // In a real application, add an AJAX call here to update the database
+            console.log(`Application submitted for Project ID: ${projectId}`);
+        }
+
+         function onTaskClick(taskId) {
+            var tasks = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+                    Model.Projects.SelectMany(p => p.Tasks)
+            ));
+            const task = tasks.find(t => t.Id == taskId);
+            if (!task) return;
+
+
+            // Hide the main project/profile view
+            document.getElementById("project-or-profile-content").style.display = "none";
+            // Deactivate all sidebar links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                 link.classList.remove('active');
+            });
+
+            // Show the task details panel
+            document.getElementById("task-details-panel").style.display = "block";
+
+            // Fill static HTML fields
+            document.getElementById("td-title").textContent = task.Title;
+            document.getElementById("td-description").textContent = task.Description ?? "—";
+            document.getElementById("td-status").value = task.Status;
+            document.getElementById("td-due").textContent = new Date(task.DueDate).toLocaleDateString("en-CA");
+            document.getElementById("td-assigner").textContent = "Prof.Salima";
+
+            var projects = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Projects));
+            const project = projects.find(p => p.Id == task.ProjectId);
+
+            if (project && project.GithubRepoUrl) {
+                const repoUrl = project.GithubRepoUrl;
+
+                // Extract and display the repository name (e.g., "ProjectsPlus/WebApp")
+                try {
+                    const urlParts = new URL(repoUrl).pathname.split('/').filter(p => p.length > 0);
+                    const repoName = urlParts.slice(-2).join('/');
+                    document.getElementById("td-github-repo-name").textContent = repoName;
+                } catch (e) {
+                    document.getElementById("td-github-repo-name").textContent = "View Repository";
+                }
+
+                document.getElementById("td-github-repo-link").setAttribute("href", repoUrl);
+                document.getElementById("td-github-button").onclick = function() {
+                    window.open(repoUrl, '_blank');
+                };
+            }
+         }
+    </script>
+}
+
+

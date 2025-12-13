@@ -16,8 +16,9 @@ namespace t5f25sdprojectone_projectsplus
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Common services
-            builder.Services.AddRazorPages();
+            // Add services to the container.
+            builder.Services.AddControllersWithViews();   // Enable MVC
+            builder.Services.AddRazorPages();             // optional: keep if you still want Razor Pages
 
 
             // ----------------------------------------------------------------------------------------////////////////
@@ -36,7 +37,7 @@ namespace t5f25sdprojectone_projectsplus
 
             // ---------------------------------------------------------
             // Option A: Register DbContext from configuration (recommended)
-            // Commented out by request — uncomment to enable.
+            // Commented out by request â€” uncomment to enable.
             // Make sure you have a connection string named "ProjectsPlus"
             // in appsettings.json or your environment.
             // ---------------------------------------------------------
@@ -153,6 +154,12 @@ namespace t5f25sdprojectone_projectsplus
 
             app.UseAuthorization();
 
+            // MVC route (DEFAULT)
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            // Razor Pages route (optional)
             app.MapRazorPages();
 
 

@@ -1,0 +1,203 @@
+﻿@model t5f25sdprojectone_projectsplus.Models.ProjectDetailsViewModel
+
+@{
+    // The ViewData["ActiveSidebar"] is set in the Controller, defaulting to "Overview"
+    ViewData["Title"] = Model.Project.Title + " Details";
+}
+
+@functions {
+    // Helper function to format the GitHub repository URL slug (e.g., owner/repo-name)
+    public string GetRepoSlug(string url)
+    {
+        if (string.IsNullOrWhiteSpace(url)) return "project-synergynet"; // Use mock value if empty, as in the image
+        try
+        {
+            var uri = new Uri(url);
+            var segments = uri.AbsolutePath.Split('/', StringSplitOptions.RemoveEmptyEntries);
+            if (segments.Length >= 2)
+            {
+                // Returns "repo-name"
+                return $"{segments[segments.Length - 1]}";
+            }
+        }
+        catch { /* Ignore error */ }
+        return "project-synergynet"; // Fallback
+    }
+
+    // Helper function to get the display time for recent activity
+    public string GetTimeAgo(DateTimeOffset activityTime)
+    {
+        var span = DateTimeOffset.Now.Subtract(activityTime);
+
+        if (span.TotalDays >= 2) return $"{(int)span.TotalDays} days ago";
+        if (span.TotalDays >= 1) return "1 day ago";
+        if (span.TotalHours >= 2) return $"{(int)span.TotalHours} hours ago";
+        if (span.TotalHours >= 1) return "1 hour ago";
+        if (span.TotalMinutes >= 1) return $"{(int)span.TotalMinutes} minutes ago";
+        return "Just now";
+    }
+
+    // Helper function to create the activity text based on contribution type
+    public string GetActivityText(t5f25sdprojectone_projectsplus.Models.Contribution contribution)
+    { 
+        // Assuming Type 0 = Commit, Type 1 = Task/Action
+        return contribution.Type switch
+        {
+            0 => "Commit",
+            1 => "Pull Request"
+        };
+    }
+
+    // Helper function to get the correct icon for recent activity
+    public string GetActivityIcon(t5f25sdprojectone_projectsplus.Models.Contribution contribution)
+    {
+        // Type 0 = Commit, Type 1 = Pullrequest
+        if (contribution.Type == 0) return "bi bi-git text-primary me-2 mt-1";
+
+        return "bi bi-activity text-primary me-2 mt-1";
+    }
+}
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <aside class="col-md-3 col-lg-2 bg-light vh-100 p-3 d-flex flex-column" style="position: sticky; top: 0;">
+            <div class="d-flex align-items-center mb-4">
+                <div class="me-3">
+                    <img src="/images/avatar.jpg"
+                         class="rounded-circle"
+                         width="40"
+                         height="40"
+                         alt="@Model.CurrentUser.DisplayName Avatar">
+                </div>
+
+                <div class="d-flex flex-column">
+                    <h6 class="mb-0 fw-bold">@Model.CurrentUser.DisplayName</h6>
+                    <small class="text-muted">Student</small>
+                </div>
+            </div>
+
+            <nav class="nav nav-pills flex-column mb-auto">
+                <a href="@Url.Action("ProjectDetails", new { projectId = Model.Project.Id, activeSidebar = "Overview" })"
+                   class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "Overview" ? "active" : "")">
+                    <i class="bi bi-bar-chart-fill me-2"></i>
+                    Overview
+                </a>
+                <a href="@Url.Action("ProjectDetails", new { projectId = Model.Project.Id, activeSidebar = "Members" })"
+                   class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "Members" ? "active" : "")">
+                    <i class="bi bi-people-fill me-2"></i>
+                    Members
+                </a>
+                <a href="@Url.Action("ProjectDetails", new { projectId = Model.Project.Id, activeSidebar = "Roadmap" })"
+                   class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "Roadmap" ? "active" : "")">
+                    <i class="bi bi-signpost-2-fill me-2"></i>
+                    Roadmap
+                </a>
+                <a href="@Url.Action("ProjectDetails", new { projectId = Model.Project.Id, activeSidebar = "Activity" })"
+                   class="nav-link @(ViewData["ActiveSidebar"]?.ToString() == "Activity" ? "active" : "")">
+                    <i class="bi bi-activity me-2"></i>
+                    Activity
+                </a>
+            </nav>
+        </aside>
+
+        <main class="col-md-9 col-lg-10 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3">Project Details</h1>
+                <div>
+                    <button class="btn btn-outline-secondary me-2"><i class="bi bi-bell"></i></button>
+                    <button class="btn btn-outline-danger">Logout</button>
+                </div>
+            </div>
+
+            <h2 class="h2 fw-bolder mb-3">@Model.Project.Title</h2>
+            <p class="text-muted mb-4">A collaborative project focused on developing a web-based platform for student project collaboration and credentialing.</p>
+
+            <div class="row g-4 mb-5">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 p-3">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="d-flex justify-content-center align-items-center me-3"
+                                 style="width: 50px; height: 50px; background-color: #e0f2fe; border-radius: 8px;">
+                                <i class="bi bi-git h5 text-primary"></i>
+                            </div>
+
+                            <div>
+                                <p class="card-text text-muted mb-0">Total Commits</p>
+                                <h5 class="card-title fw-bolder mb-0">@Model.CommitNumber.ToString("N0")</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 p-3">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="d-flex justify-content-center align-items-center me-3"
+                                 style="width: 50px; height: 50px; background-color: #e0f2fe; border-radius: 8px;">
+                                <i class="bi bi-github h5 text-dark"></i>
+                            </div>
+
+                            <div>
+                                <p class="card-text text-muted mb-0">Repository</p>
+                                <h6 class="card-title fw-bolder mb-0" title="@GetRepoSlug(Model.Project.GithubRepoUrl)">@GetRepoSlug(Model.Project.GithubRepoUrl)</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow-sm border-0 p-3">
+                        <div class="card-body d-flex align-items-center">
+                            <div class="d-flex justify-content-center align-items-center me-3"
+                                 style="width: 50px; height: 50px; background-color: #e0f2fe; border-radius: 8px;">
+                                <i class="bi bi-people-fill h5 text-info"></i>
+                            </div>
+
+                            <div>
+                                <p class="card-text text-muted mb-0">Team Members</p>
+                                <h5 class="card-title fw-bolder mb-0">@Model.Members.Count</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="card shadow-sm border-0 p-4 h-100">
+                        <div class="card-body">
+                            <h3 class="h4 fw-bold mb-3">Project Description</h3>
+                            <p>This project aims to create a comprehensive platform where students can collaborate on projects, track their progress, and showcase their achievements. The platform will integrate with GitHub for version control and provide tools for project management, communication, and credentialing. The core features include real-time collaboration, task management boards, milestone tracking, and a robust credentialing system to validate student skills and contributions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="card shadow-sm border-0 p-4 h-100">
+                        <div class="card-body">
+                            <h3 class="h4 fw-bold mb-3">Recent Activity</h3>
+                            <ul class="list-group list-group-flush">
+                                @foreach (var contribution in Model.Project.Contributions)
+                                {
+                                    var activityText = GetActivityText(contribution);
+
+                                    <li class="list-group-item d-flex align-items-start border-0 px-0">
+                                        <i class="@GetActivityIcon(contribution)"></i>
+                                        <div>
+                                            <span class="fw-bold">@contribution?.User?.DisplayName</span>
+
+                                            <span class="text-primary fw-bold">: @activityText</span>
+                                            
+                                            <p class="text-muted small mb-0">@GetTimeAgo(contribution.CreatedAt)</p>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
