@@ -1,10 +1,107 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Hero section -->
+<section class="bg-primary-subtle rounded-4 p-4 p-lg-5 shadow-sm mb-4">
+    <div class="row g-4 align-items-center">
+    
+        <!-- Text -->
+        <div class="col-lg-6">
+            <p class="text-uppercase text-secondary fw-semibold small mb-2"
+               style="letter-spacing:0.16em;">
+                Campus project collaboration
+            </p>
+
+            <h1 class="fw-bold display-6 mb-2">
+                <span class="d-block">Build. Collaborate.</span>
+                <span class="d-block">Get Recognized.</span>
+            </h1>
+
+            <p class="text-muted mb-4">
+                Projects+ is the web-based platform where students, faculty, and mentors
+                connect to launch real projects, track contributions, and turn verified
+                work into credentials that matter.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2">
+                <a href="#" class="btn btn-primary rounded-pill px-4 shadow">
+                    Get Started
+                </a>
+                <a href="#" class="btn btn-outline-primary rounded-pill px-4">
+                    Learn More
+                </a>
+            </div>
+        </div>
+
+                <!-- Illustration image -->
+        <div class="col-lg-6 text-center">
+            <div class="mx-auto" style="max-width:360px;">
+                <img src="~/img/homepage-illustration.png"
+                     class="img-fluid rounded-4 shadow-sm"
+                     alt="Students collaborating on a project" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Platform section -->
+<section class="bg-white rounded-4 p-4 p-lg-5 shadow-sm">
+    <div class="text-center mb-4">
+        <h2 class="h4 fw-semibold mb-2">A Platform for Everyone</h2>
+        <p class="text-muted mb-0">
+            Projects+ offers tailored experiences for each user group, bringing
+            students, faculty, and mentors together in one place to collaborate,
+            validate contributions, and unlock new opportunities.
+        </p>
+    </div>
+
+    <div class="row g-3">
+        <!-- Students -->
+        <div class="col-md-4">
+            <article class="h-100 bg-light rounded-3 p-3 p-md-4 border border-light shadow-sm">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-3 bg-primary-subtle mb-3"
+                     style="width:40px;height:40px;font-size:1.2rem;">
+                    <span role="img" aria-label="students">🎓</span>
+                </div>
+                <h3 class="h6 fw-semibold mb-2">For Students</h3>
+                <p class="text-muted small mb-0">
+                    Discover and join projects, collaborate with peers, and build a
+                    portfolio of verified contributions you can share with employers.
+                </p>
+            </article>
+        </div>
+
+        <!-- Faculty -->
+        <div class="col-md-4">
+            <article class="h-100 bg-light rounded-3 p-3 p-md-4 border border-light shadow-sm">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-3 bg-primary-subtle mb-3"
+                     style="width:40px;height:40px;font-size:1.2rem;">
+                    <span role="img" aria-label="faculty">👩‍🏫</span>
+                </div>
+                <h3 class="h6 fw-semibold mb-2">For Faculty</h3>
+                <p class="text-muted small mb-0">
+                    Vet project proposals, monitor progress, and issue attestations
+                    that connect academic work to real-world skills.
+                </p>
+            </article>
+        </div>
+
+        <!-- Mentors -->
+        <div class="col-md-4">
+            <article class="h-100 bg-light rounded-3 p-3 p-md-4 border border-light shadow-sm">
+                <div class="d-inline-flex align-items-center justify-content-center rounded-3 bg-primary-subtle mb-3"
+                     style="width:40px;height:40px;font-size:1.2rem;">
+                    <span role="img" aria-label="mentors">🧭</span>
+                </div>
+                <h3 class="h6 fw-semibold mb-2">For Mentors</h3>
+                <p class="text-muted small mb-0">
+                    Support the next generation of talent, offer feedback on live
+                    projects, and help shape meaningful, industry-ready outcomes.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
