@@ -14,6 +14,23 @@
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\8.0.21\buildTransitive\net8.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\8.0.21\buildTransitive\net8.0\Microsoft.EntityFrameworkCore.props')" />
+    <Import Project="$(NuGetPackageRoot)xunit.core\2.9.3\build\xunit.core.props" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.9.3\build\xunit.core.props')" />
+    <Import Project="$(NuGetPackageRoot)mstest.analyzers\4.0.2\buildTransitive\MSTest.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)mstest.analyzers\4.0.2\buildTransitive\MSTest.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.1\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.1\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\8.0.22\buildTransitive\net8.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\8.0.22\buildTransitive\net8.0\Microsoft.EntityFrameworkCore.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Safe2Q\.nuget\packages\xunit.analyzers\1.18.0</Pkgxunit_analyzers>
+    <PkgMSTest_Analyzers Condition=" '$(PkgMSTest_Analyzers)' == '' ">C:\Users\Safe2Q\.nuget\packages\mstest.analyzers\4.0.2</PkgMSTest_Analyzers>
+    <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.core\4.0.3.3</PkgAWSSDK_Core>
+    <PkgAWSSDK_SimpleSystemsManagement Condition=" '$(PkgAWSSDK_SimpleSystemsManagement)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.simplesystemsmanagement\4.0.6.3</PkgAWSSDK_SimpleSystemsManagement>
+    <PkgAWSSDK_SecretsManager Condition=" '$(PkgAWSSDK_SecretsManager)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.secretsmanager\4.0.3</PkgAWSSDK_SecretsManager>
+    <PkgAWSSDK_S3 Condition=" '$(PkgAWSSDK_S3)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.s3\4.0.13</PkgAWSSDK_S3>
+    <PkgAWSSDK_RDS Condition=" '$(PkgAWSSDK_RDS)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.rds\4.0.13</PkgAWSSDK_RDS>
+    <PkgAWSSDK_IdentityManagement Condition=" '$(PkgAWSSDK_IdentityManagement)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.identitymanagement\4.0.8.1</PkgAWSSDK_IdentityManagement>
+    <PkgAWSSDK_ECS Condition=" '$(PkgAWSSDK_ECS)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.ecs\4.0.10.1</PkgAWSSDK_ECS>
+    <PkgAWSSDK_EC2 Condition=" '$(PkgAWSSDK_EC2)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.ec2\4.0.59</PkgAWSSDK_EC2>
+    <PkgAWSSDK_DynamoDBv2 Condition=" '$(PkgAWSSDK_DynamoDBv2)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.dynamodbv2\4.0.10</PkgAWSSDK_DynamoDBv2>
+    <PkgAWSSDK_CloudWatchLogs Condition=" '$(PkgAWSSDK_CloudWatchLogs)' == '' ">C:\Users\Safe2Q\.nuget\packages\awssdk.cloudwatchlogs\4.0.11.1</PkgAWSSDK_CloudWatchLogs>
+  </PropertyGroup>
 </Project>

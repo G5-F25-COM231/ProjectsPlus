@@ -137,3 +137,48 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+#------------------------------------------------------------visual studio
+# Ignore Visual Studio temporary files, build results, and user-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore build output
+bin/
+obj/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+# Ignore NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Ignore ReSharper and Rider files
+*.DotSettings.user
+.idea/
+
+# Ignore other common IDE and tooling folders
+*.dbmdl
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+*.cache
+*.pdb
+*.pidb
+*.svclog
+*.scc
+
+# Ignore test results
+TestResults/
+*.trx
+
+# Ignore publish output
+publish/
+
+#files
+credentials.csv

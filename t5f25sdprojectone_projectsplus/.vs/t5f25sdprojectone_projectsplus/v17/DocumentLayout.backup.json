@@ -3,64 +3,91 @@
   "WorkspaceRootPath": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\iac_projectsplus\\infralogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:iac_projectsplus\\infralogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\comunication\\chatroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\comunication\\chatroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\comunication\\messagecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\comunication\\messagecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\remoteforwarder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\remoteforwarder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\comunication\\chatroommember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\comunication\\chatroommember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\servicecollectionrddbextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\servicecollectionrddbextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\comunication\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\comunication\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\inprocessredis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\inprocessredis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\iinstanceregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\iinstanceregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\data\\projectsplusdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:data\\projectsplusdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\ddbinstanceregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\ddbinstanceregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\filereference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\filereference.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\ddbparitytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\ddbparitytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\grant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\grant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\ddbmessageretentioncleaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\ddbmessageretentioncleaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\ddbidempotencystore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\ddbidempotencystore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\rolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\rolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\ddbmessageenqueuer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\ddbmessageenqueuer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\ddbbackedconnectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\ddbbackedconnectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\ddbadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\ddbadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\models\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:models\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\commsoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\commsoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\commsmetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\commsmetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\redispatches\\ddbadapter\\commshealthchecks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\redispatches\\ddbadapter\\commshealthchecks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\tablenameprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\tablenameprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\comsservice\\websockethandlermiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\comsservice\\websockethandlermiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\templateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\templateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|e:\\col - sem - a\\courses - a\\semester c - 5\\courses - c\\comp 231 - software development project i\\t5t25\u002B\\projectsplus\\projectsplus\\t5f25sdprojectone_projectsplus\\services\\dynamodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383F716-6147-4124-A1B9-4005D31F12E1}|t5f25sdprojectone_projectsplus.csproj|solutionrelative:services\\dynamodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Safe2Q\\AppData\\Local\\SourceServer\\54cfe8d417510e5c6ac8daa91a507725175c0aeaf54462eaa9f8ec49e0d677bf\\src\\StackExchange.Redis\\ConnectionMultiplexer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +97,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,198 +113,266 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Workspace.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Workspace.cs",
-              "RelativeDocumentMoniker": "Models\\Workspace.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Workspace.cs*",
-              "RelativeToolTip": "Models\\Workspace.cs*",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wAoAAAAkAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Infralogger.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\Infralogger.cs",
+              "RelativeDocumentMoniker": "IaC_ProjectsPlus\\Infralogger.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\IaC_ProjectsPlus\\Infralogger.cs",
+              "RelativeToolTip": "IaC_ProjectsPlus\\Infralogger.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAiwDwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T18:28:44.517Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChatRoomMember.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Comunication\\ChatRoomMember.cs",
-              "RelativeDocumentMoniker": "Models\\Comunication\\ChatRoomMember.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Comunication\\ChatRoomMember.cs*",
-              "RelativeToolTip": "Models\\Comunication\\ChatRoomMember.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T18:25:51.058Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MessageContent.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Comunication\\MessageContent.cs",
-              "RelativeDocumentMoniker": "Models\\Comunication\\MessageContent.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Comunication\\MessageContent.cs*",
-              "RelativeToolTip": "Models\\Comunication\\MessageContent.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T18:06:22.949Z",
+              "WhenOpened": "2025-12-08T10:03:20.545Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ChatRoom.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Comunication\\ChatRoom.cs",
-              "RelativeDocumentMoniker": "Models\\Comunication\\ChatRoom.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Comunication\\ChatRoom.cs*",
-              "RelativeToolTip": "Models\\Comunication\\ChatRoom.cs*",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAUwDoAAAAuAAAAAAAAAA==",
+              "Title": "ProjectService.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ProjectService.cs",
+              "RelativeDocumentMoniker": "Services\\ProjectService.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ProjectService.cs",
+              "RelativeToolTip": "Services\\ProjectService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T18:05:14.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T04:21:36.319Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Project.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Project.cs",
-              "RelativeDocumentMoniker": "Models\\Project.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Project.cs*",
-              "RelativeToolTip": "Models\\Project.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "RemoteForwarder.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\RemoteForwarder.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\RemoteForwarder.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\RemoteForwarder.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\RemoteForwarder.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:49:24.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T16:20:00.981Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "SeedData.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Data\\SeedData.cs",
-              "RelativeDocumentMoniker": "Data\\SeedData.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Data\\SeedData.cs",
-              "RelativeToolTip": "Data\\SeedData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Title": "IInstanceRegistry.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\IInstanceRegistry.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\IInstanceRegistry.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\IInstanceRegistry.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\IInstanceRegistry.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:48:56.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T16:19:53.257Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProjectsPlusDbContext.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Data\\ProjectsPlusDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ProjectsPlusDbContext.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Data\\ProjectsPlusDbContext.cs*",
-              "RelativeToolTip": "Data\\ProjectsPlusDbContext.cs*",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA3wCwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ServiceCollectionRDdbExtensions.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\ServiceCollectionRDdbExtensions.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\ServiceCollectionRDdbExtensions.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\ServiceCollectionRDdbExtensions.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\ServiceCollectionRDdbExtensions.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAQwFwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:46:42.545Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T15:02:47.331Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "FileReference.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\FileReference.cs",
-              "RelativeDocumentMoniker": "Models\\FileReference.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\FileReference.cs",
-              "RelativeToolTip": "Models\\FileReference.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
+              "Title": "DdbParityTests.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbParityTests.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbParityTests.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbParityTests.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbParityTests.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwCkAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:44:10.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T16:13:40.583Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Grant.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Grant.cs",
-              "RelativeDocumentMoniker": "Models\\Grant.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Grant.cs",
-              "RelativeToolTip": "Models\\Grant.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
+              "Title": "DdbMessageRetentionCleaner.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbMessageRetentionCleaner.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbMessageRetentionCleaner.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbMessageRetentionCleaner.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbMessageRetentionCleaner.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAxwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:43:09.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T16:10:44.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwFoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T02:44:34.714Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ChatMessage.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Comunication\\ChatMessage.cs",
-              "RelativeDocumentMoniker": "Models\\Comunication\\ChatMessage.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Comunication\\ChatMessage.cs*",
-              "RelativeToolTip": "Models\\Comunication\\ChatMessage.cs*",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAQwGwAAAAAAAAAAAAAAA==",
+              "Title": "InProcessRedis.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\InProcessRedis.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\InProcessRedis.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\InProcessRedis.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\InProcessRedis.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:23:07.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserRole.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\UserRole.cs",
-              "RelativeDocumentMoniker": "Models\\UserRole.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\UserRole.cs",
-              "RelativeToolTip": "Models\\UserRole.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:41:58.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T16:19:56.269Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "RolePermission.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\RolePermission.cs",
-              "RelativeDocumentMoniker": "Models\\RolePermission.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\RolePermission.cs",
-              "RelativeToolTip": "Models\\RolePermission.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Title": "DdbMessageEnqueuer.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbMessageEnqueuer.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbMessageEnqueuer.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbMessageEnqueuer.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbMessageEnqueuer.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAIA2wBoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:40:53.105Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T15:50:15.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Permission.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Permission.cs",
-              "RelativeDocumentMoniker": "Models\\Permission.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Permission.cs",
-              "RelativeToolTip": "Models\\Permission.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "DdbInstanceRegistry.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbInstanceRegistry.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbInstanceRegistry.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbInstanceRegistry.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbInstanceRegistry.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:27:40.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T16:08:02.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DdbIdempotencyStore.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbIdempotencyStore.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbIdempotencyStore.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbIdempotencyStore.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbIdempotencyStore.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwCAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T16:06:05.677Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "Role.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Role.cs",
-              "RelativeDocumentMoniker": "Models\\Role.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\Role.cs",
-              "RelativeToolTip": "Models\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Title": "DdbAdapter.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbAdapter.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbAdapter.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbAdapter.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbAdapter.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:25:30.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T15:50:52.109Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "AuditLog.cs",
-              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\AuditLog.cs",
-              "RelativeDocumentMoniker": "Models\\AuditLog.cs",
-              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Models\\AuditLog.cs",
-              "RelativeToolTip": "Models\\AuditLog.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
+              "Title": "CommsOptions.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsOptions.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsOptions.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsOptions.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsOptions.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T17:24:14.319Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T15:50:49.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CommsMetrics.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsMetrics.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsMetrics.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsMetrics.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsMetrics.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T15:50:46.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CommsHealthChecks.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsHealthChecks.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsHealthChecks.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsHealthChecks.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\CommsHealthChecks.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T15:50:36.402Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DdbBackedConnectionManager.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbBackedConnectionManager.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbBackedConnectionManager.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbBackedConnectionManager.cs",
+              "RelativeToolTip": "Services\\ComsService\\RedisPatches\\DdbAdapter\\DdbBackedConnectionManager.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T15:14:39.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TableNameProvider.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\TableNameProvider.cs",
+              "RelativeDocumentMoniker": "Services\\TableNameProvider.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\TableNameProvider.cs",
+              "RelativeToolTip": "Services\\TableNameProvider.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAewCQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T14:57:15.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DynamodbService.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\DynamodbService.cs",
+              "RelativeDocumentMoniker": "Services\\DynamodbService.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\DynamodbService.cs",
+              "RelativeToolTip": "Services\\DynamodbService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T14:37:07.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "WebSocketHandlerMiddleware.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\WebSocketHandlerMiddleware.cs",
+              "RelativeDocumentMoniker": "Services\\ComsService\\WebSocketHandlerMiddleware.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\ComsService\\WebSocketHandlerMiddleware.cs",
+              "RelativeToolTip": "Services\\ComsService\\WebSocketHandlerMiddleware.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAkwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T13:49:37.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ConnectionMultiplexer.cs",
+              "DocumentMoniker": "C:\\Users\\Safe2Q\\AppData\\Local\\SourceServer\\54cfe8d417510e5c6ac8daa91a507725175c0aeaf54462eaa9f8ec49e0d677bf\\src\\StackExchange.Redis\\ConnectionMultiplexer.cs",
+              "ToolTip": "C:\\Users\\Safe2Q\\AppData\\Local\\SourceServer\\54cfe8d417510e5c6ac8daa91a507725175c0aeaf54462eaa9f8ec49e0d677bf\\src\\StackExchange.Redis\\ConnectionMultiplexer.cs",
+              "ViewState": "AgIAAIECAAAAAAAAAAAkwLQCAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T12:40:02.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TemplateService.cs",
+              "DocumentMoniker": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\TemplateService.cs",
+              "RelativeDocumentMoniker": "Services\\TemplateService.cs",
+              "ToolTip": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25\u002B\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\Services\\TemplateService.cs",
+              "RelativeToolTip": "Services\\TemplateService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T14:37:22.173Z"
             }
           ]
         },
