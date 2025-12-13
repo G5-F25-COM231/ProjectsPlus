@@ -2715,23 +2715,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Safe2Q\\.nuget\\packages\\": {},
+    "C:\\Users\\cpb12\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25+\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\t5f25sdprojectone_projectsplus.csproj",
+      "projectUniqueName": "C:\\Users\\cpb12\\OneDrive\\Desktop\\Fall2025\\Capstone1\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\t5f25sdprojectone_projectsplus.csproj",
       "projectName": "t5f25sdprojectone_projectsplus",
-      "projectPath": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25+\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\t5f25sdprojectone_projectsplus.csproj",
-      "packagesPath": "C:\\Users\\Safe2Q\\.nuget\\packages\\",
-      "outputPath": "E:\\COL - SEM - A\\Courses - A\\Semester C - 5\\Courses - C\\COMP 231 - Software Development Project I\\T5T25+\\ProjectsPlus\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\obj\\",
+      "projectPath": "C:\\Users\\cpb12\\OneDrive\\Desktop\\Fall2025\\Capstone1\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\t5f25sdprojectone_projectsplus.csproj",
+      "packagesPath": "C:\\Users\\cpb12\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cpb12\\OneDrive\\Desktop\\Fall2025\\Capstone1\\ProjectsPlus\\t5f25sdprojectone_projectsplus\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Safe2Q\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cpb12\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2792,7 +2792,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

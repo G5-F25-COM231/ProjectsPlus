@@ -1,0 +1,32 @@
+@page
+@model t5f25sdprojectone_projectsplus.Pages.External.ProjectDetailModel
+
+@{
+    ViewData["Title"] = "Project Details";
+    ViewData["ShowLoginLink"] = false;
+}
+
+<div class="container py-4">
+    <a asp-page="/External/PublicProjects"
+       class="small text-decoration-none mb-3 d-inline-flex align-items-center">
+        ← Back to Public Projects
+    </a>
+
+    <article class="bg-white border rounded-4 p-4 shadow-sm">
+        <h1 class="h4 fw-semibold mb-2">@Model.Project.Title</h1>
+        <p class="text-muted small mb-3">@Model.Project.Subtitle</p>
+
+        <p class="mb-3">@Model.Project.Description</p>
+
+        <div class="mb-3 small">
+            @foreach (var tag in Model.Project.Tags)
+            {
+                <span class="badge rounded-pill bg-primary-subtle text-primary me-1">@tag</span>
+            }
+        </div>
+
+        <p class="text-muted small mb-0">
+            @Model.Project.ParticipantCount participant(s) · Public project
+        </p>
+    </article>
+</div>
