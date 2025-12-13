@@ -91,9 +91,15 @@ namespace t5f25sdprojectone_projectsplus
             // change from AddScoped to AddSingleton
 
             builder.Services.AddCommunications(builder.Configuration);
-
-            builder.Services.AddDdbRComms(builder.Configuration);
-            builder.Services.AddSqlRComms();
+            var sqlPatch = true;
+            if (!sqlPatch)
+            {
+                builder.Services.AddDdbRComms(builder.Configuration);
+            }
+            else
+            {
+                builder.Services.AddSqlRComms();
+            }
 
             // feature-flagged registration example
             //if (configuration.GetValue<bool>("UseSqlRedisAdapter"))
