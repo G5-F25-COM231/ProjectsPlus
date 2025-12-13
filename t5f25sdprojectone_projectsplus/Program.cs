@@ -1,4 +1,4 @@
-using System.Reflection;
+ï»¿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using t5f25sdprojectone_projectsplus.Data;
 using t5f25sdprojectone_projectsplus.RegExtension;
@@ -36,7 +36,7 @@ namespace t5f25sdprojectone_projectsplus
 
             // ---------------------------------------------------------
             // Option A: Register DbContext from configuration (recommended)
-            // Commented out by request — uncomment to enable.
+            // Commented out by request ï¿½ uncomment to enable.
             // Make sure you have a connection string named "ProjectsPlus"
             // in appsettings.json or your environment.
             // ---------------------------------------------------------
